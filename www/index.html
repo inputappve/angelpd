@@ -8,27 +8,45 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
-
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
 
   <script>
-    ons.bootstrap()
-      .controller('AppController', function($scope) {
-        this.load = function(page) {
-          $scope.splitter.content.load(page);
-          $scope.splitter.left.close();
-        };
+  var map;
+  var mappa_attiva = false;
+  ons.bootstrap()
+    .controller('AppController', function($scope) {
+      this.load = function(page) {
+        $scope.splitter.content.load(page);
+        $scope.splitter.left.close();
+      };
 
-        this.toggle = function() {
-          $scope.splitter.left.toggle();
-        };
-      });
+      this.toggle = function() {
+        $scope.splitter.left.toggle();
+      };
+    });
+
+
+    ons.caricaMappa = function(){
+      console.log("1");
+      map = L.map('map').setView([45.4217,12.3356], 13);
+
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19,
+        minZoom: 13
+      }).addTo(map);
+    };
+
 
     ons.ready(function() {
         console.log("Onsen UI is ready!");
+        ons.caricaMappa();
+        mappa_attiva = true;
     });
   </script>
 </head>
@@ -69,6 +87,7 @@
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         Swipe right to open the menu!
       </p>
+      <div id="map" class="Map"></div>
     </ons-page>
   </ons-template>
 
