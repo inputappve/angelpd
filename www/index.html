@@ -44,9 +44,12 @@
 
     ons.ready(function() {
         console.log("Onsen UI is ready!");
-        ons.caricaMappa();
-        mappa_attiva = true;
-    });
+        setTimeout(function(){
+          ons.caricaMappa();
+          mappa_attiva = true;
+        },1500)
+      });
+
   </script>
 </head>
 <body>
