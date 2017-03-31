@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
   <script>
+  var Name;
+  var Pass;
   var map;
   var mappa_attiva = false;
   ons.bootstrap()
@@ -43,17 +45,34 @@
 
 
     ons.ready(function() {
-        console.log("Onsen UI is ready!");
-        setTimeout(function(){
-          ons.caricaMappa();
-          mappa_attiva = true;
+      console.log("Onsen UI is ready!");
+      setTimeout(function(){
+        ons.caricaMappa();
+        mappa_attiva = true;
         },1500)
-      });
+    });
 
+    function login() {
+    Name = document.getElementById("name_input").value;
+    Pass= document.getElementById("comment_input").value;
+    document.getElementById("c").style.visibility="hidden";
+  };
   </script>
+
 </head>
 <body>
-  <ons-screen page="login.html">
+  <ons-screen id="c" page="login.html">
+  <ons-page>
+    <section  class="body_right_comment_input">
+                      <p> Username: </p>
+                      <input type="text" id="name_input"/> </br>
+                      <p> Password:</p>
+                      <textarea id="comment_input"></textarea>
+                      <button onclick="login()">Click me</button>
+    </section>
+  </ons-page>
+</ons-screen>
+
   <ons-splitter ng-controller="AppController as app" var="splitter">
     <ons-splitter-side side="left" width="220px" collapse swipeable>
       <ons-page>
@@ -89,7 +108,7 @@
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         Swipe right to open the menu!
       </p>
-      <div id="map" class="Map" style="position: fixed;left: 0px;top: 15%;height: 100%;  width: 100%;z-index: 12;"></div>
+      <div id="map" class="Map"></div>
     </ons-page>
   </ons-template>
 
