@@ -53,10 +53,13 @@
     });
 
     function login() {
-    Name = document.getElementById("name_input").value;
+    Name = document.getElementById("name_input").innerHTML;
     Pass= document.getElementById("comment_input").value;
     document.getElementById("c").style.visibility="hidden";
+    document.getElementById("User").innerHTML = Name;
+    document.getElementById("Pas").innerHTML = Pass;
   };
+
   </script>
 
 </head>
@@ -131,9 +134,11 @@
       </ons-toolbar>
 
       <ons-list-header>Information</ons-list-header>
-  <ons-list-item modifier="nodivider" >
+  <ons-list-item modifier="nodivider" > Username:
+    <p id="User"> </p>
 </ons-list-item>
   <ons-list-item modifier="nodivider">Password:
+    <p id="Pas"> </p>
   </ons-list-item>
 
     </ons-page>
@@ -147,10 +152,46 @@
             <ons-icon icon="md-menu"></ons-icon>
           </ons-toolbar-button>
         </div>
+        </ons-toolbar>
         <div class="center">
-          About
+          <ul class="list" align="center">
+              <li>
+                  <i class="pull-right icon icon-expand-more"></i>
+                  <p href="#link1" class="padded-list">A cosa serve?</p>
+                  <div class="accordion-content">
+                    Utilizza la tua posizione per recarti dove vuoi basta seguire la freccia sulla bussola
+                  </div>
+              </li>
+              <li>
+                  <i class="pull-right icon icon-expand-more"></i>
+                  <a href="#link2" class="padded-list">Hai problemi?</a>
+                  <div class="accordion-content">
+                    scrivi una e-mail a mattiafusaro8@gmail.com
+                  </div>
+              </li>
+              <li>
+                  <i class="pull-right icon icon-expand-more"></i>
+                  <a href="#link3" class="padded-list">Come vai?</a>
+                  <div class="accordion-content">
+                    camminando,su con la vita e goditi la camminata
+                  </div>
+              </li>
+              <li>
+                  <i class="pull-right icon icon-expand-more"></i>
+                  <a href="#link4" class="padded-list">La bussola non va?</a>
+                  <div class="accordion-content">
+                    niente da fare,ricarica la pagina e se non va mi spiace ma cambia gestore
+                  </div>
+              </li>
+              <li>
+                  <i class="pull-right icon icon-expand-more"></i>
+                  <a href="#link5" class="padded-list">Perchè non c'è la strada da seguire?</a>
+                  <div class="accordion-content">
+                    così ti godi la città giri ed esplori nuovi spazi
+                  </div>
+              </li>
+          </ul>
         </div>
-      </ons-toolbar>
     </ons-page>
   </ons-template>
 </body>
