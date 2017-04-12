@@ -19,6 +19,19 @@
   var Pass;
   var map;
   var mappa_attiva = false;
+
+  var showDialog = function(id) {
+    document
+      .getElementById(id)
+      .show();
+  };
+
+  var hideDialog = function(id) {
+    document
+      .getElementById(id)
+      .hide();
+  };
+
   ons.bootstrap()
     .controller('AppController', function($scope) {
       this.load = function(page) {
@@ -136,13 +149,11 @@
   <ons-list-item modifier="nodivider" > Username:
     <p id="User"> </p>
 </ons-list-item>
-<ons-list-item modifier="nodivider"></ons-list-item>
-  <ons-list-item modifier="nodivider">Vecchia Password:
-    <p id="Pas"> </p>
+<ons-list-item modifier="nodivider">Vecchia Password:</ons-list-item>
   </ons-list-item>
   <ons-list-item modifier="nodivider">Nuova Password:</ons-list-item>
   <ons-list-item modifier="nodivider">Ripeti Nuova Password:</ons-list-item>
-  <button style="position: absolute;height: 4%;left: 30%;top: 50%;"onclick="changepassword()">Click for change</button>
+  <button tappable onclick="ons.notification.confirm({message: 'Sei sicuro di volere cambiare la password'})" style="position: absolute;height: 4%;left: 30%;top: 50%;"onclick="changepassword()">Click for change</button>
     </ons-page>
   </ons-template>
 
@@ -158,11 +169,59 @@
         <div class="center">
           <ons-list>
                   <ons-list-header>Help</ons-list-header>
-                  <ons-list-item>Utilizza la tua posizione per recarti dove vuoi basta seguire la freccia sulla bussola</ons-list-item>
-                  <ons-list-item>scrivi una e-mail a mattiafusaro8@gmail.com</ons-list-item>
-                  <ons-list-item>camminando,su con la vita e goditi la camminata</ons-list-item>
-                  <ons-list-item>niente da fare,ricarica la pagina e se non va mi spiace ma cambia gestore</ons-list-item>
-                  <ons-list-item>così ti godi la città giri ed esplori nuovi spazi</ons-list-item>
+                  <ons-list-item tappable onclick="showDialog('dialog-1')">A cosa serve?</ons-list-item>
+                  <ons-list-item tappable onclick="showDialog('dialog-2')">Come funziona?</ons-list-item>
+                  <ons-list-item tappable onclick="showDialog('dialog-3')">Produttori</ons-list-item>
+                  <ons-list-item tappable onclick="showDialog('dialog-4')">Come contattarci</ons-list-item>
+
+    <ons-dialog id="dialog-1">
+    <div style="text-align: center; padding: 10px;">
+      <p>
+        Viene usata per localizzare i pericoli e i luoghi di pericolo
+      <p>
+
+      <p>
+        <ons-button onclick="hideDialog('dialog-1')">Close</ons-button>
+      </p>
+    </div>
+  </ons-dialog>
+
+  <ons-dialog id="dialog-2">
+  <div style="text-align: center; padding: 10px;">
+    <p>
+       In base alla necessità posizionare i segnali preforniti con il segnale apposito nel luogo di pericolo
+    <p>
+
+    <p>
+      <ons-button onclick="hideDialog('dialog-2')">Close</ons-button>
+    </p>
+  </div>
+</ons-dialog>
+
+<ons-dialog id="dialog-3">
+<div style="text-align: center; padding: 10px;">
+  <p>
+    FormaUrbis
+  <p>
+
+  <p>
+    <ons-button onclick="hideDialog('dialog-3')">Close</ons-button>
+  </p>
+</div>
+</ons-dialog>
+
+<ons-dialog id="dialog-4">
+<div style="text-align: center; padding: 10px;">
+  <p>
+    Non contattateci
+  <p>
+
+  <p>
+    <ons-button onclick="hideDialog('dialog-4')">Close</ons-button>
+  </p>
+</div>
+</ons-dialog>
+
         </div>
 </ons-list>
     </ons-page>
