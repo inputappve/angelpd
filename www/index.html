@@ -136,10 +136,13 @@
   <ons-list-item modifier="nodivider" > Username:
     <p id="User"> </p>
 </ons-list-item>
-  <ons-list-item modifier="nodivider">Password:
+<ons-list-item modifier="nodivider"></ons-list-item>
+  <ons-list-item modifier="nodivider">Vecchia Password:
     <p id="Pas"> </p>
   </ons-list-item>
-
+  <ons-list-item modifier="nodivider">Nuova Password:</ons-list-item>
+  <ons-list-item modifier="nodivider">Ripeti Nuova Password:</ons-list-item>
+  <button style="position: absolute;height: 4%;left: 30%;top: 50%;"onclick="changepassword()">Click for change</button>
     </ons-page>
   </ons-template>
 
@@ -153,44 +156,15 @@
         </div>
         </ons-toolbar>
         <div class="center">
-          <ul class="list" align="center">
-              <li>
-                  <i class="pull-right icon icon-expand-more"></i>
-                  <p href="#link1" class="padded-list">A cosa serve?</p>
-                  <div class="accordion-content">
-                    Utilizza la tua posizione per recarti dove vuoi basta seguire la freccia sulla bussola
-                  </div>
-              </li>
-              <li>
-                  <i class="pull-right icon icon-expand-more"></i>
-                  <a href="#link2" class="padded-list">Hai problemi?</a>
-                  <div class="accordion-content">
-                    scrivi una e-mail a mattiafusaro8@gmail.com
-                  </div>
-              </li>
-              <li>
-                  <i class="pull-right icon icon-expand-more"></i>
-                  <a href="#link3" class="padded-list">Come vai?</a>
-                  <div class="accordion-content">
-                    camminando,su con la vita e goditi la camminata
-                  </div>
-              </li>
-              <li>
-                  <i class="pull-right icon icon-expand-more"></i>
-                  <a href="#link4" class="padded-list">La bussola non va?</a>
-                  <div class="accordion-content">
-                    niente da fare,ricarica la pagina e se non va mi spiace ma cambia gestore
-                  </div>
-              </li>
-              <li>
-                  <i class="pull-right icon icon-expand-more"></i>
-                  <a href="#link5" class="padded-list">Perchè non c'è la strada da seguire?</a>
-                  <div class="accordion-content">
-                    così ti godi la città giri ed esplori nuovi spazi
-                  </div>
-              </li>
-          </ul>
+          <ons-list>
+                  <ons-list-header>Help</ons-list-header>
+                  <ons-list-item>Utilizza la tua posizione per recarti dove vuoi basta seguire la freccia sulla bussola</ons-list-item>
+                  <ons-list-item>scrivi una e-mail a mattiafusaro8@gmail.com</ons-list-item>
+                  <ons-list-item>camminando,su con la vita e goditi la camminata</ons-list-item>
+                  <ons-list-item>niente da fare,ricarica la pagina e se non va mi spiace ma cambia gestore</ons-list-item>
+                  <ons-list-item>così ti godi la città giri ed esplori nuovi spazi</ons-list-item>
         </div>
+</ons-list>
     </ons-page>
   </ons-template>
 </body>
