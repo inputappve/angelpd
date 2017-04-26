@@ -35,36 +35,54 @@
   };
 
   ons.bootstrap()
-    .controller('AppController', function($scope) {
-      this.load = function(page) {
-        $scope.splitter.content.load(page);
+    .controller('AppController', function($scope, $q) {
+      var app = this;
+
+      app.load = function(page) {
+        var deferred = $q.defer();
+        $scope.splitter.content.load(page)
+          .then(function(){ console.log('caricato'); deferred.resolve('pippo'); });
         $scope.splitter.left.close();
+        return deferred;
       };
 
-      this.toggle = function() {
+      app.caricaMappa = function(){
+        console.log("1");
+        var map = L.map('map').setView([45.4217,12.3356], 13);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 19,
+          minZoom: 13
+        }).addTo(map);
+      };
+
+      app.toggle = function() {
         $scope.splitter.left.toggle();
       };
+
+      app.pippo = function(){
+        app.load('home.html');
+        //app.caricaMappa();
+        setTimeout(function(){
+          app.caricaMappa();
+          mappa_attiva = true;
+        }, 500);
+      };
+
+      setTimeout(function(){
+        app.caricaMappa();
+        mappa_attiva = true;
+      },1500);
     });
-
-
-    ons.caricaMappa = function(){
-      console.log("1");
-      map = L.map('map').setView([45.4217,12.3356], 13);
-
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-        maxZoom: 19,
-        minZoom: 13
-      }).addTo(map);
-    };
 
 
     ons.ready(function() {
       console.log("Onsen UI is ready!");
-      setTimeout(function(){
+      /*setTimeout(function(){
         ons.caricaMappa();
         mappa_attiva = true;
-        },1500)
+      },1500)*/
     });
     var login = function() {
         Name = document.getElementById('username').value;
@@ -85,15 +103,22 @@
     };
 
     var changepassword = function(){
+      Passold =document.getElementById('oldps').value;
       Passnew = document.getElementById('newps').value;
       Passnew2 = document.getElementById('againps').value;
-      if(Passnew2 != null && Passnew != null && Passnew.equals(Passnew2) && !Passnew.equals(Pass)){
-        console.log(Passnew,Passnew2);
+      console.log(Passold,Passnew,Passnew2);
+      if(Pass==Passold){
+      if(Passnew2 != null && Passnew != null && Passnew==Passnew2 && Passold!=Passnew){
+        console.log(Pass,Passold,Passnew,Passnew2);
         onclick="showDialog(dialog-passwordcorretta)";
-    }
-    else  {
-      onclick="showDialog(dialog-passwordnoncorretta)";
+        Passold=null;
+        Pass=Passnew;
       }
+    else  {
+      console.log("FALCONE");
+      onclick="showDialog(dialog-passwordnoncorretta)";
+    }
+  }else {console.log(Pass);}
   };
 
   </script>
@@ -125,7 +150,7 @@
       <ons-page>
 
         <ons-list>
-          <ons-list-item ng-click="app.load('home.html')" tappable>
+          <ons-list-item ng-click="app.pippo()" tappable>
             Home
           </ons-list-item>
           <ons-list-item ng-click="app.load('settings.html')" tappable>
