@@ -17,6 +17,8 @@
   <script>
   var Name;
   var Pass;
+  var Passnew;
+  var Passnew2;
   var map;
   var mappa_attiva = false;
 
@@ -64,13 +66,34 @@
         mappa_attiva = true;
         },1500)
     });
+    var login = function() {
+        Name = document.getElementById('username').value;
+        Pass = document.getElementById('password').value;
+        if (Name != null && Pass != null) {
+            ons.notification.alert('Congratulations!');
+            document.getElementById("c").style.visibility="hidden";
+            console.log(Name);
+        } else {
+            ons.notification.alert('Incorrect username or password.');
+        }
 
-    function login() {
-    Name = document.getElementById("name_input").value;
-    Pass= document.getElementById("comment_input").value;
-    document.getElementById("c").style.visibility="hidden";
-    document.getElementById("User").value = Name;
-    document.getElementById("Pas").value = Pass;
+    };
+
+    var codeAddress = function(){
+      console.log(Name);
+      document.getElementById("MyEdit").innerHTML = Name;
+    };
+
+    var changepassword = function(){
+      Passnew = document.getElementById('newps').value;
+      Passnew2 = document.getElementById('againps').value;
+      if(Passnew2 != null && Passnew != null && Passnew.equals(Passnew2) && !Passnew.equals(Pass)){
+        console.log(Passnew,Passnew2);
+        onclick="showDialog(dialog-passwordcorretta)";
+    }
+    else  {
+      onclick="showDialog(dialog-passwordnoncorretta)";
+      }
   };
 
   </script>
@@ -78,14 +101,22 @@
 </head>
 <body>
   <ons-screen id="c" page="login.html">
-  <ons-page>
-    <section  class="body_right_comment_input">
-                      <p> Username: </p>
-                      <input type="text" id="name_input"/> </br>
-                      <p> Password:</p>
-                      <textarea id="comment_input"></textarea>
-                      <button onclick="login()">Click me</button>
-    </section>
+    <ons-page>
+      <br /><br />
+      <ons-toolbar>
+          <div class="center">Login Page Using Onsen UI </div>
+      </ons-toolbar>
+      <div style="text-align: center; margin-top: 30px;">
+          <p>
+              <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
+          </p>
+          <p>
+              <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
+          </p>
+          <p style="margin-top: 30px;">
+              <ons-button onclick="login()">Sign in</ons-button>
+          </p>
+      </div>
   </ons-page>
 </ons-screen>
 
@@ -146,16 +177,17 @@
         </div>
       </ons-toolbar>
       <ons-list-header>Information</ons-list-header>
-  <ons-list-item modifier="nodivider" > Username:
-    <p id="User"> </p>
-</ons-list-item>
-<ons-list-item modifier="nodivider">Vecchia Password:</ons-list-item>
-  </ons-list-item>
-  <ons-list-item modifier="nodivider">Nuova Password:</ons-list-item>
-  <ons-list-item modifier="nodivider">Ripeti Nuova Password:</ons-list-item>
-  <button tappable onclick="ons.notification.confirm({message: 'Sei sicuro di volere cambiare la password'})" style="position: absolute;height: 4%;left: 30%;top: 50%;"onclick="changepassword()">Click for change</button>
-    </ons-page>
-  </ons-template>
+  <ons-list-item modifier="nodivider"> Username: <div id="MyEdit"></div></ons-list-item>
+    <ons-button onclick="codeAddress()">name</ons-button>
+  <ons-list-item modifier="nodivider">Vecchia Password:<input type="text" id="oldps"></ons-list-item>
+    </ons-list-item>
+    <ons-list-item modifier="nodivider">Nuova Password:<input type="text" id="newps"></ons-list-item>
+    <ons-list-item modifier="nodivider">Ripeti Nuova Password:<input type="text" id="againps"></ons-list-item>
+    <button tappable onclick="changepassword()">
+      Click for change
+    </button>
+     </ons-page>
+    </ons-template>
 
   <ons-template id="about.html">
     <ons-page>
@@ -221,6 +253,32 @@
   </p>
 </div>
 </ons-dialog>
+
+<ons-dialog id="dialog-passwordcorretta">
+<div style="text-align: center; padding: 10px;">
+  <p>
+    La password è stata cambiata con successo
+  <p>
+
+  <p>
+    <ons-button onclick="hideDialog('dialog-passwordcorretta')">Close</ons-button>
+  </p>
+</div>
+</ons-dialog>
+
+<ons-dialog id="dialog-passwordnoncorretta">
+<div style="text-align: center; padding: 10px;">
+  <p>
+     Password non esatta
+  <p>
+
+  <p>
+    <ons-button onclick="hideDialog('dialog-passswordnoncorretta')">Close</ons-button>
+  </p>
+</div>
+</ons-dialog>
+
+
 
         </div>
 </ons-list>
