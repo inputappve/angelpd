@@ -205,7 +205,7 @@
     z-index: 12;">
   </div>
   <div>
-    <button ng-click="app.load('signal.html')" style="width: 100px;
+    <button ng-click="app.Signal()" style="width: 100px;
     height: 100px;
     z-index: 100;
     position: fixed;
@@ -343,31 +343,56 @@
           </div>
           </ons-toolbar>
           <div class="center">
-        <img class="button" src="Signal/exclamation.png"/  tappable onclick="showDialog('dialog-pericolo')" >
-     <ons-dialog id="dialog-pericolo">
-      <div style="text-align: center; padding: 10px;">
-        <p>
-          Viene usato per localizzare i luoghi di pericolo
-        <p>
+      <img class="button" src="Signal/exclamation.png"/  tappable onclick="showDialog('dialog-pericolo')" >
+  <img class="button" src="Signal/burn.png"/  tappable onclick="showDialog('dialog-incendio')" >
+<img class="button" src="Signal/chinese.png"/  tappable onclick="showDialog('dialog-chinese')" >
+<img class="button" src="Signal/garbage.png"/  tappableonclick="showDialog('dialog-rifiuti')" >
 
-        <p>
-          <ons-button onclick="hideDialog('dialog-pericolo')">Close</ons-button>
-        </p>
-      </div>
-    </ons-dialog>
-  <img class="button" src="Signal/garbage.png"/  tappable
-onclick="showDialog('dialog-rifiuti')" >
-<ons-dialog id="dialog-rifiuti">
-<div style="text-align: center; padding: 10px;">
-  <p>
-    Viene usato per localizzare i rifiuti fuori dalla spazzatura
-  <p>
 
-  <p>
-    <ons-button onclick="hideDialog('dialog-rifiuti')">Close</ons-button>
-  </p>
-</div>
-</ons-dialog>
+<ons-alert-dialog id="dialog-pericolo">
+  <div class="alert-dialog-title">Pericolo</div>
+  <div class="alert-dialog-content">
+     Viene usato segnare luoghi di pericolo.
+     Vuoi aggiungere il segnale?
+  </div>
+  <div class="alert-dialog-footer">
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-pericolo')">OK</button>
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-pericolo')">Cancel</button>
+  </div>
+</ons-alert-dialog>
+<ons-alert-dialog id="dialog-incendio">
+  <div class="alert-dialog-title">INCENDIO</div>
+  <div class="alert-dialog-content">
+     Viene usato per localizzare gli incendi.
+     Vuoi aggiungere il segnale?
+  </div>
+  <div class="alert-dialog-footer">
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-incendio')">OK</button>
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-incendio')">Cancel</button>
+  </div>
+</ons-alert-dialog>
+<ons-alert-dialog id="dialog-rifiuti">
+  <div class="alert-dialog-title">RIFIUTI</div>
+  <div class="alert-dialog-content">
+   Viene usato per segnalare rifiuti fuori dalla spazzatura.
+   Vuoi aggiungere il segnale?
+  </div>
+  <div class="alert-dialog-footer">
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-rifiuti')">OK</button>
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-rifiuti')">Cancel</button>
+  </div>
+</ons-alert-dialog>
+<ons-alert-dialog id="dialog-chinese">
+  <div class="alert-dialog-title">CHINESE</div>
+  <div class="alert-dialog-content">
+   Attenzione cinese.
+   Vuoi inviare un sicario per uccidere il cinese?
+  </div>
+  <div class="alert-dialog-footer">
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-chinese')">OK</button>
+    <button class="alert-dialog-button" onclick="hideDialog('dialog-chinese')">Cancel</button>
+  </div>
+</ons-alert-dialog>
 
 
 
