@@ -59,6 +59,9 @@
           minZoom: 13
         }).addTo(map);
       };
+      app.Signal = function(){
+        app.load('signal.html');
+      };
 
       app.toggle = function() {
         if(mappa_attiva == true){
@@ -76,13 +79,11 @@
           mappa_attiva = true;
         }, 500);
       };
-
       setTimeout(function(){
         app.caricaMappa();
         mappa_attiva = true;
       },1500);
     });
-
 
     ons.ready(function() {
       console.log("Onsen UI is ready!");
@@ -91,6 +92,7 @@
         mappa_attiva = true;
       },1500)*/
     });
+
     var login = function() {
         Name = document.getElementById('username').value;
         Pass = document.getElementById('password').value;
@@ -203,7 +205,16 @@
     top: 15%;
     height: 100%;
     width: 100%;
-    z-index: 12;"></div>
+    z-index: 12;">
+  </div>
+  <div>
+    <button ng-click="app.Signal()" style="width: 100px;
+    height: 100px;
+    z-index: 100;
+    position: fixed;
+    bottom: 0;
+    right: 0;">
+  </div>
     </ons-page>
   </ons-template>
 
@@ -320,7 +331,10 @@
   </p>
 </div>
 </ons-dialog>
-
+</div>
+</ons-list>
+</ons-page>
+</ons-template>
 
     <ons-template id="signal.html">
       <ons-page>
@@ -332,8 +346,7 @@
           </div>
           </ons-toolbar>
           <div class="center">
-        <img class="button" src="Signal/exclamation.png"/  tappable
-  onclick="showDialog('dialog-pericolo')" >
+        <img class="button" src="Signal/exclamation.png"/  tappable onclick="showDialog('dialog-pericolo')" >
      <ons-dialog id="dialog-pericolo">
       <div style="text-align: center; padding: 10px;">
         <p>
@@ -361,9 +374,6 @@ onclick="showDialog('dialog-rifiuti')" >
 
 
 
-        </div>
-</ons-list>
-    </ons-page>
-  </ons-template>
+
 </body>
 </html>
