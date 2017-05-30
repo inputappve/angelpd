@@ -146,7 +146,7 @@
     <ons-page>
       <br /><br />
       <ons-toolbar>
-          <div class="center">Login Page Using Onsen UI </div>
+          <div class="center">InputApp</div>
       </ons-toolbar>
       <div style="text-align: center; margin-top: 30px;">
           <p>
@@ -157,6 +157,9 @@
           </p>
           <p>
             <img class="button" src="Signal/loginfacebook.png" style="background-color: transparent; width: 220px;">
+            <img class="button" src="Signal/GOOGLE.png" style="background-color: transparent; width: 205px; right:-3px;">
+
+
           </p>
           <p style="margin-top: 30px;">
               <ons-button onclick="login()">Sign in</ons-button>
@@ -207,14 +210,9 @@
     width: 100%;
     z-index: 12;">
   </div>
-  <div>
-    <button ng-click="app.Signal()" style="width: 100px;
-    height: 100px;
-    z-index: 100;
-    position: fixed;
-    bottom: 0;
-    right: 0;">
-  </div>
+    <ons-fab position="bottom right" ng-click="app.Signal()">
+    <ons-icon icon="md-plus"></ons-icon>
+  </ons-fab>
     </ons-page>
   </ons-template>
 
