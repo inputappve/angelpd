@@ -9,6 +9,7 @@
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.1.0/firebase.js"></script>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
@@ -25,6 +26,15 @@
   var lng = 12.3356;
   var zoom = 13;
 
+  var config = {
+    apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
+    authDomain: "angel-6902f.firebaseapp.com",
+    databaseURL: "https://angel-6902f.firebaseio.com",
+    projectId: "angel-6902f",
+    storageBucket: "angel-6902f.appspot.com",
+    messagingSenderId: "306707852817"
+  };
+  firebase.initializeApp(config);
   var showDialog = function(id) {
     document
       .getElementById(id)
