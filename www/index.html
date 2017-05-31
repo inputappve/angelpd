@@ -63,6 +63,11 @@
         app.load('signal.html');
       };
 
+      Registrazione = function(){
+        app.load('registrazione.html');
+      };
+
+
       app.toggle = function() {
         if(mappa_attiva == true){
           SetMapOnclose();
@@ -155,15 +160,16 @@
           <p>
               <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
           </p>
+        </p>
+        <p style="margin-top: 30px;">
+            <ons-button onclick="login()">Sign in</ons-button>
+        </p>
           <p>
             <img class="button" src="Signal/loginfacebook.png" style="background-color: transparent; width: 220px;">
             <img class="button" src="Signal/GOOGLE.png" style="background-color: transparent; width: 205px; right:-3px;">
-
-
-          </p>
-          <p style="margin-top: 30px;">
-              <ons-button onclick="login()">Sign in</ons-button>
-          </p>
+         </p>
+          <p>
+         </p>
       </div>
   </ons-page>
 </ons-screen>
@@ -257,7 +263,6 @@
                   <ons-list-item tappable onclick="showDialog('dialog-2')">Come funziona?</ons-list-item>
                   <ons-list-item tappable onclick="showDialog('dialog-3')">Produttori</ons-list-item>
                   <ons-list-item tappable onclick="showDialog('dialog-4')">Come contattarci</ons-list-item>
-
     <ons-dialog id="dialog-1">
     <div style="text-align: center; padding: 10px;">
       <p>
@@ -395,6 +400,9 @@
     <button class="alert-dialog-button" onclick="hideDialog('dialog-chinese')">Cancel</button>
   </div>
 </ons-alert-dialog>
+
+
+
 
 </body>
 </html>
