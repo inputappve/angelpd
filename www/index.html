@@ -48,6 +48,9 @@ var Fire = function(){
       const pass = txtPassword.value;
       const promise = auth.signInWithEmailAndPassword(email,pass);
       promise.catch(e => console.log(e.message));
+      if(promise){
+      document.getElementById("c").style.visibility = "hidden";
+      }
     })
 
     btnSingUp.addEventListener('click',e => {
