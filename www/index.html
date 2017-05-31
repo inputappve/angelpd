@@ -16,10 +16,6 @@
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
   <script>
-  var Name;
-  var Pass;
-  var Passnew;
-  var Passnew2;
   var map;
   var mappa_attiva = false;
   var lat = 45.4217;
@@ -35,11 +31,57 @@
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-  var showDialog = function(id) {
-    document
-      .getElementById(id)
-      .show();
-  };
+
+
+var Fire = function(){
+  console.log("entro");
+  const auth = firebase.auth();
+  const txtEmail = document.getElementById('txtEmail');
+  const txtPassword = document.getElementById('txtPassword');
+  const btnLogin = document.getElementById('btnLogin');
+  const btnSingUp = document.getElementById('btnSingUp');
+  const btnLogout = document.getElementById('btnLogout');
+
+
+    btnLogin.addEventListener('click',e => {
+      const email = txtEmail.value;
+      const pass = txtPassword.value;
+      const promise = auth.signInWithEmailAndPassword(email,pass);
+      promise.catch(e => console.log(e.message));
+    })
+
+    btnSingUp.addEventListener('click',e => {
+      const email = txtEmail.value;
+      const pass = txtPassword.value;
+      const promise = auth.createUserWithEmailAndPassword(email,pass);
+      promise.catch(e => console.log(e.message));
+    })
+
+    btnLogout.addEventListener('click',e => {
+      auth.signOut();
+    })
+
+   auth.onAuthStateChanged(firebaseUser => {
+    if(firebaseUser){
+       console.log(firebaseUser);
+       btnLogout.classList.remove('hide');
+    }else{
+     console.log('not logged in');
+     btnLogout.classList.add('hide');
+     }
+   })
+}
+
+
+//  auth.singInWithEmailAndPassword(email,pass);
+//  auth.createUserWithEmailAndPassword(email,pass);
+//
+
+
+
+
+
+
 
   var hideDialog = function(id) {
     document
@@ -103,18 +145,7 @@
       },1500)*/
     });
 
-    var login = function() {
-        Name = document.getElementById('username').value;
-        Pass = document.getElementById('password').value;
-        if (Name != null && Pass != null) {
-            ons.notification.alert('Congratulations!');
-            document.getElementById("c").style.visibility="hidden";
-            console.log(Name);
-        } else {
-            ons.notification.alert('Incorrect username or password.');
-        }
 
-    };
 
     var codeAddress = function(){
       console.log(Name);
@@ -129,52 +160,30 @@
 
      }
 
-    var changepassword = function(){
-      Passold =document.getElementById('oldps').value;
-      Passnew = document.getElementById('newps').value;
-      Passnew2 = document.getElementById('againps').value;
-      console.log("Pass in questo momento ",Pass," Pass scritta da lui ",Passold," Le due nuove passw ",Passnew,Passnew2);
-      if(Pass==Passold){
-      if(Passnew2 != null && Passnew != null && Passnew==Passnew2 && Passold!=Passnew){
-        onclick="showDialog(dialog-passwordcorretta)";
-        Passold=null;
-        Pass=Passnew;
-      }
-    else  {
-      console.log("FALCONE");
-      onclick="showDialog(dialog-passwordnoncorretta)";
-    }
-  }else {console.log("Password cambiata ora è " ,Pass);}
-  };
-
 
   </script>
 
 </head>
-<body>
-  <ons-screen id="c" page="login.html">
+<body onload="Fire()">
+  <ons-screen id="c" page="login.html" >
     <ons-page>
       <br /><br />
       <ons-toolbar>
           <div class="center">InputApp</div>
       </ons-toolbar>
-      <div style="text-align: center; margin-top: 30px;">
-          <p>
-              <ons-input id="username" modifier="underbar" placeholder="Username" float></ons-input>
-          </p>
-          <p>
-              <ons-input id="password" modifier="underbar" type="password" placeholder="Password" float></ons-input>
-          </p>
-          <p>
-            <img class="button" src="Signal/loginfacebook.png" style="background-color: transparent; width: 220px;">
-            <img class="button" src="Signal/GOOGLE.png" style="background-color: transparent; width: 205px; right:-3px;">
-
-
-          </p>
-          <p style="margin-top: 30px;">
-              <ons-button onclick="login()">Sign in</ons-button>
-          </p>
-      </div>
+        <div class = "container" >
+        <input id="txtEmail" type="email" placeholder="Email">
+        <input id="txtPassword" type="password" placeholder="Password">
+        <button id="btnLogin" class="btn btn-action">
+        log in
+        </button>
+        <button id="btnSingUp" class="btn btn-secondary">
+        sing up
+        </button>
+        <button id="btnLogout" class="btn btn-action hide">
+        log out
+        </button>
+        </div>
   </ons-page>
 </ons-screen>
 
@@ -241,13 +250,6 @@
       <ons-list-header>Information</ons-list-header>
   <ons-list-item modifier="nodivider"> Username: <div id="MyEdit"></div></ons-list-item>
     <ons-button onclick="codeAddress()" style="display: flex">name</ons-button>
-  <ons-list-item modifier="nodivider">Vecchia Password:<input type="text" id="oldps"></ons-list-item>
-    </ons-list-item>
-    <ons-list-item modifier="nodivider">Nuova Password:<input type="text" id="newps"></ons-list-item>
-    <ons-list-item modifier="nodivider">Ripeti Nuova Password:<input type="text" id="againps"></ons-list-item>
-    <button tappable onclick="changepassword()">
-      Click for change
-    </button>
      </ons-page>
     </ons-template>
 
