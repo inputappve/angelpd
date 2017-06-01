@@ -15,12 +15,6 @@
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
-  <universal-links>
-    <host name="https://angelpd.com/www" scheme="https" />
-    <host name="angel-6902f.firebaseapp.com" scheme="https">
-        <path url="/__/auth/callback"/>
-    </host>
-</universal-links>
   <script>
   var map;
   var mappa_attiva = false;
@@ -29,7 +23,32 @@
   var zoom = 13;
 
   var provider = new firebase.auth.FacebookAuthProvider() ;
+
   var providerG = new firebase.auth.GoogleAuthProvider();
+
+  function googleSignin() {
+     firebase.auth()
+
+     .signInWithPopup(providerG).then(function(result) {
+        var token = result.credential.accessToken;
+        var user = result.user;
+        console.log(token)
+        console.log(user)
+     }).catch(function(error) {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(error.code)
+        console.log(error.message)
+     });
+  }
+  function googleSignout() {
+     firebase.auth().signOut()
+     .then(function() {
+        console.log('Signout Succesfull')
+     }, function(error) {
+        console.log('Signout Failed')
+     });
+  }
   function facebookSignin() {
      firebase.auth() .signInWithPopup(provider)
 
@@ -71,21 +90,6 @@
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-
-  auth.signInWithRedirect(providerG).then(function() {
-  auth.getRedirectResult().then(function(result) {
-    // This gives you a Google Access Token.
-    // You can use it to access the Google API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-});
 
 
 var Fire = function(){
@@ -233,18 +237,9 @@ var Fire = function(){
         </ons-button>
 
         <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
+        <button onclick = "googleSignin()">Google Signin</button>
+        <button onclick = "googleSignout()">Google Signout</button>
 
-  <html lang="en">
-  <head>
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-  </head>
-  <body>
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-
-  </body>
-</html>
 
         </div>
   </ons-page>
