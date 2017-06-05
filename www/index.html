@@ -21,66 +21,6 @@
   var lat = 45.4217;
   var lng = 12.3356;
   var zoom = 13;
-
-  var provider = new firebase.auth.FacebookAuthProvider() ;
-
-  var providerG = new firebase.auth.GoogleAuthProvider();
-
-  function googleSignin() {
-     firebase.auth()
-
-     .signInWithPopup(providerG).then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-        console.log(token)
-        console.log(user)
-     }).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error.code)
-        console.log(error.message)
-     });
-  }
-  function googleSignout() {
-     firebase.auth().signOut()
-     .then(function() {
-        console.log('Signout Succesfull')
-     }, function(error) {
-        console.log('Signout Failed')
-     });
-  }
-  function facebookSignin() {
-     firebase.auth() .signInWithPopup(provider)
-
-     .then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-
-        console.log(token)
-        console.log(user)
-     }).catch(function(error) {
-        console.log(error.code) ;
-        console.log(error.message) ;
-     });
-  }
-
-  window.fbAsyncInit = function() {
-        FB.init({
-           appId      : '427469474303607',
-           xfbml      : true,
-           version    : 'v2.6'
-        });
-     };
-
-     (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s) [0];
-        if (d.getElementById(id) ) {return;}
-        js = d.createElement(s) ; js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs) ;
-     }(document, 'script', 'facebook-jssdk') );
-
-
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
     authDomain: "angel-6902f.firebaseapp.com",
@@ -90,8 +30,6 @@
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-
-
 var Fire = function(){
   console.log("entro");
   const auth = firebase.auth();
@@ -107,7 +45,7 @@ var Fire = function(){
       const pass = txtPassword.value;
       const promise = auth.signInWithEmailAndPassword(email,pass);
       promise.catch(e => console.log(e.message));
-      if(e.message == undefined){
+      if(e.message === undefined){
       document.getElementById("c").style.visibility = "hidden";
     }
 
@@ -134,6 +72,63 @@ var Fire = function(){
      }
    })
 }
+
+var provider = new firebase.auth.FacebookAuthProvider() ;
+var providerG = new firebase.auth.GoogleAuthProvider();
+
+function googleSignin() {
+  auth.signInWithPopup(providerG).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+      console.log(token)
+      console.log(user)
+      document.getElementById("c").style.visibility = "hidden";
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error.code)
+      console.log(error.message)
+   });
+}
+function googleSignout() {
+   auth.signOut()
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')
+   });
+}
+function facebookSignin() {
+   auth.signInWithPopup(provider)
+
+   .then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+      document.getElementById("c").style.visibility = "hidden";
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      console.log(error.code) ;
+      console.log(error.message) ;
+   });
+}
+
+window.fbAsyncInit = function() {
+      FB.init({
+         appId      : '427469474303607',
+         xfbml      : true,
+         version    : 'v2.6'
+      });
+   };
+
+   (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s) [0];
+      if (d.getElementById(id) ) {return;}
+      js = d.createElement(s) ; js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs) ;
+   }(document, 'script', 'facebook-jssdk') );
+
   var hideDialog = function(id) {
     document
       .getElementById(id)
