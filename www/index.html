@@ -213,27 +213,27 @@ window.fbAsyncInit = function() {
   <ons-screen id="c" page="login.html" >
     <ons-page>
       <br /><br />
-      <ons-toolbar>
+        <ons-toolbar>
           <div class="center">InputApp</div>
-      </ons-toolbar>
-        <div class = "container" >
-        <input id="txtEmail" type="email" placeholder="Email" style="position: absolute;height: 6%;width: 73%;left: 12%;top: 4%;">
-        <input id="txtPassword" type="password" placeholder="Password"style="position:absolute;height: 6%;width: 73%;left: 12%;top: 12%;">
-        <ons-button id="btnLogin" class="btn btn-action" style="left:25%; position: absolute;top:21%">
-        log in
-        </ons-button>
-        <ons-button id="btnSingUp" class="btn btn-secandary"style="right:25%;position: absolute;top:21%">
-        sing up
-      </ons-button>
-        <ons-button id="btnLogout" class="btn btn-action hide"style="right:50%;position: absolute;top:35%">
-        log out
-        </ons-button>
-        <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
-        <button onclick = "googleSignin()">Google Signin</button>
-        <button onclick = "googleSignout()">Google Signout</button>
-        </div>
-  </ons-page>
-</ons-screen>
+            </ons-toolbar>
+              <div class = "container" >
+                  <input id="txtEmail" type="email" placeholder="Email" style="position: absolute;height: 6%;width: 73%;left: 12%;top: 4%;">
+                  <input id="txtPassword" type="password" placeholder="Password"style="position:absolute;height: 6%;width: 73%;left: 12%;top: 12%;">
+                  <ons-button id="btnLogin" class="btn btn-action" style="left:25%; position: absolute;top:21%">
+                    log in
+                  </ons-button>
+                  <ons-button id="btnSingUp" class="btn btn-secandary"style="right:25%;position: absolute;top:21%">
+                    sing up
+                  </ons-button>
+                  <ons-button id="btnLogout" class="btn btn-action hidden"style="right:50%;position: absolute;top:35%">
+                    log out
+                  </ons-button>
+                  <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
+                  <button onclick = "googleSignin()">Google Signin</button>
+                  <button onclick = "googleSignout()">Google Signout</button>
+              </div>
+    </ons-page>
+ </ons-screen>
 
   <ons-splitter ng-controller="AppController as app" var="splitter">
     <ons-splitter-side side="left" width="220px" collapse swipeable>
@@ -270,13 +270,8 @@ window.fbAsyncInit = function() {
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         Swipe right to open the menu!
       </p>
-      <div id="map" class="Map" style="    position: fixed;
-    left: 0px;
-    top: 15%;
-    height: 100%;
-    width: 100%;
-    z-index: 12;">
-  </div>
+      <div id="map" class="Map" style="position:fixed;left:0px;top:15%;height:100%;width:100%;z-index: 12;">
+      </div>
     <ons-fab position="bottom right" ng-click="app.Signal()">
     <ons-icon icon="md-plus"></ons-icon>
   </ons-fab>
