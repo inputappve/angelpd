@@ -200,7 +200,11 @@ window.fbAsyncInit = function() {
 
      }
 
-
+     var showDialog = function (id) {
+       document
+         .getElementById(id)
+         .show();
+     };
   </script>
 
 </head>
@@ -210,6 +214,22 @@ window.fbAsyncInit = function() {
       <br /><br />
         <ons-toolbar>
           <div class="center">InputApp</div>
+
+            </ons-toolbar>
+              <div class = "container" >
+                  <input id="txtEmail" type="email" placeholder="Email" style="position: absolute;height: 6%;width: 73%;left: 12%;top: 4%;">
+                  <input id="txtPassword" type="password" placeholder="Password"style="position:absolute;height: 6%;width: 73%;left: 12%;top: 12%;">
+                  <ons-button id="btnLogin" class="btn btn-action" style="left:25%; position: absolute;top:21%">
+                    log in
+                  </ons-button>
+                  <ons-button id="btnSingUp" class="btn btn-secandary"style="right:25%;position: absolute;top:21%">
+                    sing up
+                  </ons-button>
+                  <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
+                  <ons-button onclick = "googleSignin()" style="position : absolute; top:31%; right:33%; background-color:red;">Google Signin</ons-button>
+              </div>
+    </ons-page>
+ </ons-screen>
 
   <ons-splitter ng-controller="AppController as app" var="splitter">
     <ons-splitter-side side="left" width="220px" collapse swipeable>
