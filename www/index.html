@@ -21,66 +21,6 @@
   var lat = 45.4217;
   var lng = 12.3356;
   var zoom = 13;
-
-  var provider = new firebase.auth.FacebookAuthProvider() ;
-
-  var providerG = new firebase.auth.GoogleAuthProvider();
-
-  function googleSignin() {
-     firebase.auth()
-
-     .signInWithPopup(providerG).then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-        console.log(token)
-        console.log(user)
-     }).catch(function(error) {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(error.code)
-        console.log(error.message)
-     });
-  }
-  function googleSignout() {
-     firebase.auth().signOut()
-     .then(function() {
-        console.log('Signout Succesfull')
-     }, function(error) {
-        console.log('Signout Failed')
-     });
-  }
-  function facebookSignin() {
-     firebase.auth() .signInWithPopup(provider)
-
-     .then(function(result) {
-        var token = result.credential.accessToken;
-        var user = result.user;
-
-        console.log(token)
-        console.log(user)
-     }).catch(function(error) {
-        console.log(error.code) ;
-        console.log(error.message) ;
-     });
-  }
-
-  window.fbAsyncInit = function() {
-        FB.init({
-           appId      : '427469474303607',
-           xfbml      : true,
-           version    : 'v2.6'
-        });
-     };
-
-     (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s) [0];
-        if (d.getElementById(id) ) {return;}
-        js = d.createElement(s) ; js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs) ;
-     }(document, 'script', 'facebook-jssdk') );
-
-
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
     authDomain: "angel-6902f.firebaseapp.com",
@@ -90,7 +30,7 @@
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-
+  const auth = firebase.auth();
 
 var Fire = function(){
   console.log("entro");
@@ -106,11 +46,9 @@ var Fire = function(){
       const email = txtEmail.value;
       const pass = txtPassword.value;
       const promise = auth.signInWithEmailAndPassword(email,pass);
-      promise.catch(e => console.log(e.message));
-      if(e.message == undefined){
-      document.getElementById("c").style.visibility = "hidden";
-    }
-
+      promise.then(function(){
+        document.getElementById("c").style.visibility = "hidden"
+      });
     })
 
     btnSingUp.addEventListener('click',e => {
@@ -119,21 +57,71 @@ var Fire = function(){
       const promise = auth.createUserWithEmailAndPassword(email,pass);
       promise.catch(e => console.log(e.message));
     })
-
-    btnLogout.addEventListener('click',e => {
-      auth.signOut();
-    })
-
    auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
        console.log(firebaseUser);
-         document.getElementById("btnLogout").style.visibility = "visible";
     }else{
      console.log('not logged in');
-      document.getElementById("btnLogout").style.visibility = "hidden";
      }
    })
 }
+
+var provider = new firebase.auth.FacebookAuthProvider() ;
+var providerG = new firebase.auth.GoogleAuthProvider();
+
+function googleSignin() {
+  auth.signInWithPopup(providerG).then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+      console.log(token)
+      console.log(user)
+      document.getElementById("c").style.visibility = "hidden";
+   }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(error.code)
+      console.log(error.message)
+   });
+}
+function googleSignout() {
+   auth.signOut()
+   .then(function() {
+      console.log('Signout Succesfull')
+   }, function(error) {
+      console.log('Signout Failed')
+   });
+}
+function facebookSignin() {
+   auth.signInWithPopup(provider)
+
+   .then(function(result) {
+      var token = result.credential.accessToken;
+      var user = result.user;
+      document.getElementById("c").style.visibility = "hidden";
+      console.log(token)
+      console.log(user)
+   }).catch(function(error) {
+      console.log(error.code) ;
+      console.log(error.message) ;
+   });
+}
+
+window.fbAsyncInit = function() {
+      FB.init({
+         appId      : '427469474303607',
+         xfbml      : true,
+         version    : 'v2.6'
+      });
+   };
+
+   (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s) [0];
+      if (d.getElementById(id) ) {return;}
+      js = d.createElement(s) ; js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs) ;
+   }(document, 'script', 'facebook-jssdk') );
+
   var hideDialog = function(id) {
     document
       .getElementById(id)
@@ -220,29 +208,8 @@ var Fire = function(){
   <ons-screen id="c" page="login.html" >
     <ons-page>
       <br /><br />
-      <ons-toolbar>
+        <ons-toolbar>
           <div class="center">InputApp</div>
-      </ons-toolbar>
-        <div class = "container" >
-        <input id="txtEmail" type="email" placeholder="Email" style="position: absolute;height: 6%;width: 73%;left: 12%;top: 4%;">
-        <input id="txtPassword" type="password" placeholder="Password"style="position:absolute;height: 6%;width: 73%;left: 12%;top: 12%;">
-        <ons-button id="btnLogin" class="btn btn-action" style="left:25%; position: absolute;top:21%;background-color: rgba(220, 28, 45, 0.81);">
-        Accedi
-        </ons-button>
-        <ons-button id="btnSingUp" class="btn btn-secandary"style="right:25%;position: absolute;top:21%;background-color: rgba(220, 28, 45, 0.81);">
-        Registrati
-      </ons-button>
-        <ons-button id="btnLogout" class="btn btn-action hide"style="right:50%;position: absolute;top:100%">
-        log out
-        </ons-button>
-        <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
-
-        <ons-button onclick = "googleSignin()"style="position: absolute;top: 31%;right: 33%;background-color:red;">Google Signin</ons-button>
-        <!--<button onclick = "googleSignout()">Google Signout</button>-->
-
-        </div>
-  </ons-page>
-</ons-screen>
 
   <ons-splitter ng-controller="AppController as app" var="splitter">
     <ons-splitter-side side="left" width="220px" collapse swipeable>
@@ -279,13 +246,8 @@ var Fire = function(){
       <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
         Swipe right to open the menu!
       </p>
-      <div id="map" class="Map" style="    position: fixed;
-    left: 0px;
-    top: 15%;
-    height: 100%;
-    width: 100%;
-    z-index: 12;">
-  </div>
+      <div id="map" class="Map" style="position:fixed;left:0px;top:15%;height:100%;width:100%;z-index: 12;">
+      </div>
     <ons-fab position="bottom right" ng-click="app.Signal()">
     <ons-icon icon="md-plus"></ons-icon>
   </ons-fab>
