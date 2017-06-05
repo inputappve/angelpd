@@ -30,6 +30,8 @@
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
+  const auth = firebase.auth();
+
 var Fire = function(){
   console.log("entro");
   const auth = firebase.auth();
@@ -55,18 +57,11 @@ var Fire = function(){
       const promise = auth.createUserWithEmailAndPassword(email,pass);
       promise.catch(e => console.log(e.message));
     })
-
-    btnLogout.addEventListener('click',e => {
-      auth.signOut();
-    })
-
    auth.onAuthStateChanged(firebaseUser => {
     if(firebaseUser){
        console.log(firebaseUser);
-         document.getElementById("btnLogout").style.visibility = "visible";
     }else{
      console.log('not logged in');
-      document.getElementById("btnLogout").style.visibility = "hidden";
      }
    })
 }
@@ -225,12 +220,8 @@ window.fbAsyncInit = function() {
                   <ons-button id="btnSingUp" class="btn btn-secandary"style="right:25%;position: absolute;top:21%">
                     sing up
                   </ons-button>
-                  <ons-button id="btnLogout" class="btn btn-action hidden"style="right:50%;position: absolute;top:35%">
-                    log out
-                  </ons-button>
                   <ons-button onclick = "facebookSignin() " style="position: absolute; top: 39%; right: 31%;background-color:#4f7ac7 ;">Facebook Signin</ons-button>
-                  <button onclick = "googleSignin()">Google Signin</button>
-                  <button onclick = "googleSignout()">Google Signout</button>
+                  <ons-button onclick = "googleSignin()" style="position : absolute; top:31%; right:33%; background-color:red;">Google Signin</ons-button>
               </div>
     </ons-page>
  </ons-screen>
