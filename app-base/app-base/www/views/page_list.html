@@ -1,0 +1,8 @@
+<h2>Lista Elementi</h2>
+
+<div ng-repeat="elem in ctl.appSrv.list">
+  <a href="#!/page_detail/{{$index}}">Elemento &lt;{{elem}}&gt;</a>
+</div>
+<div ng-if="ctl.appSrv.list.length == 0">
+  Non ci sono elementi nella lista
+</div>
