@@ -1,5 +1,22 @@
-<h2 ng-init="ctl.welcomeLoad()">Welcome!!!</h2>
+<h2 ng-init="ctl.welcomeLoad()" style="text-align: center;" >InputApp</h2>
+<div class="container">
+                <md-input-container class="md-block" style="position: fixed;height: 5%;width: 75%;left: 12%;top: 18%;">
+                <input id="txtEmail" type="email" placeholder="Email (required)" ng-required="true" >
+                </md-input-container>
 
-<br /><br />
+                <md-input-container class="md-block" style="position:fixed;height: 5%;width: 75%;left: 12%;top: 30%;">
+                <input id="txtPassword" type="password" placeholder="Password (required)" ng-required="true" >
+                </md-input-container>
 
-<a href="#!/page_list">Vai alla Lista</a>
+                <md-button  ng-click="ctl.Login() " class="md-raised md-primary" style="position: fixed;left:13%;top:45%">
+                  log in
+                </md-button >
+
+                <md-button ng-click="ctl.SingIn()" class="md-raised md-primary" style="position: fixed; right:13%;top:45%">
+                  sing up
+                </md-button >
+
+                <md-button ng-click="ctl.facebookLogin() " style="position: fixed; top: 64%; right: 28%;background-color:#4f7ac7;width:40%;">Facebook Signin</md-button>
+                <md-button ng-click= "ctl.googleLogin()" style="position : fixed; top:55%; right:28%; background-color:red; width:40%;">Google Signin</md-button>
+</div>
+ <!--<a href="#!/page_list">Vai alla Lista</a> -->
