@@ -1,8 +1,71 @@
-<h2>Lista Elementi</h2>
-
-<div ng-repeat="elem in ctl.appSrv.list">
-  <a href="#!/page_detail/{{$index}}">Elemento &lt;{{elem}}&gt;</a>
-</div>
-<div ng-if="ctl.appSrv.list.length == 0">
+<!--<div ng-if="ctl.appSrv.list.length == 0">
   Non ci sono elementi nella lista
+</div>-->
+
+<div ng-controller="AppCtrl" layout="column" style="height:500px;" ng-cloak>
+
+  <section layout="row" flex>
+
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="$mdMedia('gt-md')"
+        md-whiteframe="4">
+
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Menu</h1>
+      </md-toolbar>
+      <md-content layout-padding ng-controller="LeftCtrl">
+        <form>
+          <md-input-container>
+            <div ng-repeat="elem in ctl.appSrv.list">
+              <a href="#!/page_detail/{{$index}}">Elemento &lt;{{elem}}&gt;</a>
+            </div>
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary" hide-gt-md>
+          Chiudi Menu
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding>
+        <div>
+          <md-button ng-click="toggleLeft()"
+            class="md-primary" hide-gt-md>
+            Menu
+          </md-button>
+        </div>
+        <div>
+          <md-button ng-click="toggleRight()"
+            ng-hide="isOpenRight()"
+            class="md-primary">
+            Menu Icone
+          </md-button>
+        </div>
+      </div>
+
+      <div flex></div>
+
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+      <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Menu Icone</h1>
+      </md-toolbar>
+      <md-content ng-controller="RightCtrl" layout-padding>
+        <form>
+          <md-input-container>
+           <img class="button" src="Signal/exclamation.png">//ng-click="showDialog(dialog-exclamation)" manca parte dei dialoghi
+          </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary">
+          Chiudi menu icone
+        </md-button>
+      </md-content>
+
+    </md-sidenav>
+
+  </section>
+
 </div>
