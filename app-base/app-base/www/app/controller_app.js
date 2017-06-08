@@ -80,17 +80,7 @@ angular.module('app')
         });
     };
   }
-  /*var showDialog = function (id) {
-    document
-      .getElementById(id)
-      .show();
-  };
-  var hideDialog = function(id) {
-    document
-      .getElementById(id)
-      .hide();
-  };
-})*/
+})
 .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function () {
     // Component lookup should always be available since we are not using `ng-if`
