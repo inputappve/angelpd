@@ -3,6 +3,7 @@ app.app_login = function(ctl,auth){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
+          window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
        }).catch(function(error) {
           console.log(error.code)
           console.log(error.message)
@@ -13,6 +14,7 @@ app.app_login = function(ctl,auth){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
         console.log(result.user)
+        window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
      }).catch(function(error) {
         console.log(error.code)
         console.log(error.message)
@@ -33,6 +35,9 @@ app.app_login = function(ctl,auth){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
     const promise = auth.createUserWithEmailAndPassword(txtEmail,txtPassword);
-    promise.then(e => console.log(e.message));
+    promise.then(then(function() {e => console.log(e.message);
+      console.log("Riscrivi mail e pass per entrare");
+    })
+  );
   };
 };
