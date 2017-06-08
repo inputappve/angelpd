@@ -36,9 +36,9 @@ angular.module('app')
       $(id).show();
     };
 
-   ctl.hideDialog = function(id){
+   ctl.hideDialog = $(function(id){
      $(id).hide();
-     };
+   });
   ctl.welcomeLoad = function(){
     alert('OK');
   };
