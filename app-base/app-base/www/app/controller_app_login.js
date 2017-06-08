@@ -3,7 +3,7 @@ app.app_login = function(ctl,auth){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
-          window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+          window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
        }).catch(function(error) {
           console.log(error.code)
           console.log(error.message)
@@ -14,7 +14,7 @@ app.app_login = function(ctl,auth){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
         console.log(result.user)
-        window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+        window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
      }).catch(function(error) {
         console.log(error.code)
         console.log(error.message)
@@ -27,7 +27,7 @@ app.app_login = function(ctl,auth){
     const promise = auth.signInWithEmailAndPassword(txtEmail,txtPassword);
     promise.then(function(){
       console.log(txtEmail,txtPassword);
-      window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+      window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
     });
   };
 

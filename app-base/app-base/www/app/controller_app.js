@@ -25,12 +25,20 @@ angular.module('app')
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs) ;
      }(document, 'script', 'facebook-jssdk') );
-     
+
   var ctl = this;
   const auth = firebase.auth();
   app.app_helper(ctl);
   app.app_login(ctl,auth);
   ctl.appSrv = appSrv;
+
+  ctl.showDialog = function(id){
+      $(id).show();
+    };
+
+   ctl.hideDialog = function(id){
+     $(id).hide();
+     };
   ctl.welcomeLoad = function(){
     alert('OK');
   };

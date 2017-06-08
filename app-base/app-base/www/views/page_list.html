@@ -55,9 +55,7 @@
       </md-toolbar>
       <md-content ng-controller="RightCtrl" layout-padding>
         <form>
-          <md-input-container>
-           <img class="button" src="Signal/exclamation.png">//ng-click="showDialog(dialog-exclamation)" manca parte dei dialoghi
-          </md-input-container>
+           <img class="button" id="exc " src="Signal/exclamation.png"ng-click="ctl.showDialog('#exc')"></img>
         </form>
         <md-button ng-click="close()" class="md-primary">
           Chiudi menu icone
