@@ -2,47 +2,18 @@ angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate, appSrv, $timeout) {
   console.log("QUI");
   var ctl = this;
-  var config = {
-    apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
-    authDomain: "angel-6902f.firebaseapp.com",
-    databaseURL: "https://angel-6902f.firebaseio.com",
-    projectId: "angel-6902f",
-    storageBucket: "angel-6902f.appspot.com",
-    messagingSenderId: "306707852817"
-  };
-  firebase.initializeApp(config);
-  window.fbAsyncInit = function() {
-        FB.init({
-           appId      : '427469474303607',
-           xfbml      : true,
-           version    : 'v2.6'
-        });
-     };
 
-     (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s) [0];
-        if (d.getElementById(id) ) {return;}
-        js = d.createElement(s) ; js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs) ;
-     }(document, 'script', 'facebook-jssdk') );
-
-  const auth = firebase.auth();
   app.app_helper(ctl);
   app.app_login(ctl,auth);
-
   ctl.appSrv = appSrv;
-
   ctl.welcomeLoad = function(){
     alert('OK');
   };
   ctl.elementLoad = function(){
     ctl.spinnerShow();
-
     console.log("Visualizzo singolo elemento", $routeParams);
     // ctl.current_element_id = $routeParams.item_id;
     // ctl.current_element = ctl.appSrv.list[ctl.current_element_id];
-
     $timeout(function(){
     // setTimeout(function(){
     //   // console.log("Visualizzo singolo elemento", $routeParams);
@@ -54,7 +25,6 @@ angular.module('app')
       ctl.spinnerHide();
     }, 1500);
   }
-
   ctl.spinnerHide();
 }).controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   $scope.toggleLeft = buildDelayedToggler('left');
@@ -62,11 +32,6 @@ angular.module('app')
   $scope.isOpenRight = function(){
     return $mdSidenav('right').isOpen();
   };
-
-  /**
-   * Supplies a function that will continue to operate until the
-   * time is up.
-   */
   function debounce(func, wait, context) {
     var timer;
 
@@ -80,11 +45,6 @@ angular.module('app')
       }, wait || 10);
     };
   }
-
-  /**
-   * Build handler to open/close a SideNav; when animation finishes
-   * report completion in console
-   */
   function buildDelayedToggler(navID) {
     return debounce(function() {
       // Component lookup should always be available since we are not using `ng-if`
@@ -98,29 +58,16 @@ angular.module('app')
 
   function buildToggler(navID) {
     return function() {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav(navID)
+    $mdSidenav(navID)
         .toggle()
         .then(function () {
           $log.debug("toggle " + navID + " is done");
         });
     };
   }
-  /*var showDialog = function (id) {
-    document
-      .getElementById(id)
-      .show();
-  };
-  var hideDialog = function(id) {
-    document
-      .getElementById(id)
-      .hide();
-  };
-})*/
-.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+  .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function () {
-    // Component lookup should always be available since we are not using `ng-if`
-    $mdSidenav('left').close()
+        $mdSidenav('left').close()
       .then(function () {
         $log.debug("close LEFT is done");
       });
@@ -129,7 +76,6 @@ angular.module('app')
 })
 .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
   $scope.close = function () {
-    // Component lookup should always be available since we are not using `ng-if`
     $mdSidenav('right').close()
       .then(function () {
         $log.debug("close RIGHT is done");
