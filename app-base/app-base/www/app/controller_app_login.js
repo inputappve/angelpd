@@ -3,7 +3,7 @@ app.app_login = function(ctl,auth){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
-          window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+          window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
        }).catch(function(error) {
           console.log(error.code)
           console.log(error.message)
@@ -14,7 +14,7 @@ app.app_login = function(ctl,auth){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
         console.log(result.user)
-        window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+        window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
      }).catch(function(error) {
         console.log(error.code)
         console.log(error.message)
@@ -31,7 +31,7 @@ app.app_login = function(ctl,auth){
           var user = firebase.auth().currentUser;
           if(user.emailVerified){
             console.log("grazie per l'auth");
-          window.location.href = 'http://localhost:8000/app-base/app-base/www/index_ng.html#!/page_list';
+          window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
         }else{
           user.sendEmailVerification().then(function(result){
                 console.log("mail mandata");
