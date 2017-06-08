@@ -6,7 +6,7 @@ app
   console.log("QUI");
   $routeProvider.
     when('/welcome', {
-      templateUrl: "views/welcome.html"    
+      templateUrl: "views/welcome.html"
     }).
     when('/page_list', {
       templateUrl: "views/page_list.html"
