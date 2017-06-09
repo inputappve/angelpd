@@ -66,7 +66,7 @@ var Fire = function(){
    })
 }
 
-var provider = new firebase.auth.FacebookAuthProvider() ;
+var provider = new firebase.auth.FacebookAuthProvider();
 var providerG = new firebase.auth.GoogleAuthProvider();
 
 function googleSignin() {
@@ -77,8 +77,6 @@ function googleSignin() {
       console.log(user)
       document.getElementById("c").style.visibility = "hidden";
    }).catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
       console.log(error.code)
       console.log(error.message)
    });
@@ -205,6 +203,27 @@ window.fbAsyncInit = function() {
          .getElementById(id)
          .show();
      };
+
+     var LeafIcon = L.Icon.extend({
+    options: {
+
+        iconSize:     [38, 95],
+        iconAnchor:   [22, 94],
+        popupAnchor:  [-3, -76]
+    }
+  });
+
+ var exclamation = new LeafIcon({iconUrl: 'Signal/exclamation.png'}),
+    garbage = new LeafIcon({iconUrl: 'Signal/garbage.png'}),
+    burn = new LeafIcon({iconUrl: 'Signal/burn.png'});
+
+    L.icon = function (options) {
+        return new L.Icon(options);
+    };
+
+    aggiungiicona = function(options){
+     L.marker([45.4349, 12.3341], {icon: options}).addTo(map).bindPopup("...");
+   };
   </script>
 
 </head>
@@ -435,7 +454,7 @@ window.fbAsyncInit = function() {
      Vuoi aggiungere il segnale?
   </div>
   <div class="alert-dialog-footer">
-    <button class="alert-dialog-button" onclick="hideDialog('dialog-pericolo')">OK</button>
+    <button class="alert-dialog-button" onclick="aggiungiicona('garbage')">OK</button>
     <button class="alert-dialog-button" onclick="hideDialog('dialog-pericolo')">Cancel</button>
   </div>
 </ons-alert-dialog>

@@ -1,0 +1,11 @@
+Iniziallizza bower.json
+  bower init
+crea il .bowerrc
+  echo "{ \"directory\" : \"www/bower_components\" }" > .bowerrc
+
+  mkdir www
+
+SEED FROM
+  https://docs.angularjs.org/tutorial/step_00
+  https://github.com/angular/angular-seed
+

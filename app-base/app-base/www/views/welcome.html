@@ -1,0 +1,27 @@
+<h2 style="text-align: center;" >InputApp</h2>
+<div class="container">
+                <md-input-container class="md-block" style="position: fixed;height: 5%;width: 75%;left: 12%;top: 18%;">
+                <input id="txtEmail" type="email" placeholder="Email (required)" ng-required="true" >
+                </md-input-container>
+
+                <md-input-container class="md-block" style="position:fixed;height: 5%;width: 75%;left: 12%;top: 30%;">
+                <input id="txtPassword" type="password" placeholder="Password (required)" ng-required="true" >
+                </md-input-container>
+
+                <md-button class="md-raised" ng-click="ctl.passwordForgot()" style="position:fixed; top:38%; right:25%; width:45%; height:5%;">
+                  Forgot password?
+                </md-button>
+
+                <md-button  ng-click="ctl.Login() " class="md-raised md-primary" style="position: fixed;left:13%;top:45%; background-color: rgb(55, 146, 179);">
+                  log in
+                </md-button >
+
+                <md-button ng-click="ctl.SingIn()" class="md-raised md-primary" style="position: fixed; right:13%;top:45%; background-color: rgb(55, 146, 179);">
+                  sing up
+                </md-button >
+                <ng-md-icon icon="google-plus-box" ng-click="ctl.googleLogin() " size="50" style=" fill: red; position : fixed; top:55%; right:28%;"></ng-md-icon>
+                
+                <ng-md-icon icon="facebook-box" ng-click="ctl.facebookLogin() " size="50" style=" fill: blue; position: fixed; top: 64%; right: 28%;"></ng-md-icon> 
+                <a style="text:bold;">termini di utilizzo</a>
+</div>
+ <!--<a href="#!/page_list">Vai alla Lista</a> -->
