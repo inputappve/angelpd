@@ -18,22 +18,19 @@
   <md-sidenav class="md-sidenav-left" md-component-id="left"
                md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+        <h1 class="md-toolbar-tools">Menu</h1>
     </md-toolbar>
       <md-content layout-margin>
-         <md-button>{{title1}}</md-button>
-          <md-button>{{title2}}</md-button>
-           <md-button>{{title3}}</md-button>
-        <md-button ng-click="toggleLeft()" class="md-accent">
-          Close this Sidenav
+         <ul type="" >
+         <li><md-button style= "position: fixed;right:71%;">{{title1}}</md-button></li>
+          <li><md-button style="position: fixed;top:17%;right:67%;">{{title2}}</md-button></li>
+          <li><md-button style= "position: fixed;top:24%;right:69%;">{{title3}}</md-button></li>
+          </ul>
+        <md-button style="position: fixed;top:32%;right:70%;" ng-click="toggleLeft()" class="md-accent">
+          Close 
         </md-button>
       </md-content>
     </md-sidenav>
-    <!--md-content flex layout-padding>
-      <div layout="column" layout-align="top center">
-         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
-      </div>
-    </md-content-->
   </section>
 </div>
 <ng-md-icon class="md-raised" icon="add_circle" ng-click="toggleRight()" size="45" style="position: fixed;top: 9%;right: 2%;z-index: 1;"></ng-md-icon>
@@ -49,17 +46,5 @@
    <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
     </md-toolbar>
-      <!--md-content layout-margin>
-        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
-        <md-button ng-click="toggleRight()" class="md-accent">
-          Close this Sidenav
-        </md-button>
-      </md-content>
-    </md-sidenav>
-    <md-content flex layout-padding>
-      <div layout="column" layout-align="top center">
-           <ng-md-icon class="md-raised" icon="add_circle" ng-click="toggleRight()" size="55"></ng-md-icon>
-      </div>
-    </md-content-->
   </section>
 </div>

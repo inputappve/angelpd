@@ -4,7 +4,7 @@ app.factory('appSrv', function() {
   appSrv.list = [
     'UNO',
     'DUE',
-    'TRE'
+    'TRE',
   ];
   appSrv.list_lat_lng = [
     {lat: 40.74, lng: -74.18},

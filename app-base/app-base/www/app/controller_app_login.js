@@ -25,6 +25,7 @@ app.app_login = function(ctl,auth){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
     const promise = auth.signInWithEmailAndPassword(txtEmail,txtPassword);
+
     promise.then(function(result){
           console.log(txtEmail,txtPassword)
           console.log("ci sei ma forse non sei autentificato");
