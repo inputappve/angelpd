@@ -1,71 +1,58 @@
-<!--<div ng-if="ctl.appSrv.list.length == 0">
-  Non ci sono elementi nella lista
-</div>-->
-
-<div ng-controller="AppCtrl" layout="column" style="height:500px;" ng-cloak>
-
-  <section layout="row" flex>
-
-    <md-sidenav
-        class="md-sidenav-left"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        md-whiteframe="4">
-
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Menu</h1>
-      </md-toolbar>
-      <md-content layout-padding ng-controller="LeftCtrl">
-        <form>
-          <md-input-container>
-            <div ng-repeat="elem in ctl.appSrv.list">
-              <a href="#!/page_detail/{{$index}}">Elemento &lt;{{elem}}&gt;</a>
-            </div>
-          </md-input-container>
-        </form>
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Chiudi Menu
+<div layout="column" style="height: 500px;" ng-cloak>
+ <section layout="row" flex>
+  <md-sidenav class="md-sidenav-left" md-component-id="left"
+               md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+    </md-toolbar>
+      <md-content layout-margin>
+         <md-button>{{title1}}</md-button>
+          <md-button>{{title2}}</md-button>
+           <md-button>{{title3}}</md-button>
+        <md-button ng-click="toggleLeft()" class="md-accent">
+          Close this Sidenav
         </md-button>
       </md-content>
     </md-sidenav>
     <md-content flex layout-padding>
+      <div layout="column" layout-align="top center">
+        <p>
+          Developers can also disable the backdrop of the sidenav.<br/>
+          This will disable the functionality to click outside to close the sidenav.
+        </p>
         <div>
-          <md-button ng-click="toggleLeft()"
-            class="md-primary" hide-gt-md>
-            Menu
-          </md-button>
-        </div>
-        <div>
-          <md-button ng-click="toggleRight()"
-            ng-hide="isOpenRight()"
-            class="md-primary">
-            Menu Icone
+          <md-button ng-click="toggleLeft()" class="md-raised">
+            Toggle Sidenav
           </md-button>
         </div>
       </div>
-
-      <div flex></div>
-
     </md-content>
+  </section>
+</div>
 
-    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
 
-      <md-toolbar class="md-theme-light">
-        <h1 class="md-toolbar-tools">Menu Icone</h1>
-      </md-toolbar>
-      <md-content ng-controller="RightCtrl" layout-padding>
-        <form>
-          <md-input-container>
-           <img class="button" src="Signal/exclamation.png">//ng-click="showDialog(d1ialog-exclamation)" manca parte dei dialoghi
-          </md-input-container>
-        </form>
-        <md-button ng-click="close()" class="md-primary">
-          Chiudi menu icone
+<div layout="column" style="height: 500px;" ng-cloak>
+ <section layout="row" flex>
+  <md-sidenav class="md-sidenav-right" md-component-id="right"
+               md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+    </md-toolbar>
+      <md-content layout-margin>
+        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
+        <md-button ng-click="toggleRight()" class="md-accent">
+          Close this Sidenav
         </md-button>
       </md-content>
-
     </md-sidenav>
-
+    <md-content flex layout-padding>
+      <div layout="column" layout-align="top center">
+        <div>
+          <md-button ng-click="toggleRight()" class="md-raised">
+            Toggle Sidenav
+          </md-button>
+        </div>
+      </div>
+    </md-content>
   </section>
-
 </div>

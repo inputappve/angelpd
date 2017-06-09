@@ -1,5 +1,6 @@
 angular.module('app')
-.controller('MainCtrl', function($scope, $routeParams, $translate, appSrv, $timeout) {
+.controller('MainCtrl', function($scope, $routeParams, $translate,
+  appSrv, $timeout,$mdSidenav,$mdDialog) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -50,60 +51,36 @@ angular.module('app')
     }, 1500);
   }
   ctl.spinnerHide();
-}).controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-  $scope.toggleLeft = buildDelayedToggler('left');
+
+  //funzioni
+  $scope.toggleLeft = buildToggler('left');
   $scope.toggleRight = buildToggler('right');
-  $scope.isOpenRight = function(){
-    return $mdSidenav('right').isOpen();
+  $scope.title1 = 'Home';
+  $scope.title2 = 'Settings';
+  $scope.title3 = 'About';
+  $scope.showConfirm = function(ev) {
+    // Appending dialog to document.body to cover sidenav in docs app
+    var confirm = $mdDialog.confirm()
+          .title('Would you like to delete your debt?')
+          .textContent('All of the banks have agreed to forgive you your debts.')
+          .ariaLabel('Lucky day')
+          .targetEvent(ev)
+          .ok('Please do it!')
+          .cancel('Sounds like a scam');
+
+    $mdDialog.show(confirm).then(function() {
+      $scope.status = 'You decided to get rid of your debt.';
+    }, function() {
+      $scope.status = 'You decided to keep your debt.';
+    });
   };
-  function debounce(func, wait, context) {
-    var timer;
+  //
 
-    return function debounced() {
-      var context = $scope,
-          args = Array.prototype.slice.call(arguments);
-      $timeout.cancel(timer);
-      timer = $timeout(function() {
-        timer = undefined;
-        func.apply(context, args);
-      }, wait || 10);
-    };
-  }
-  function buildDelayedToggler(navID) {
-    return debounce(function() {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav(navID)
-        .toggle()
-        .then(function () {
-          $log.debug("toggle " + navID + " is done");
-        });
-    }, 200);
-  }
-
-  function buildToggler(navID) {
+  function buildToggler(componentId) {
     return function() {
-    $mdSidenav(navID)
-        .toggle()
-        .then(function () {
-          $log.debug("toggle " + navID + " is done");
-        });
+      $mdSidenav(componentId).toggle();
     };
   }
-})
-.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-  $scope.close = function () {
-        $mdSidenav('left').close()
-      .then(function () {
-        $log.debug("close LEFT is done");
-      });
 
-  };
-});
-.controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-  $scope.close = function () {
-    $mdSidenav('right').close()
-      .then(function () {
-        $log.debug("close RIGHT is done");
-      });
-  };
-});
+
+})
