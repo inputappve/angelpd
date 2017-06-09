@@ -2,7 +2,8 @@ var app = angular.module('app', [
   'ngRoute',
   'pascalprecht.translate',
   'ngMaterial',
-  'ngMap'
+  'ngMap',
+  'ngMdIcons'
   // PER LE MAPPE 'ngMap'
 ]);
 

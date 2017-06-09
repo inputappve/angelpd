@@ -14,6 +14,9 @@ app
     when('/page_detail/:item_id', {
       templateUrl: "views/page_detail.html"
     }).
+    when('/controllo.html', {
+      templateUrl: "views/controllo.html"
+    }).
     otherwise('welcome');
 })
 ;
