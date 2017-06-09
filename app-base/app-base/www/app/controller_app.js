@@ -27,6 +27,7 @@ angular.module('app')
         fjs.parentNode.insertBefore(js, fjs) ;
      }(document, 'script', 'facebook-jssdk') );
   var ctl = this;
+  ctl.posVe =  {lat: 45.4217, lng: 12.3356};
   const auth = firebase.auth();
   app.app_helper(ctl);
   app.app_login(ctl,auth);
