@@ -1,0 +1,10 @@
+.gm-svpc{	
+	display:none;
+}
+.lower_button{
+	fill: white;
+	position: fixed;
+	z-index: 1;
+	bottom: 12%;
+    right: 1%;
+}
