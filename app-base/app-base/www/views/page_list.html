@@ -36,7 +36,15 @@
 <ng-md-icon class="md-raised" icon="add_circle" ng-click="toggleRight()" size="45" style="position: fixed;top: 9%;right: 2%;z-index: 1;"></ng-md-icon>
 <mappa>
 <ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="    top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
+ <marker position="current" animation="Animation.BOUNCE" centered="true" title="Hello World!" 
+   icon="{
+        url:'Signal/exclamation.png',
+        scaledSize:[100,100],
+        origin: [10,10],
+        anchor: [50,50]
+      }"></marker>
 </ng-map>
+
 </mappa>
 
 <div layout="column" style="height: 10%;" ng-cloak>
