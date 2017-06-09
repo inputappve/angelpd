@@ -1,4 +1,10 @@
-<h2 style="text-align: center;" >InputApp</h2>
+ <md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2 flex md-truncate style="text-align: center;" >InputApp</h2>
+      </div>
+    </md-toolbar>
+</md-content>
 <div class="container">
                 <md-input-container class="md-block" style="position: fixed;height: 5%;width: 75%;left: 12%;top: 18%;">
                 <input id="txtEmail" type="email" placeholder="Email (required)" ng-required="true" >
@@ -12,16 +18,17 @@
                   Forgot password?
                 </md-button>
 
-                <md-button  ng-click="ctl.Login() " class="md-raised md-primary" style="position: fixed;left:13%;top:45%; background-color: rgb(55, 146, 179);">
+                <md-button  ng-click="ctl.Login() " class="md-raised md-primary" style="position: fixed;left:18%;top:45%; background-color: rgb(55, 146, 179);">
                   log in
                 </md-button >
 
-                <md-button ng-click="ctl.SingIn()" class="md-raised md-primary" style="position: fixed; right:13%;top:45%; background-color: rgb(55, 146, 179);">
+                <md-button ng-click="ctl.SingIn()" class="md-raised md-primary" style="position: fixed; right:18%;top:45%; background-color: rgb(55, 146, 179);">
                   sing up
                 </md-button >
+
                 <ng-md-icon icon="google-plus-box" ng-click="ctl.googleLogin() " size="50" style=" fill: red; position : fixed; top:55%; right:28%;"></ng-md-icon>
                 
-                <ng-md-icon icon="facebook-box" ng-click="ctl.facebookLogin() " size="50" style=" fill: blue; position: fixed; top: 64%; right: 28%;"></ng-md-icon> 
-                <a style="text:bold;">termini di utilizzo</a>
+                <ng-md-icon icon="facebook-box" ng-click="ctl.facebookLogin() " size="50" style=" fill: blue; position: fixed; top: 55%; left: 28%;"></ng-md-icon> 
+                <strong class="termini" style="position: absolute;text:bold;bottom:11%;right: 28%">TERMINI DI UTILIZZO</strong>
 </div>
  <!--<a href="#!/page_list">Vai alla Lista</a> -->
