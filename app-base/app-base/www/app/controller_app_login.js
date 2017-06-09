@@ -28,11 +28,12 @@ app.app_login = function(ctl,auth){
     promise.then(function(result){
           console.log(txtEmail,txtPassword)
           console.log("ci sei ma forse non sei autentificato");
-          var user = firebase.auth().currentUser;
+          const user = firebase.auth().currentUser;
           if(user.emailVerified){
-            console.log("grazie per l'auth");
+            console.log("entri pure");
           window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
         }else{
+          window.location.href = "http://localhost:8000/index_ng.html#!/controllo.html?user=";
           user.sendEmailVerification().then(function(result){
                 console.log("mail mandata");
                 console.log(result)
@@ -46,7 +47,10 @@ app.app_login = function(ctl,auth){
           console.log(error.message)
        });
   };
-
+  ctl.return = function(){
+    console.log('verificato?');
+    window.location.href = 'http://localhost:8000/index_ng.html#!/welcome';
+  }
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
