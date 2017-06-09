@@ -25,19 +25,49 @@ app.app_login = function(ctl,auth){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
     const promise = auth.signInWithEmailAndPassword(txtEmail,txtPassword);
-    promise.then(function(){
-      console.log(txtEmail,txtPassword);
-      window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
-    });
+
+    promise.then(function(result){
+          console.log(txtEmail,txtPassword)
+          console.log("ci sei ma forse non sei autentificato");
+          var user = firebase.auth().currentUser;
+          if(user.emailVerified){
+            console.log("grazie per l'auth");
+          window.location.href = 'http://localhost:8000/index_ng.html#!/page_list';
+        }else{
+          user.sendEmailVerification().then(function(result){
+                console.log("mail mandata");
+                console.log(result)
+             }).catch(function(error) {
+                console.log(error.code)
+                console.log(error.message)
+             });
+        }
+       }).catch(function(error) {
+          console.log(error.code)
+          console.log(error.message)
+       });
   };
 
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
     const promise = auth.createUserWithEmailAndPassword(txtEmail,txtPassword);
-    promise.then(then(function() {e => console.log(e.message);
-      console.log("Riscrivi mail e pass per entrare");
-    })
-  );
+    promise.then(function(result){
+          console.log(result.user)
+          console.log("riscrivi tutto e logga");
+       }).catch(function(error) {
+          console.log(error.code)
+          console.log(error.message)
+       });
   };
+
+  ctl.passwordForgot = function(){
+    var emailAddress = document.getElementById('txtEmail').value;
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+     console.log("Mail mandata a" , emailAddress);
+    }, function(error) {
+      console.log(error.code);
+      console.log(error.message);
+    });
+    }
 };
