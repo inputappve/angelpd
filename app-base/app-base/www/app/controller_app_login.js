@@ -1,9 +1,10 @@
-app.app_login = function(ctl,auth){
+app.app_login = function(ctl,auth,usercurrent){
   ctl.facebookLogin = function(){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
           window.location.href = ctl.htmlpage + '/page_list';
+          usercurrent = firebase.auth().currentUser;
        }).catch(function(error) {
           console.log(error.code)
           console.log(error.message)
@@ -14,6 +15,7 @@ app.app_login = function(ctl,auth){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
         console.log(result.user)
+        usercurrent = firebase.auth().currentUser;
         window.location.href = ctl.htmlpage + '/page_list';
      }).catch(function(error) {
         console.log(error.code)
@@ -32,6 +34,7 @@ app.app_login = function(ctl,auth){
           const user = firebase.auth().currentUser;
           if(user.emailVerified){
             console.log("entri pure");
+            usercurrent = firebase.auth().currentUser;
           window.location.href = ctl.htmlpage + '/page_list';
         }else{
           window.location.href = ctl.htmlpage + '/controllo.html;'
@@ -78,7 +81,38 @@ app.app_login = function(ctl,auth){
     });
     }
 
-    ctl.bLink = function(string){
-      window.location.href = ctl.htmlpage +  string;
+    ctl.bLink = function(string){   
+    if(string == 'settings'){
+      console.log("settings1");
+      window.location.href = ctl.htmlpage +string; 
+
+    }else{
+      window.location.href = ctl.htmlpage +string;     
     }
+    }   
+  ctl.set1 = function(){  
+        console.log("settings2");
+        console.log(usercurrent);
+        if(usercurrent.displayName != null){
+        document.getElementById("p1").innerHTML = usercurrent.displayName;
+        document.getElementById("change").style.visibility  = "hidden"
+        }else{
+         document.getElementById("p1").innerHTML = "la tua Email è:";    
+         document.getElementById("change").style.visibility  = "visible";
+        }
+        
+    }
+  ctl.set2 = function(){
+        console.log(usercurrent.email);
+        document.getElementById("p2").innerHTML = usercurrent.email;
+  }
+
+  ctl.change = function(){
+
+    auth.changePassword(usercurrent.email, oldPassword, newPassword, function(error, success) {
+  if (!error) {
+    console.log('Password change successfully');
+  }
+  }
 };
+

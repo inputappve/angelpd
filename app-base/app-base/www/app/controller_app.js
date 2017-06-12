@@ -32,7 +32,8 @@ angular.module('app')
   const auth = firebase.auth();
   ctl.htmlpage = '/index.html#!';
   app.app_helper(ctl);
-  app.app_login(ctl,auth);
+  const usercurrent = firebase.auth().currentUser;
+  app.app_login(ctl,auth,usercurrent);
   ctl.appSrv = appSrv;
 
   ctl.showDialog = function(id){
