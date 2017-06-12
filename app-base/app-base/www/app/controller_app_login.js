@@ -53,7 +53,7 @@ app.app_login = function(ctl,auth){
     window.location.href = ctl.htmlpage + '/welcome';
   }
   ctl.terms = function(){
-    window.location.href = 'http://localhost:8000/index_ng.html#!/terms.html';
+    window.location.href = ctl.htmlpage + '/terms.html';
   }
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
