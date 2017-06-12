@@ -77,4 +77,8 @@ app.app_login = function(ctl,auth){
       console.log(error.message);
     });
     }
+
+    ctl.bLink = function(string){
+      window.location.href = ctl.htmlpage +  string;
+    }
 };
