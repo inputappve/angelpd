@@ -17,6 +17,12 @@ app
     when('/controllo.html', {
       templateUrl: "views/controllo.html"
     }).
-    otherwise('welcome');
+    when('/settings', {
+
+    templateUrl: "views/settings.html"
+
+    }).
+
+    .otherwise('welcome');
 })
 ;

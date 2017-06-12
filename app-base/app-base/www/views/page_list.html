@@ -21,8 +21,11 @@
         <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
     </md-toolbar>
       <md-content layout-margin>
-         <ul type="" >
-         <li><md-button style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">{{title1}}</md-button></li>
+          <ul type="" >
+            <li><md-button ng-click="toggleLeft()" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">
+                  <a href="http://localhost:8000/index_ng.html#!/page_list">{{title1}}</a>
+                </md-button>
+            </li>
           <li><md-button style="right: 0%;width: 100%;position: fixed;height: 7%;top: 15%;margin: 0px;">{{title2}}</md-button></li>
           <li><md-button style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 22%;margin: 0px;">{{title3}}</md-button></li>
           </ul>
@@ -35,7 +38,7 @@
 </div>
 <ng-md-icon class="md-raised" icon="add_circle" ng-click="toggleRight()" size="45" style="position: fixed;top: 9%;right: 2%;z-index: 1;"></ng-md-icon>
 <mappa>
-<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="    top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
+<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
 </ng-map>
 </mappa>
 
