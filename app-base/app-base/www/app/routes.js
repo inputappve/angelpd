@@ -17,6 +17,9 @@ app
     when('/controllo.html', {
       templateUrl: "views/controllo.html"
     }).
+     when('/terms.html', {
+      templateUrl: "views/terms.html"
+    }).
     otherwise('welcome');
 })
 ;

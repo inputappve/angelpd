@@ -52,6 +52,9 @@ app.app_login = function(ctl,auth){
     console.log('verificato?');
     window.location.href = 'http://localhost:8000/index_ng.html#!/welcome';
   }
+  ctl.terms = function(){
+    window.location.href = 'http://localhost:8000/index_ng.html#!/terms.html';
+  }
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
