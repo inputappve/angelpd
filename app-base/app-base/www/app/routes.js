@@ -17,6 +17,7 @@ app
     when('/controllo.html', {
       templateUrl: "views/controllo.html"
     }).
+<<<<<<< HEAD
     when('/settings', {
 
     templateUrl: "views/settings.html"
@@ -24,5 +25,11 @@ app
     }).
 
     .otherwise('welcome');
+=======
+     when('/terms.html', {
+      templateUrl: "views/terms.html"
+    }).
+    otherwise('welcome');
+>>>>>>> a9b7d7f372b101a96c4f8d814f18ec037aa91c8c
 })
 ;
