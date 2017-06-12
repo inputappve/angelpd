@@ -109,10 +109,13 @@ app.app_login = function(ctl,auth,usercurrent){
 
   ctl.change = function(){
 
-    auth.changePassword(usercurrent.email, oldPassword, newPassword, function(error, success) {
-  if (!error) {
+    auth.changePassword(usercurrent.email, oldPassword, newPassword)
+    .then(function(){
     console.log('Password change successfully');
-  }
+    },function(error){
+      console.log(error.code);
+      console.log(error.message);
+    });
   }
 };
 
