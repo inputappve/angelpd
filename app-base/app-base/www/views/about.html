@@ -1,0 +1,33 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu a scomparsa con AngularJS</title>
+<script src= "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="menuApp" ng-controller="menuCtrl">
+<button ng-click="funcMenu()">Accedi al menu</button>
+<div ng-show="mostraMenu">
+<h1>Il nostro menu:</h1>
+<ul>
+<li><a href="http://www.mrwebmaster.it/html/guide/guida-html5/" title="Guida HTML5">HTML5</a></li>
+<li><a href="http://www.mrwebmaster.it/php/guide/guida-php/" title="Guida PHP">PHP</a></li>
+<li><a href="http://www.mrwebmaster.it/programmazione/guide/guida-python/" title="Guida Python">Python</a></li>
+<li><a href="http://www.mrwebmaster.it/javascript/" title="Guida JavaScript">JavaScript</a></li>
+<li><a href="http://www.mrwebmaster.it/css/guide/guida-css3/" title="Guida CSS3">CSS3</a></li>
+</ul>
+</div>
+<script>
+var menu = angular.module('menuApp', []);
+menu.controller('menuCtrl', function($scope) {
+    $scope.mostraMenu = false;
+    $scope.funcMenu = function() {
+        $scope.mostraMenu = !$scope.mostraMenu;
+    }
+});
+</script>
+Accedi, poi nascondi nuovamente il menu clickando sul pulsante.
+</body>
+</html>

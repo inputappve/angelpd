@@ -18,10 +18,16 @@ app
       templateUrl: "views/controllo.html"
     }).
 
+    when('/settings', {
+      templateUrl: "views/settings.html"
+    }).
+    when('/about', {
+      templateUrl: "views/about.html"
+    }).
+
      when('/terms.html', {
       templateUrl: "views/terms.html"
 
     }).
-    otherwise('welcome');
-})
-;
+    otherwise('welcome')});
+
