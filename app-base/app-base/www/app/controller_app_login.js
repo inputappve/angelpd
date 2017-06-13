@@ -93,7 +93,7 @@ app.app_login = function(ctl,auth,usercurrent){
   ctl.set1 = function(){  
         console.log("settings2");
         console.log(usercurrent);
-        if(usercurrent.displayName != null){
+        if(usercurrent.displayName == null){
         document.getElementById("p1").innerHTML = usercurrent.displayName;
         document.getElementById("change").style.visibility  = "hidden"
         }else{
