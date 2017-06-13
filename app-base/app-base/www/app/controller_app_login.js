@@ -90,22 +90,30 @@ app.app_login = function(ctl,auth,usercurrent){
         console.log(usercurrent);
         if(usercurrent.displayName != null){
         document.getElementById("p1").innerHTML = usercurrent.displayName;
-        document.getElementById("change").style.visibility  = "hidden"
         }else{
          document.getElementById("p1").innerHTML = "la tua Email è:";    
-         document.getElementById("change").style.visibility  = "visible";
+         
         }
         
     }
   ctl.set2 = function(){
         console.log(usercurrent.email);
         document.getElementById("p2").innerHTML = usercurrent.email;
+
+        if(usercurrent.displayName == null){
+      document.getElementById("change").style.visibility  = "visible";
+     }else{
+      document.getElementById("change").style.visibility  = "hidden";
+     }
   }
   
   ctl.changepassword = function(){
-    window.location.href = ctl.htmlpage + 'changepassword.html';
+    window.location.href = ctl.htmlpage + 'changepassword';
   }
+
   ctl.change = function(){
+     var oldPassword =  document.getElementById("oldP").value;
+     var newPassword =  document.getElementById("newP").value;
 
     auth.changePassword(usercurrent.email, oldPassword, newPassword)
     .then(function(){
@@ -115,10 +123,7 @@ app.app_login = function(ctl,auth,usercurrent){
       console.log(error.message);
     })
   }
-
-  var user = firebase.auth().currentUser;
-
   ctl.showPorco = function(){
-      $(user.photoUrl).show();
+      $(usercurrent.photoUrl).show();
     };
 };
