@@ -30,9 +30,10 @@ angular.module('app')
   var ctl = this;
   ctl.posVe =  {lat: 45.4217, lng: 12.3356};
   const auth = firebase.auth();
-  ctl.htmlpage = '/index.html#!';
+  ctl.htmlpage = 'index.html#!';
   app.app_helper(ctl);
-  app.app_login(ctl,auth);
+  const usercurrent = firebase.auth().currentUser;
+  app.app_login(ctl,auth,usercurrent);
   ctl.appSrv = appSrv;
 
   ctl.showDialog = function(id){
