@@ -1,0 +1,14 @@
+.gm-svpc{	
+	display:none;
+}
+.lower_button{
+	fill: white;
+	position: fixed;
+	z-index: 1;
+	bottom: 13%;
+    right: 1%;
+    background-color: black;
+    border-radius: 70px;
+    height: 7%;
+}
+}

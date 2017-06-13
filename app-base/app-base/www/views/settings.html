@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
+        <h2 flex md-truncate style="text-align: center;" >InputApp</h2>
+      </div>
+    </md-toolbar>
+</md-content>
+
+<div layout="column" style="height: 10%;" ng-cloak>
+ <section layout="row" flex>
+  <md-sidenav class="md-sidenav-left" md-component-id="left"
+               md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo">
+        <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
+    </md-toolbar>
+      <md-content layout-margin>
+          <ul>
+          <!--toggleLeft() -->
+            <li>
+            <md-button ng-click="ctl.bLink('page_list')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">{{title1}}</md-button>
+            </li>
+          <li><md-button ng-click="ctl.bLink('settings')" style="right: 0%;width: 100%;position: fixed;height: 7%;top: 15%;margin: 0px;">{{title2}}</md-button></li>
+          <li><md-button ng-click="ctl.bLink('about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 22%;margin: 0px;">{{title3}}</md-button></li>
+          </ul>
+        <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
+          Close 
+        </md-button>
+      </md-content>
+    </md-sidenav>
+  </section>
+</div>
+</head>
+<body >
+<p id="p1" ng-init="ctl.set1()">ciao </p>
+<p id="p2" ng-init="ctl.set2()">ciao </p>
+<md-button id="change" class="md-raised md-primary" ng-click="ctl.change()">Cambio passw? </md-button>
+</html>

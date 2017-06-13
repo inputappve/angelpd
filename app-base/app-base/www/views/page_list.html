@@ -1,4 +1,4 @@
-<style>
+ <style>
   .gm-fullscreen-control{
     display: none;
   }
@@ -18,23 +18,32 @@
   <md-sidenav class="md-sidenav-left" md-component-id="left"
                md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Menu</h1>
+        <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
     </md-toolbar>
       <md-content layout-margin>
-         <ul type="" >
-         <li><md-button style= "position: fixed;right:71%;">{{title1}}</md-button></li>
-          <li><md-button style="position: fixed;top:17%;right:67%;">{{title2}}</md-button></li>
-          <li><md-button style= "position: fixed;top:24%;right:69%;">{{title3}}</md-button></li>
+          <ul>
+          <!--toggleLeft() -->
+            <li>
+            <md-button ng-click="ctl.bLink('page_list')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">{{title1}}</md-button>
+            </li>
+          <li><md-button ng-click="ctl.bLink('settings')" style="right: 0%;width: 100%;position: fixed;height: 7%;top: 15%;margin: 0px;">{{title2}}</md-button></li>
+          <li><md-button ng-click="ctl.bLink('about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 22%;margin: 0px;">{{title3}}</md-button></li>
           </ul>
+<<<<<<< HEAD
         <md-button style="position: fixed;top:32%;right:70%;" ng-click="toggleLeft()" class="md-accent">
           Close
+=======
+        <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
+          Close 
+>>>>>>> 41d29fef3126519bcffc195a399465bd91317f42
         </md-button>
       </md-content>
     </md-sidenav>
   </section>
 </div>
-<ng-md-icon class="md-raised" icon="add_circle" ng-click="toggleRight()" size="45" style="position: fixed;top: 9%;right: 2%;z-index: 1;"></ng-md-icon>
+<ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" ></ng-md-icon>
 <mappa>
+<<<<<<< HEAD
 <ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="    top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
  <marker position="current" animation="Animation.BOUNCE" centered="true" title="Hello World!" 
    icon="{
@@ -43,6 +52,9 @@
         origin: [10,10],
         anchor: [50,50]
       }"></marker>
+=======
+<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
+>>>>>>> 41d29fef3126519bcffc195a399465bd91317f42
 </ng-map>
 
 </mappa>
@@ -52,7 +64,7 @@
   <md-sidenav class="md-sidenav-right" md-component-id="right"
                md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Disabled Backdrop</h1>
+        <h1 class="md-toolbar-tools">Menu Icone</h1>
     </md-toolbar>
       <md-content layout-margin>
         <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
