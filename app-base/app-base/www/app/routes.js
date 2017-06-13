@@ -8,13 +8,13 @@ app
     when('/welcome', {
       templateUrl: "views/welcome.html"
     }).
-    when('/page_list', {
-      templateUrl: "views/page_list.html"
+    when('/map', {
+      templateUrl: "views/map.html"
     }).
     when('/page_detail/:item_id', {
       templateUrl: "views/page_detail.html"
     }).
-    when('/controllo.html', {
+    when('/controllo', {
       templateUrl: "views/controllo.html"
     }).
     when('/settings', {
@@ -23,7 +23,7 @@ app
     when('/about', {
       templateUrl: "views/about.html"
     }).
-     when('/terms.html', {
+     when('/terms', {
       templateUrl: "views/terms.html"
     }).
     otherwise('welcome')});
