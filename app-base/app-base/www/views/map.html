@@ -13,7 +13,7 @@
     </md-toolbar>
 </md-content>
 
-<div layout="column" style="height: 10%;" ng-cloak>
+<div layout="column" style="height: 1%;" ng-cloak>
  <section layout="row" flex>
   <md-sidenav class="md-sidenav-left" md-component-id="left"
                md-whiteframe="4">
@@ -22,7 +22,6 @@
     </md-toolbar>
       <md-content layout-margin>
           <ul>
-          <!--toggleLeft() -->
             <li>
             <md-button ng-click="ctl.bLink('map')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 9%;margin: 0px;">{{title1}}</md-button>
             </li>
@@ -37,14 +36,11 @@
     </md-sidenav>
   </section>
 </div>
-<ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" ></ng-md-icon>
-<mappa>
-<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
+<ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon>
+<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 1; position: fixed;">
 </ng-map>
 
-</mappa>
-
-<div layout="column" style="height: 10%;" ng-cloak>
+<div layout="column" style="height: 1%;" ng-cloak>
  <section layout="row" flex>
   <md-sidenav class="md-sidenav-right" md-component-id="right"
                md-whiteframe="4">
