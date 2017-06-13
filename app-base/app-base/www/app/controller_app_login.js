@@ -101,7 +101,10 @@ app.app_login = function(ctl,auth,usercurrent){
         console.log(usercurrent.email);
         document.getElementById("p2").innerHTML = usercurrent.email;
   }
-
+  
+  ctl.changepassword = function(){
+    window.location.href = ctl.htmlpage + 'changepassword.html';
+  }
   ctl.change = function(){
 
     auth.changePassword(usercurrent.email, oldPassword, newPassword)
@@ -110,7 +113,12 @@ app.app_login = function(ctl,auth,usercurrent){
     },function(error){
       console.log(error.code);
       console.log(error.message);
-    });
+    })
   }
-};
 
+  var user = firebase.auth().currentUser;
+
+  ctl.showPorco = function(){
+      $(user.photoUrl).show();
+    };
+};

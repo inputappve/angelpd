@@ -29,6 +29,7 @@
           <li><md-button ng-click="ctl.bLink('/settings')" style="right: 0%;width: 100%;position: fixed;height: 7%;top: 16%;margin: 0px;">{{title2}}</md-button></li>
           <li><md-button ng-click="ctl.bLink('/about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 23%;margin: 0px;">{{title3}}</md-button></li>
           </ul>
+
         <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
           Close 
         </md-button>
@@ -40,6 +41,7 @@
 <mappa>
 <ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 0; position: fixed;">
 </ng-map>
+
 </mappa>
 
 <div layout="column" style="height: 10%;" ng-cloak>
@@ -49,5 +51,17 @@
    <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Menu Icone</h1>
     </md-toolbar>
+      <md-content layout-margin>
+        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
+        <md-button ng-click="toggleRight()" class="md-accent">
+          Close this Sidenav
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding>
+      <div layout="column" layout-align="top center">
+
+      </div>
+    </md-content>
   </section>
 </div>

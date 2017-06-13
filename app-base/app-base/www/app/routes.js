@@ -26,5 +26,8 @@ app
      when('/terms', {
       templateUrl: "views/terms.html"
     }).
+    when('/changepassword.html', {
+      templateUrl: "views/changepassword.html"
+    }).
     otherwise('welcome')});
 
