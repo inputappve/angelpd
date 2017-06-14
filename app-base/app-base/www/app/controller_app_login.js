@@ -117,5 +117,7 @@ app.app_login = function(ctl,auth,usercurrent){
       console.log(error.message);
     });
   }
+
+
 };
 
