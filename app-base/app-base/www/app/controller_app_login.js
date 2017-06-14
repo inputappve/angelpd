@@ -128,17 +128,6 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
 
   ctl.change = function(){
      var oldPassword =  document.getElementById("oldP").value;
-<<<<<<< HEAD
-     var newPassword =  document.getElementById("newP").value;
-
-    auth.changePassword(usercurrent.email, oldPassword, newPassword)
-    .then(function(){
-    console.log('Password change successfully');
-    },function(error){
-      console.log(error.code);
-      console.log(error.message);
-    })
-=======
      var newPassword1 =  document.getElementById("newP").value;
      var newPassword2 =  document.getElementById("confP").value;
      console.log(oldPassword," ",newPassword1," ",newPassword2, " ",passwordcurrent);
@@ -151,9 +140,6 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
                  console.log(error.message);
     })
      }
-
-    
->>>>>>> master
   }
   ctl.showPorco = function(){
       $(usercurrent.photoUrl).show();
