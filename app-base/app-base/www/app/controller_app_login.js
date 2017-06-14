@@ -144,4 +144,9 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.showPorco = function(){
       $(usercurrent.photoUrl).show();
     };
+
+    ctl.avatar = function(){
+      var photo = currentUser.photoUrl;
+      document.getElementById("avatar").innerHTML = photo;
+    }
 };
