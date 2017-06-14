@@ -1,54 +1,59 @@
- <style>
+<style>
   .gm-fullscreen-control{
     display: none;
   }
-
+  .lefttolbar{
+    right: 0%; 
+    width: 100%; 
+    position: fixed;
+    height: 7%;
+    margin: 0px;
+  }
+  .mappa{
+    top: 8%; 
+    height: 92%;
+    display: block; 
+    width: 100%;
+    z-index: 1; 
+    position: fixed;
+  }
+  .titolo{
+    position: absolute;
+    top: 25%;
+    right: 42%;
+  }
 </style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
-        <h2 flex md-truncate style="text-align: center;" >InputApp</h2>
+        <h8 class="titolo">Angel</h8>
       </div>
     </md-toolbar>
 </md-content>
 
-<div layout="column" style="height: 1%;" ng-cloak>
- <section layout="row" flex>
-  <md-sidenav class="md-sidenav-left" md-component-id="left"
-               md-whiteframe="4">
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
+      <h8 class="titolo">Menu</h8>
     </md-toolbar>
       <md-content layout-margin>
           <ul>
-            <li>
-            <md-button ng-click="ctl.bLink('map')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 9%;margin: 0px;">{{title1}}</md-button>
-            </li>
-          <li><md-button ng-click="ctl.bLink('/settings')" style="right: 0%;width: 100%;position: fixed;height: 7%;top: 16%;margin: 0px;">{{title2}}</md-button></li>
-          <li><md-button ng-click="ctl.bLink('/about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 23%;margin: 0px;">{{title3}}</md-button></li>
-          </ul>
-
-        <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
-          Close 
-        </md-button>
+          <li><md-button class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button ng-click="ctl.bLink('/settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="ctl.bLink('/about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
       </md-content>
     </md-sidenav>
-  </section>
-</div>
-<ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon>
-<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" style="top: 8%; height: 92%;display: block; width: 100%;z-index: 1; position: fixed;">
-</ng-map>
 
-<div layout="column" style="height: 1%;" ng-cloak>
- <section layout="row" flex>
-  <md-sidenav class="md-sidenav-right" md-component-id="right"
-               md-whiteframe="4">
+<ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
+<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa"></ng-map>
+
+
+  <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Menu Icone</h1>
-    <div>
-    <img scr="/Signal/burn.png/">
-     </div>
+        <h8  class="titolo ">Icone</h8>
+
     </md-toolbar>
       <md-content layout-margin style="height: calc( 100% - 100px);">
         <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event,'Pericolo generico')"></img>
@@ -62,9 +67,9 @@
     </md-sidenav>
     <md-content flex layout-padding>
       <div layout="column" layout-align="top center">
-
       </div>
     </md-content>
   </section>
 </div>
+
 
