@@ -36,7 +36,7 @@ angular.module('app')
   const passwordcurrent = ' ';
   app.app_login(ctl,auth,usercurrent,passwordcurrent);
   ctl.appSrv = appSrv;
-
+  app.app_map(ctl);
   ctl.showDialog = function(id){
       $(id).show();
     };
