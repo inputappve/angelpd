@@ -46,6 +46,7 @@ angular.module('app')
   ctl.welcomeLoad = function(){
     alert('OK');
   };
+
   ctl.elementLoad = function(){
     ctl.spinnerShow();
     console.log("Visualizzo singolo elemento", $routeParams);

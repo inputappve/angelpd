@@ -3,7 +3,7 @@ app.app_login = function(ctl,auth,usercurrent){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
-          window.location.href = ctl.htmlpage + 'page_list';
+          window.location.href = ctl.htmlpage + 'map';
           usercurrent = firebase.auth().currentUser;
        }).catch(function(error) {
           console.log(error.code)
@@ -16,7 +16,7 @@ app.app_login = function(ctl,auth,usercurrent){
     auth.signInWithPopup(providerG).then(function(result) {
         console.log(result.user)
         usercurrent = firebase.auth().currentUser;
-        window.location.href = ctl.htmlpage + 'page_list';
+        window.location.href = ctl.htmlpage + 'map';
      }).catch(function(error) {
         console.log(error.code)
         console.log(error.message)
@@ -35,9 +35,9 @@ app.app_login = function(ctl,auth,usercurrent){
           if(user.emailVerified){
             console.log("entri pure");
             usercurrent = firebase.auth().currentUser;
-          window.location.href = ctl.htmlpage + 'page_list';
+          window.location.href = ctl.htmlpage + 'map';
         }else{
-          window.location.href = ctl.htmlpage + 'controllo.html;'
+          window.location.href = ctl.htmlpage + 'controllo;'
           user.sendEmailVerification().then(function(result){
                 console.log("mail mandata");
                 console.log(result)
@@ -56,7 +56,7 @@ app.app_login = function(ctl,auth,usercurrent){
     window.location.href = ctl.htmlpage + 'welcome';
   }
   ctl.terms = function(){
-    window.location.href = ctl.htmlpage + 'terms.html';
+    window.location.href = ctl.htmlpage + 'terms';
   }
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
@@ -82,32 +82,38 @@ app.app_login = function(ctl,auth,usercurrent){
     }
 
     ctl.bLink = function(string){   
-    if(string == 'settings'){
-      console.log("settings1");
-      window.location.href = ctl.htmlpage +string; 
-
-    }else{
-      window.location.href = ctl.htmlpage +string;     
-    }
+      window.location.href = ctl.htmlpage + string;     
     }   
+
   ctl.set1 = function(){  
         console.log("settings2");
         console.log(usercurrent);
         if(usercurrent.displayName == null){
         document.getElementById("p1").innerHTML = usercurrent.displayName;
-        document.getElementById("change").style.visibility  = "hidden"
         }else{
          document.getElementById("p1").innerHTML = "la tua Email è:";    
-         document.getElementById("change").style.visibility  = "visible";
+         
         }
         
     }
   ctl.set2 = function(){
         console.log(usercurrent.email);
         document.getElementById("p2").innerHTML = usercurrent.email;
+
+        if(usercurrent.displayName == null){
+      document.getElementById("change").style.visibility  = "visible";
+     }else{
+      document.getElementById("change").style.visibility  = "hidden";
+     }
+  }
+  
+  ctl.changepassword = function(){
+    window.location.href = ctl.htmlpage + 'changepassword';
   }
 
   ctl.change = function(){
+     var oldPassword =  document.getElementById("oldP").value;
+     var newPassword =  document.getElementById("newP").value;
 
     auth.changePassword(usercurrent.email, oldPassword, newPassword)
     .then(function(){
@@ -115,7 +121,9 @@ app.app_login = function(ctl,auth,usercurrent){
     },function(error){
       console.log(error.code);
       console.log(error.message);
-    });
+    })
   }
+  ctl.showPorco = function(){
+      $(usercurrent.photoUrl).show();
+    };
 };
-
