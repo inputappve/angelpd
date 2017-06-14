@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html>
-<head>
+<style>
+  .lefttolbar{
+    right: 0%; 
+    width: 100%; 
+    position: fixed;
+    height: 7%;
+    margin: 0px;
+  }
+  .titolo{
+    position: absolute;
+    top: 25%;
+    right: 39%;
+  }
+
+</style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
-        <h2 flex md-truncate style="text-align: center;" >Angel</h2>
+
+        <h8 class="titolo">Angel</h8>
       </div>
     </md-toolbar>
 </md-content>
-
-<div layout="column" style="height: 10%;" ng-cloak>
- <section layout="row" flex>
-  <md-sidenav class="md-sidenav-left" md-component-id="left"
-               md-whiteframe="4">
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
+      <h8 class="titolo">Menu</h8>
     </md-toolbar>
       <md-content layout-margin>
           <ul>
-          <!--toggleLeft() -->
-            <li>
-            <md-button ng-click="ctl.bLink('map')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">{{title1}}</md-button>
-            </li>
-          <li><md-button style="right: 0%;width: 100%;position: fixed;height: 7%;top: 15%;margin: 0px;">{{title2}}</md-button></l>
-          <li><md-button ng-click="ctl.bLink('about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 22%;margin: 0px;">{{title3}}</md-button></li>
-          </ul>
-        <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
-          Close 
-        </md-button>
+          <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button  class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="ctl.bLink('about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
       </md-content>
     </md-sidenav>
-  </section>
-</div>
-</head>
 <body >
 <p id="p1" ng-init="ctl.set1()">ciao </p>
 <p id="p2" ng-init="ctl.set2()">ciao </p>
-<md-button id="change" style="visibility: hidden;" class="md-raised md-primary" ng-click="ctl.changepassword()">Cambio passw? </md-button>
+<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;" class="md-raised md-primary" ng-click="ctl.changepassword()">Cambio passw? </md-button>
 
 <!-- <div onload="showPorco()"></div>  CHE È STA CAFONATA?????????? -->
 
-
-</html>

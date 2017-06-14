@@ -1,4 +1,4 @@
-app.app_login = function(ctl,auth,usercurrent){
+app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.facebookLogin = function(){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
@@ -34,6 +34,7 @@ app.app_login = function(ctl,auth,usercurrent){
           const user = firebase.auth().currentUser;
           if(user.emailVerified){
             console.log("entri pure");
+            passwordcurrent = txtPassword;
             usercurrent = firebase.auth().currentUser;
           window.location.href = ctl.htmlpage + 'map';
         }else{
@@ -110,9 +111,24 @@ app.app_login = function(ctl,auth,usercurrent){
   ctl.changepassword = function(){
     window.location.href = ctl.htmlpage + 'changepassword';
   }
+  ctl.set3 = function(){
+     console.log(usercurrent.displayName);
+
+        if(usercurrent.displayName == null){
+          console.log("more visibiile");
+      document.getElementById("change").style.visibility  = "visible";
+     }else{
+      document.getElementById("change").style.visibility  = "hidden";
+     }
+  }
+  
+  ctl.changepassword = function(){
+    window.location.href = ctl.htmlpage + 'changepassword';
+  }
 
   ctl.change = function(){
      var oldPassword =  document.getElementById("oldP").value;
+<<<<<<< HEAD
      var newPassword =  document.getElementById("newP").value;
 
     auth.changePassword(usercurrent.email, oldPassword, newPassword)
@@ -122,6 +138,22 @@ app.app_login = function(ctl,auth,usercurrent){
       console.log(error.code);
       console.log(error.message);
     })
+=======
+     var newPassword1 =  document.getElementById("newP").value;
+     var newPassword2 =  document.getElementById("confP").value;
+     console.log(oldPassword," ",newPassword1," ",newPassword2, " ",passwordcurrent);
+     if(newPassword1 === newPassword2 && oldPassword === passwordcurrent){
+     auth.currentUser.updatePassword(newPassword1)
+     .then(function(){
+          console.log('Password change successfully ', newPassword1 , ' quella vecchia ', oldPassword);
+            },function(error){
+               console.log(error.code);
+                 console.log(error.message);
+    })
+     }
+
+    
+>>>>>>> master
   }
   ctl.showPorco = function(){
       $(usercurrent.photoUrl).show();

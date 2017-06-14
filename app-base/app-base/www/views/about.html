@@ -1,45 +1,51 @@
+<style>
+  .lefttolbar{
+    right: 0%; 
+    width: 100%; 
+    position: fixed;
+    height: 7%;
+    margin: 0px;
+  }
+  .titolo{
+    position: absolute;
+    top: 25%;
+    right: 42%;
+  }
+
+</style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
-        <h2 flex md-truncate style="text-align: center;" >Angel</h2>
+
+        <h8 class="titolo">Angel</h8>
+
       </div>
     </md-toolbar>
 </md-content>
-
-<div layout="column" style="height: 10%;" ng-cloak>
- <section layout="row" flex>
-  <md-sidenav class="md-sidenav-left" md-component-id="left"
-               md-whiteframe="4">
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h8 style="position: absolute;top: 25%;right: 42%;">Menu</h8>
+      <h8 class="titolo">Menu</h8>
     </md-toolbar>
       <md-content layout-margin>
           <ul>
-          <!--toggleLeft() -->
-            <li>
-            <md-button ng-click="ctl.bLink('map')" style= "right: 0%; width: 100%; position: fixed;height: 7%;top: 8%;margin: 0px;">{{title1}}</md-button>
-            </li>
-          <li><md-button ng-click="ctl.bLink('/settings')" style="right: 0%;width: 100%;position: fixed;height: 7%;top: 15%;margin: 0px;">{{title2}}</md-button></li>
-          <li><md-button ng-click="ctl.bLink('/about')" style= "right: 0%;width: 100%;position: fixed;height: 7%;top: 22%;margin: 0px;">{{title3}}</md-button></li>
-          </ul>
-        <md-button style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" ng-click="toggleLeft()" class="md-accent">
-          Close 
-        </md-button>
+
+          <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button  ng-click="ctl.bLink('settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button  class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
+
       </md-content>
     </md-sidenav>
-  </section>
-</div>
 
-<head>
   <h3 style="position:absolute; font-size: xx-large; left: 5%;top: 5%">INFO</h3>
   <h2 style="position:absolute; color: blue;font-size: x-large; left: 5%;top: 14%">Info sull'app</h2>
   <strong style="position: absolute; font-size : 22px ;left: 6%; top:21%">Versione:</strong>
   <p style="position: absolute; font-size: 14px; left: 33%; top:20%">1.0.0</p>
-</head>
+
  <md-list layout-margin class="listabout" style="position: absolute;left: -4%; top: 21%; text-align: left;">
           <ul>
-          <!--toggleLeft() -->
             <li>
              <md-list-item"><h3>A COSA SERVE QUESTA APP?</h3>
                 <i>-Angel è un applicativo in grado di segnalare in una mappa pericoli, dati, avvenimenti o situazioni .
