@@ -17,24 +17,31 @@
     z-index: 1; 
     position: fixed;
   }
-  .titolo{
+  .titolo1{
     position: absolute;
     top: 25%;
-    right: 42%;
+    text-align: center;
+    right: 43%;
+  }
+  .titolo2{
+    position: absolute;
+    top: -14%;
+    text-align: center;
+    right: 41%;
   }
 </style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
-        <h8 class="titolo">Angel</h8>
+        <h8 class="titolo1">Angel</h8>
       </div>
     </md-toolbar>
 </md-content>
 
   <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-      <h8 class="titolo">Menu</h8>
+      <h3 class="titolo2">Menu</h3>
     </md-toolbar>
       <md-content layout-margin>
           <ul>
@@ -47,12 +54,14 @@
     </md-sidenav>
 
 <ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
-<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa"></ng-map>
+<ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa">
+  <marker ng-repeat="pos in ctl.my_map.markers" position="current" id="{{ctl.pos}}"></marker>
+</ng-map>
 
 
   <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-        <h8  class="titolo ">Icone</h8>
+        <h3 class="titolo2 ">Icone</h3>
     </md-toolbar>
       <md-content layout-margin>
         <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
