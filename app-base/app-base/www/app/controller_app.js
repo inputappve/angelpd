@@ -1,6 +1,7 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate,
-  appSrv, $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
+  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation,
+  appSrv) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -36,7 +37,8 @@ angular.module('app')
   const passwordcurrent = ' ';
   app.app_login(ctl,auth,usercurrent,passwordcurrent);
   ctl.appSrv = appSrv;
-  app.app_map(ctl);
+  app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000));
+  //app.app_map(ctl);
 
   ctl.showDialog = function(id){
       $(id).show();
@@ -99,7 +101,7 @@ angular.module('app')
 
 
 
-
+/*
   //IINIZIO CREAZIONE DINAMICA MARKER
   ctl.my_map = NgMap.getMap();
   console.log(ctl.my_map);
@@ -119,5 +121,5 @@ angular.module('app')
   //ctl.my_map.markers.push(latlng);
   console.log("mappa: ", ctl.my_map);
 
-
+*/
 });
