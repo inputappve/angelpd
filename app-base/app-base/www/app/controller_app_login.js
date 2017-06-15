@@ -14,8 +14,9 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.googleLogin = function(){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
-        console.log(result.user)
-        usercurrent = firebase.auth().currentUser;
+        console.log(result.user);
+        console.log(result.user.photoURL);
+        usercurrent = result.user;
         window.location.href = ctl.htmlpage + 'map';
      }).catch(function(error) {
         console.log(error.code)
@@ -89,7 +90,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.set1 = function(){  
         console.log("settings2");
         console.log(usercurrent);
-        if(usercurrent.displayName == null){
+        if(usercurrent.displayName != null){
         document.getElementById("p1").innerHTML = usercurrent.displayName;
         }else{
          document.getElementById("p1").innerHTML = "la tua Email è:";    
@@ -146,7 +147,16 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     };
 
     ctl.avatar = function(){
-      var photo = currentUser.photoUrl;
-      document.getElementById("avatar").innerHTML = photo;
+      if(usercurrent.photoURL != null){
+      var photo =  usercurrent.photoURL;
+      console.log(photo);
+      document.getElementById("ava").style.visibility = 'visible';
+      document.getElementById("ava").src = photo;
+      }else{
+      document.getElementById("ava").style.visibility = 'hidden';
+      document.getElementById("p1").style.textAling = 'center';
+      document.getElementById("p2").style.textAling = 'center';
+      }
+
     }
 };
