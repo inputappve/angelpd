@@ -149,10 +149,6 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     })
      }
   }
-  ctl.showPorco = function(){
-      $(usercurrent.photoUrl).show();
-    };
-
     ctl.avatar = function(){
       if(usercurrent.photoURL != null){
       var photo =  usercurrent.photoURL;
@@ -167,7 +163,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
 
     }
 
-    ctl.SC = function(){
-      console.log("ciao ciao bui");
+    ctl.SC = function(color){
+      document.getElementById('tool').style.backgroundColor = color;
     }
 };

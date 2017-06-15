@@ -35,7 +35,7 @@
 </style>
 <md-content>
     <md-toolbar class="md-hue-2">
-      <div class="md-toolbar-tools">
+      <div class="md-toolbar-tools" class="tool">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
 
         <h3 class="titolo1">Angel</h3>
@@ -43,7 +43,7 @@
     </md-toolbar>
 </md-content>
 <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
-   <md-toolbar class="md-theme-indigo">
+   <md-toolbar class="md-theme-indigo" class="tool">
       <h3 class="titolo2">Menu</h3>
     </md-toolbar>
       <md-content layout-margin>
@@ -63,9 +63,18 @@
 
  
     
-    <md-button  ng-click="ctl.SC()" class=" borderbut" style="position: absolute;top: 38%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
-        color
+    <md-button  ng-click="ctl.SC('#3f51b5')" class=" borderbut" style="position: absolute;top: 45%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
+        blue
     </md-button >
+     <md-button  ng-click="ctl.SC('#A61022')" class=" borderbut" style="position: absolute;top: 55%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
+        red
+    </md-button >
+     <md-button  ng-click="ctl.SC('#008000')" class=" borderbut" style="position: absolute;top: 65%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
+        green
+    </md-button >
+     <md-button  ng-click="ctl.SC('#dcdc00')" class=" borderbut" style="position: absolute;top: 75%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
+        yellow
+    </md-button >
+ 
 
-<!-- <div onload="showPorco()"></div>  CHE È STA CAFONATA?????????? -->
 
