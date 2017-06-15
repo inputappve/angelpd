@@ -11,7 +11,19 @@
     top: 25%;
     right: 39%;
   }
-
+  .avatar {
+    width: 30%;
+    top: 15%;
+    left: 0%;
+    border-radius: 50%;
+    position: absolute;
+}
+.email{
+	position: absolute;
+    left: 35%;
+    font-style: italic;
+    font-weight: bold;
+}
 </style>
 <md-content>
     <md-toolbar class="md-hue-2">
@@ -35,10 +47,10 @@
         <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
       </md-content>
     </md-sidenav>
-<body >
-<p id="p1" ng-init="ctl.set1()">ciao </p>
-<p id="p2" ng-init="ctl.set2()">ciao </p>
-<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;" class="md-raised md-primary" ng-click="ctl.changepassword()">Cambio passw? </md-button>
+<img id="ava"  style="visibility: hidden" class="avatar" ng-init=" ctl.avatar()">
+<p id="p1" class="email" style="top: 14%;" ng-init="ctl.set1()">ciao </p>
+<p id="p2" class="email" style="top: 19%;" ng-init="ctl.set2()">ciao </p>
+<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;top: 32%;left: -2%;position: absolute; width: 99%;" class="md-raised md-primary" ng-click="ctl.changepassword()">Cambio passw? </md-button>
 
 <!-- <div onload="showPorco()"></div>  CHE È STA CAFONATA?????????? -->
 

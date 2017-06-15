@@ -3,6 +3,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
           console.log(result.user)
+          alert("sto verificando se sei verificato con fb");
           window.location.href = ctl.htmlpage + 'map';
           usercurrent = firebase.auth().currentUser;
        }).catch(function(error) {
@@ -14,8 +15,10 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.googleLogin = function(){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
-        console.log(result.user)
-        usercurrent = firebase.auth().currentUser;
+        console.log(result.user);
+        console.log(result.user.photoURL);
+        usercurrent = result.user;
+         alert("sto verificando se sei verificato con google");
         window.location.href = ctl.htmlpage + 'map';
      }).catch(function(error) {
         console.log(error.code)
@@ -30,6 +33,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
 
     promise.then(function(result){
           console.log(txtEmail,txtPassword)
+          alert("sto verificando se sei verificato");
           console.log("ci sei ma forse non sei autentificato");
           const user = firebase.auth().currentUser;
           if(user.emailVerified){
@@ -40,6 +44,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
         }else{
           window.location.href = ctl.htmlpage + 'controllo;'
           user.sendEmailVerification().then(function(result){
+             alert("mail mandata prima verificati poi torna");
                 console.log("mail mandata");
                 console.log(result)
              }).catch(function(error) {
@@ -66,6 +71,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     promise.then(function(result){
           console.log(result.user)
           console.log("riscrivi tutto e logga");
+           alert("ora logga sei registrato");
        }).catch(function(error) {
           console.log(error.code)
           console.log(error.message)
@@ -75,6 +81,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.passwordForgot = function(){
     var emailAddress = document.getElementById('txtEmail').value;
     auth.sendPasswordResetEmail(emailAddress).then(function() {
+       alert("Email mandata guardala e cambia password");
      console.log("Mail mandata a" , emailAddress);
     }, function(error) {
       console.log(error.code);
@@ -89,7 +96,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
   ctl.set1 = function(){  
         console.log("settings2");
         console.log(usercurrent);
-        if(usercurrent.displayName == null){
+        if(usercurrent.displayName != null){
         document.getElementById("p1").innerHTML = usercurrent.displayName;
         }else{
          document.getElementById("p1").innerHTML = "la tua Email è:";    
@@ -134,6 +141,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
      if(newPassword1 === newPassword2 && oldPassword === passwordcurrent){
      auth.currentUser.updatePassword(newPassword1)
      .then(function(){
+       alert("password cambiata con sucesso");
           console.log('Password change successfully ', newPassword1 , ' quella vecchia ', oldPassword);
             },function(error){
                console.log(error.code);
@@ -141,8 +149,19 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     })
      }
   }
+   
+    ctl.avatar = function(){
+      if(usercurrent.photoURL != null){
+        var photo =  usercurrent.photoURL;
+        console.log(photo);
+        document.getElementById("ava").style.visibility = 'visible';
+        document.getElementById("ava").src = photo;
+      }else{
+        document.getElementById("ava").style.visibility = 'hidden';
+        document.getElementById("p1").style.textAling = 'center';
+        document.getElementById("p2").style.textAling = 'center';
+      }
 
-
-
+    }
 };
 

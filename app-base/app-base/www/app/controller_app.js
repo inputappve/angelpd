@@ -1,6 +1,6 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate,
-  appSrv, $timeout,$mdSidenav,$mdDialog) {
+  appSrv, $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -36,6 +36,7 @@ angular.module('app')
   const passwordcurrent = ' ';
   app.app_login(ctl,auth,usercurrent,passwordcurrent);
   ctl.appSrv = appSrv;
+  app.app_map(ctl);
 
   ctl.showDialog = function(id){
       $(id).show();
@@ -126,4 +127,26 @@ angular.module('app')
   }
 
 
-})
+
+
+  //IINIZIO CREAZIONE DINAMICA MARKER
+  ctl.my_map = NgMap.getMap();
+  console.log(ctl.my_map);
+  ctl.my_map.markers = [];
+  var latlng;
+
+  //fai la funzione che all'onclick metta in ctl.my_map.markers la posizione corrente 
+  // forse alla fine di quella funzione dovrai chiamare $scope.apply();
+
+  NavigatorGeolocation.getCurrentPosition()
+   .then(function(position) {
+     latlng = {lat: position.coords.latitude, lng: position.coords.longitude, inizio: 241132432, fine: 242332425};
+   });
+
+   ctl.my_map.markers.push(latlng);
+ 
+  //ctl.my_map.markers.push(latlng);
+  console.log("mappa: ", ctl.my_map);
+
+
+});
