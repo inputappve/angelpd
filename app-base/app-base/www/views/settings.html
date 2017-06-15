@@ -6,15 +6,22 @@
     height: 7%;
     margin: 0px;
   }
-  .titolo{
+  .titolo1{
     position: absolute;
     top: 25%;
-    right: 39%;
+    text-align: center;
+    right: 43%;
+  }
+  .titolo2{
+  	position: absolute;
+    top: -14%;
+    text-align: center;
+    right: 41%;
   }
   .avatar {
     width: 30%;
-    top: 15%;
-    left: 0%;
+    top: 13%;
+    left: 2%;
     border-radius: 50%;
     position: absolute;
 }
@@ -24,19 +31,20 @@
     font-style: italic;
     font-weight: bold;
 }
+
 </style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
 
-        <h8 class="titolo">Angel</h8>
+        <h3 class="titolo1">Angel</h3>
       </div>
     </md-toolbar>
 </md-content>
 <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
-      <h8 class="titolo">Menu</h8>
+      <h3 class="titolo2">Menu</h3>
     </md-toolbar>
       <md-content layout-margin>
           <ul>
@@ -50,7 +58,14 @@
 <img id="ava"  style="visibility: hidden" class="avatar" ng-init=" ctl.avatar()">
 <p id="p1" class="email" style="top: 14%;" ng-init="ctl.set1()">ciao </p>
 <p id="p2" class="email" style="top: 19%;" ng-init="ctl.set2()">ciao </p>
-<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;top: 32%;left: -2%;position: absolute; width: 99%;" class="md-raised md-primary" ng-click="ctl.changepassword()">Cambio passw? </md-button>
+<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;top: 32%;left: -2%;position: absolute; width: 99%;" class="md-raised md-primary borderbut" ng-click="ctl.changepassword()">Cambio passw? </md-button>
+
+
+ 
+    
+    <md-button  ng-click="ctl.SC()" class=" borderbut" style="position: absolute;top: 38%;left: 0%;width: 100%;color: rgba(255,255,255,0.87);background-color: rgb(63,81,181);margin: 0px;">
+        color
+    </md-button >
 
 <!-- <div onload="showPorco()"></div>  CHE È STA CAFONATA?????????? -->
 

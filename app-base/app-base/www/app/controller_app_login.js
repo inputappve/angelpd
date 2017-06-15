@@ -166,4 +166,8 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
       }
 
     }
+
+    ctl.SC = function(){
+      console.log("ciao ciao bui");
+    }
 };

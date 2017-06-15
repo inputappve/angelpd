@@ -100,8 +100,8 @@ angular.module('app')
   }
 
 
-
 /*
+
   //IINIZIO CREAZIONE DINAMICA MARKER
   ctl.my_map = NgMap.getMap();
   console.log(ctl.my_map);
