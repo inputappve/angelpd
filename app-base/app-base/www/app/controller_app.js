@@ -20,7 +20,7 @@ angular.module('app')
 
   window.fbAsyncInit = function() {
         FB.init({
-           appId      : '427469474303607',
+           appId      : '427469474303607', 
            xfbml      : true,
            version    : 'v2.6'
         });
@@ -92,9 +92,15 @@ angular.module('app')
 
 
 
+ctl.icons = {
+  cinese : "Signal/chinese.png",
+  garbage : "Signal/garbage.png",
+  incendio : "Signal/burn.png",
+  pericolo: "Signal/exclamation.png"
+}; 
 
 
-  $scope.showConfirm = function(ev, titolo) {
+  $scope.showConfirm = function(ev, titolo,tipo) {
     // Appending dialog to document.body to cover sidenav in docs app
     var messaggio = null;
     for(var i=0; i< msg.length; i++){
@@ -111,9 +117,10 @@ angular.module('app')
          
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'Grazie mille della segnalazione';
+      $scope.status="";
+      ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
     }, function() {
-      $scope.status = 'Grazie mille della segnalazione';
+      $scope.status = 'e';
     });
   }
 
