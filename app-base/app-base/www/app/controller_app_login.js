@@ -1,4 +1,5 @@
 app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
+  //FB LOGIN
   ctl.facebookLogin = function(){
     const prov = new firebase.auth.FacebookAuthProvider();
       auth.signInWithPopup(prov).then(function(result) {
@@ -12,6 +13,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
        });
      };
 
+//GOOGLE LOGIN
   ctl.googleLogin = function(){
     var providerG = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(providerG).then(function(result) {
@@ -26,6 +28,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
      });
   };
 
+//LOGIN PASSW/EMAIL
   ctl.Login = function(){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
@@ -57,13 +60,19 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
           console.log(error.message)
        });
   };
+
+  // VERIFICATO LETTURA TERMINI E CONDIZIONI
   ctl.return = function(){
     console.log('verificato?');
     window.location.href = ctl.htmlpage + 'welcome';
   }
+
+  //APERTURA PAGINE TERMINI
   ctl.terms = function(){
     window.location.href = ctl.htmlpage + 'terms';
   }
+
+  //SING IN PASS/EMAIL
   ctl.SingIn = function(){
     const txtEmail = document.getElementById('txtEmail').value;
     const txtPassword = document.getElementById('txtPassword').value;
@@ -78,6 +87,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
        });
   };
 
+  //PASSW DIMENTICATA LOGIN OAGE
   ctl.passwordForgot = function(){
     var emailAddress = document.getElementById('txtEmail').value;
     auth.sendPasswordResetEmail(emailAddress).then(function() {
@@ -89,10 +99,12 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     });
     }
 
+    //SPOSTAMENTO PAGINE DA MAP
     ctl.bLink = function(string){   
       window.location.href = ctl.htmlpage + string;     
     }   
 
+    //SETTINGS IDENTIFICATO FB/ GOOGLE O EMAIL
   ctl.set1 = function(){  
         console.log("settings2");
         console.log(usercurrent);
@@ -104,6 +116,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
         }
         
     }
+    //SETTINGS PER LA EMAIL
   ctl.set2 = function(){
         console.log(usercurrent.email);
         document.getElementById("p2").innerHTML = usercurrent.email;
@@ -114,10 +127,11 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
       document.getElementById("change").style.visibility  = "hidden";
      }
   }
-  
+  //CHANGE PASSW SETTINGS TI PORTA LA
   ctl.changepassword = function(){
     window.location.href = ctl.htmlpage + 'changepassword';
   }
+  //HIDE O VISIBILE BUTTON CHANGE PASSW
   ctl.set3 = function(){
      console.log(usercurrent.displayName);
 
@@ -128,11 +142,8 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
       document.getElementById("change").style.visibility  = "hidden";
      }
   }
-  
-  ctl.changepassword = function(){
-    window.location.href = ctl.htmlpage + 'changepassword';
-  }
 
+  //ALGORITMO CAMBIO PASSWORD
   ctl.change = function(){
      var oldPassword =  document.getElementById("oldP").value;
      var newPassword1 =  document.getElementById("newP").value;
@@ -149,6 +160,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
     })
      }
   }
+  // AVATAR SETTING IMG
     ctl.avatar = function(){
       if(usercurrent.photoURL != null){
       var photo =  usercurrent.photoURL;
@@ -162,7 +174,7 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
       }
 
     }
-
+    // PROVA COLORI
     ctl.SC = function(color){
       document.getElementById('tool').style.backgroundColor = color;
     }

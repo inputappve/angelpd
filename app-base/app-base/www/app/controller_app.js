@@ -70,23 +70,52 @@ angular.module('app')
   $scope.title1 = 'Home';
   $scope.title2 = 'Settings';
   $scope.title3 = 'About';
-  $scope.showConfirm = function(ev) {
+
+
+  msg=[];
+  msg.push({
+          titolo: "Pericolo generico",
+          msg: "Vuoi segnalare un pericolo generico?"
+           });
+   msg.push({
+          titolo: "Pericolo Incendio",
+          msg: "Vuoi segnalare un pericolo di incendio?"
+           });
+   msg.push({
+          titolo: "Presenza Cinese",
+          msg: "Vuoi segnalare una presenza cinese?"
+           });
+   msg.push({
+          titolo: "Presenza Spazzatura",
+          msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
+           });
+
+
+
+
+
+  $scope.showConfirm = function(ev, titolo) {
     // Appending dialog to document.body to cover sidenav in docs app
+    var messaggio = null;
+    for(var i=0; i< msg.length; i++){
+      if(msg[i].titolo==titolo){
+        messaggio=msg[i].msg;
+      }
+    }
     var confirm = $mdDialog.confirm()
-          .title('Would you like to delete your debt?')
-          .textContent('All of the banks have agreed to forgive you your debts.')
-          .ariaLabel('Lucky day')
+          .title(titolo)
+          .textContent(messaggio)
           .targetEvent(ev)
-          .ok('Please do it!')
-          .cancel('Sounds like a scam');
+          .cancel('chiudi')
+          .ok('ok');
+         
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'You decided to get rid of your debt.';
+      $scope.status = 'Grazie mille della segnalazione';
     }, function() {
-      $scope.status = 'You decided to keep your debt.';
+      $scope.status = 'Grazie mille della segnalazione';
     });
-  };
-  //
+  }
 
   function buildToggler(componentId) {
     return function() {
