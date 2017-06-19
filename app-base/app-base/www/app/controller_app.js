@@ -1,6 +1,7 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate,
-  appSrv, $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
+  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation,
+  appSrv) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -42,7 +43,7 @@ angular.module('app')
 
   app.app_helper(ctl);
   app.app_login(ctl,auth,usercurrent,passwordcurrent);
-  app.app_map(ctl);
+  app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000));
 
   ctl.showDialog = function(id){
       $(id).show();
@@ -92,8 +93,11 @@ angular.module('app')
       $mdSidenav(componentId).toggle();
     };
   }
+  
+  //DA ELIMINARE ASSOLUTAMENTE QUANDO COMPILATE L'APK
+  app.ctl = ctl;
 
-
+/*
 
   //IINIZIO CREAZIONE DINAMICA MARKER
   ctl.my_map = NgMap.getMap();
@@ -114,5 +118,5 @@ angular.module('app')
   //ctl.my_map.markers.push(latlng);
   console.log("mappa: ", ctl.my_map);
 
-
+*/
 });
