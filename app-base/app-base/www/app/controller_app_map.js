@@ -8,14 +8,15 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
   	var latlng = null;
   	NavigatorGeolocation.getCurrentPosition().then(function(position) {
     	latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
-   	});
+ 
   	var x = 
   	{lat: latlng.lat, 
   	 lng: latlng.lng,
   	 tipo: tipo,
-  	 inizio : Date().now(),
+  	 inizio : Date.now(),
   	 fine: new Date(fine)
   	}
   	ctl.mapSrv.markers.push(x);
+  });
   }
 }

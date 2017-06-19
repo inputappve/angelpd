@@ -38,6 +38,7 @@ angular.module('app')
   app.app_login(ctl,auth,usercurrent,passwordcurrent);
   ctl.appSrv = appSrv;
   app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000));
+
   //app.app_map(ctl);
 
   ctl.showDialog = function(id){
@@ -98,7 +99,9 @@ angular.module('app')
       $mdSidenav(componentId).toggle();
     };
   }
-
+  
+  //DA ELIMINARE ASSOLUTAMENTE QUANDO COMPILATE L'APK
+  app.ctl = ctl;
 
 /*
 
