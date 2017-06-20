@@ -70,45 +70,60 @@ angular.module('app')
   $scope.title1 = 'Home';
   $scope.title2 = 'Settings';
   $scope.title3 = 'About';
-  msg=[];
-  msg.push({
+  ctl.msg=[];
+  ctl.msg.push({
           titolo: "Pericolo generico",
           msg: "Vuoi segnalare un pericolo generico?"
            });
-   msg.push({
+  ctl.msg.push({
           titolo: "Pericolo Incendio",
           msg: "Vuoi segnalare un pericolo di incendio?"
            });
-   msg.push({
+   ctl.msg.push({
           titolo: "Presenza Cinese",
           msg: "Vuoi segnalare una presenza cinese?"
            });
-   msg.push({
+   ctl.msg.push({
           titolo: "Presenza Spazzatura",
           msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
            });
+  ctl.msg.push({
+          titolo: "Presenza Rapinatori",
+          msg: "Vuoi segnalare la presenza di rapinatori nell'area"
+           });
+
 ctl.icons = {
   cinese : "Signal/chinese.png",
   garbage : "Signal/garbage.png",
   incendio : "Signal/burn.png",
-  pericolo: "Signal/exclamation.png"
+  pericolo: "Signal/exclamation.png",
+  rapina: "Signal/gun.png"
 }; 
 
   $scope.showConfirm = function(ev, titolo,tipo) {
-    // Appending dialog to document.body to cover sidenav in docs app
+    var messaggio=null;
+    for(var i=0; i < ctl.msg.length; i++) {
+      if(ctl.msg[i].titolo == titolo){          
+        messaggio=ctl.msg[i].msg;
+        break;
+      }
+    }
+   
+
+    //Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
-          .title('Would you like to delete your debt?')
-          .textContent('All of the banks have agreed to forgive you your debts.')
-          .ariaLabel('Lucky day')
+          .title(titolo)
+          .textContent(messaggio)
+          //.ariaLabel()
           .targetEvent(ev)
-          .ok('Please do it!')
-          .cancel('Sounds like a scam');
+          .ok('OK')
+          .cancel('Annulla');
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status="";
+    //  $scope.status="";
       ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
     }, function() {
-      $scope.status = 'e';
+    //  $scope.status = "";
     });
   };
   //
