@@ -89,7 +89,11 @@ angular.module('app')
            });
   ctl.msg.push({
           titolo: "Presenza Rapinatori",
-          msg: "Vuoi segnalare la presenza di rapinatori nell'area"
+          msg: "Vuoi segnalare la presenza di rapinatori nell'area?"
+           });
+ ctl.msg.push({
+          titolo: "Presenza Spacciatori",
+          msg: "Vuoi segnalare la presenza di spacciatori nell'area?"
            });
 
 ctl.icons = {
@@ -97,7 +101,8 @@ ctl.icons = {
   garbage : "Signal/garbage.png",
   incendio : "Signal/burn.png",
   pericolo: "Signal/exclamation.png",
-  rapina: "Signal/gun.png"
+  rapina: "Signal/gun.png",
+  droga:"Signal/droga.png"
 }; 
 
   $scope.showConfirm = function(ev, titolo,tipo) {
@@ -109,7 +114,6 @@ ctl.icons = {
       }
     }
    
-
     //Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title(titolo)
