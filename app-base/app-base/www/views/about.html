@@ -1,24 +1,3 @@
-<style>
-  .lefttolbar{
-    right: 0%; 
-    width: 100%; 
-    position: fixed;
-    height: 7%;
-    margin: 0px;
-  }
-  .titolo1{
-    position: absolute;
-    top: 25%;
-    text-align: center;
-    right: 43%;
-  }
-  .titolo2{
-  position: absolute;
-    top: -14%;
-    text-align: center;
-    right: 41%;
-}
-</style>
 <md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
@@ -40,8 +19,8 @@
           <ul>
 
           <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
-          <li><md-button  ng-click="ctl.bLink('settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
-          <li><md-button  class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          <li><md-button ng-click="ctl.bLink('settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="toggleLeft()" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
           </ul> 
         <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
 
@@ -53,12 +32,12 @@
   <strong style="position: absolute; font-size : 22px ;left: 6%; top:21%">Versione:</strong>
   <p style="position: absolute; font-size: 14px; left: 33%; top:20%">1.0.0</p>
 
- <md-list layout-margin class="listabout" style="position: absolute;left: -4%; top: 21%; text-align: left;">
+ <md-list layout-margin class="listabout" >
           <ul>
             <li>
              <md-list-item"><h3>A COSA SERVE QUESTA APP?</h3>
                 <i>-Angel è un applicativo in grado di segnalare in una mappa pericoli, dati, avvenimenti o situazioni .
-Ogni segnalazione effettuata nella propria app potrà avere un timer con il quale scomparirà una volta terminato . E ogni segnalazione viene inserita nella mappa GLOBALE dove tutti gli utenti possono vedere la segnalazione.</i>
+                    Ogni segnalazione effettuata nella propria app potrà avere un timer con il quale scomparirà una volta terminato . E ogni segnalazione viene inserita nella mappa GLOBALE dove tutti gli utenti possono vedere la segnalazione.</i>
               </md-list-item>
             </li>
             <li>
@@ -73,6 +52,6 @@ Ogni segnalazione effettuata nella propria app potrà avere un timer con il qual
                 <a href="http://www.formaurbis.com/">FormaUrbis</a>
               </md-list-item>
             </li>
-              <md-list-item style="right: 0%; width: 100%;position: fixed;height: 7%;bottom: 0%;margin: 0px;" class="md-accent">
+              <md-list-item class="md-accent">
         </md-list-item>
       </md-list>

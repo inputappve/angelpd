@@ -1,42 +1,33 @@
- <style>
-  .titolo{
-    position: absolute;
-    top: 25%;
-    text-align: center;
-    right: 43%;
-  }
-
-</style>
- <md-content>
+<md-content>
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
-        <h3 class="titolo" >Angel</h3>
+        <h3 class="titolo1" >Angel</h3>
       </div>
     </md-toolbar>
 </md-content>
+
 <div class="container">
-                <md-input-container class="md-block" style="position: fixed;height: 5%;width: 75%;left: 12%;top: 18%;">
+                <md-input-container class="md-block" style="top: 14%;">
                 <input id="txtEmail" type="email" placeholder="Email (required)" ng-required="true" >
                 </md-input-container>
 
-                <md-input-container class="md-block" style="position:fixed;height: 5%;width: 75%;left: 12%;top: 30%;">
+                <md-input-container class="md-block" style="top: 24%;">
                 <input id="txtPassword" type="password" placeholder="Password (required)" ng-required="true" >
                 </md-input-container>
 
-                <md-button class="md-raised" ng-click="ctl.passwordForgot()" style="position:fixed; top:38%; right:25%; width:45%; height:5%;">
+                <md-button class="md-raised borderbut" ng-click="ctl.passwordForgot()" style="position:fixed; top:35%; right:25%; width:45%; height:5%;">
                   Forgot password?
                 </md-button>
 
-                <md-button  ng-click="ctl.Login() " class="md-raised md-primary" style="position: fixed;left:18%;top:45%; background-color: rgb(55, 146, 179);">
+                <md-button ng-click="ctl.Login() " class="iconw md-raised md-primary borderbut color" style="left:18%;">
                   log in
                 </md-button >
 
-                <md-button ng-click="ctl.SingIn()" class="md-raised md-primary" style="position: fixed; right:18%;top:45%; background-color: rgb(55, 146, 179);">
+                <md-button ng-click="ctl.SingIn()" class="iconw md-raised md-primary borderbut color" style="right:18%;">
                   sing up
                 </md-button >
 
-                <ng-md-icon icon="google-plus-box" ng-click="ctl.googleLogin() " size="50" style=" fill: red; position : fixed; top:55%; right:28%;"></ng-md-icon>
-                
+                <ng-md-icon icon="google-plus-box" ng-click="ctl.googleLogin() " class="iconlogin borderbut" size="50" style=" fill: red; right:28%;"></ng-md-icon>
 
                 <ng-md-icon icon="facebook-box" ng-click="ctl.facebookLogin() " size="50" style=" fill: blue; position: fixed; top: 55%; left: 28%;"></ng-md-icon> 
 
@@ -44,4 +35,3 @@
                 </strong>
 
 </div>
- <!--<a href="#!/page_list">Vai alla Lista</a> -->
