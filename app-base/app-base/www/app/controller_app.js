@@ -73,11 +73,7 @@ angular.module('app')
           titolo: "Pericolo Incendio",
           msg: "Vuoi segnalare un pericolo di incendio?"
            });
-   ctl.msg.push({
-          titolo: "Presenza Cinese",
-          msg: "Vuoi segnalare una presenza cinese?"
-           });
-   ctl.msg.push({
+  ctl.msg.push({
           titolo: "Presenza Spazzatura",
           msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
            });
@@ -85,18 +81,50 @@ angular.module('app')
           titolo: "Presenza Rapinatori",
           msg: "Vuoi segnalare la presenza di rapinatori nell'area?"
            });
- ctl.msg.push({
-          titolo: "Presenza Spacciatori",
-          msg: "Vuoi segnalare la presenza di spacciatori nell'area?"
+  ctl.msg.push({
+         titolo: "Presenza Spacciatori",
+         msg: "Vuoi segnalare la presenza di spacciatori nell'area?"
+          });
+  ctl.msg.push({
+          titolo: "Blackout",
+          msg: "Vuoi segnalare la presenza di un blackout nell'area circostante?"
+           });
+  ctl.msg.push({
+          titolo: "Vortice",
+          msg: "Vuoi segnalare la presenza di trombe d'aria?"
+           });
+  ctl.msg.push({
+          titolo: "Incidente",
+          msg: "Vuoi segnalare la presenza di incidenti stradali?"
+           });
+  ctl.msg.push({
+          titolo: "Allagamento",
+          msg: "Vuoi segnalare la presenza di zone allagate?"
+           });
+  ctl.msg.push({
+          titolo: "Folla",
+          msg: "Vuoi segnalare un affollamento di persone?"
+           });
+  ctl.msg.push({
+          titolo: "Rissa",
+          msg: "Vuoi segnalare una rissa?"
            });
 
+
+
+
 ctl.icons = {
-  cinese : "Signal/chinese.png",
   garbage : "Signal/garbage.png",
   incendio : "Signal/burn.png",
   pericolo: "Signal/exclamation.png",
   rapina: "Signal/gun.png",
-  droga:"Signal/droga.png"
+  droga:"Signal/droga.png",
+  blackout: "Signal/bolt.png",
+  tornado: "Signal/tornado.png",
+  Incidente: "Signal/incidente.png",
+  Acqua: "Signal/drop.png",
+  gente: "Signal/team.png",
+  botte:"Signal/boxing.png"
 }; 
 
   $scope.showConfirm = function(ev, titolo,tipo) {
@@ -135,26 +163,4 @@ ctl.icons = {
   //DA ELIMINARE ASSOLUTAMENTE QUANDO COMPILATE L'APK
   app.ctl = ctl;
 
-/*
-
-  //IINIZIO CREAZIONE DINAMICA MARKER
-  ctl.my_map = NgMap.getMap();
-  console.log(ctl.my_map);
-  ctl.my_map.markers = [];
-  var latlng;
-
-  //fai la funzione che all'onclick metta in ctl.my_map.markers la posizione corrente 
-  // forse alla fine di quella funzione dovrai chiamare $scope.apply();
-
-  NavigatorGeolocation.getCurrentPosition()
-   .then(function(position) {
-     latlng = {lat: position.coords.latitude, lng: position.coords.longitude, inizio: 241132432, fine: 242332425};
-   });
-
-   ctl.my_map.markers.push(latlng);
- 
-  //ctl.my_map.markers.push(latlng);
-  console.log("mappa: ", ctl.my_map);
-
-*/
 });

@@ -10,13 +10,16 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
     	latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
  
   	var x = 
-  	{lat: latlng.lat, 
-  	 lng: latlng.lng,
-  	 icona: iconsSet[tipo],
-  	 inizio : Date.now(),
-  	 fine: new Date(fine)
-  	}
+  	{
+      lat: latlng.lat, 
+      lng: latlng.lng,
+      icona: iconsSet[tipo],
+      inizio : Date.now(),
+      fine: new Date(fine)
+  	};
   	ctl.mapSrv.markers.push(x);
+    console.log("Ho aggiunto marker "+tipo);
+    console.log(ctl.mapSrv.markers[ctl.mapSrv.markers.length-1]);
   });
   }
 }
