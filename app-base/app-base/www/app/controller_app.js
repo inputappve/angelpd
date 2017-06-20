@@ -20,7 +20,7 @@ angular.module('app')
 
   window.fbAsyncInit = function() {
         FB.init({
-           appId      : '427469474303607',
+           appId      : '427469474303607', 
            xfbml      : true,
            version    : 'v2.6'
         });
@@ -70,7 +70,31 @@ angular.module('app')
   $scope.title1 = 'Home';
   $scope.title2 = 'Settings';
   $scope.title3 = 'About';
-  $scope.showConfirm = function(ev) {
+  msg=[];
+  msg.push({
+          titolo: "Pericolo generico",
+          msg: "Vuoi segnalare un pericolo generico?"
+           });
+   msg.push({
+          titolo: "Pericolo Incendio",
+          msg: "Vuoi segnalare un pericolo di incendio?"
+           });
+   msg.push({
+          titolo: "Presenza Cinese",
+          msg: "Vuoi segnalare una presenza cinese?"
+           });
+   msg.push({
+          titolo: "Presenza Spazzatura",
+          msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
+           });
+ctl.icons = {
+  cinese : "Signal/chinese.png",
+  garbage : "Signal/garbage.png",
+  incendio : "Signal/burn.png",
+  pericolo: "Signal/exclamation.png"
+}; 
+
+  $scope.showConfirm = function(ev, titolo,tipo) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Would you like to delete your debt?')
@@ -81,9 +105,10 @@ angular.module('app')
           .cancel('Sounds like a scam');
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'You decided to get rid of your debt.';
+      $scope.status="";
+      ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
     }, function() {
-      $scope.status = 'You decided to keep your debt.';
+      $scope.status = 'e';
     });
   };
   //

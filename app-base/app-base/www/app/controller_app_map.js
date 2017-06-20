@@ -4,7 +4,7 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
   console.log("ho recuperato la mappa -> ", ctl.mapSrv);
   ctl.mapSrv.markers = [];
 
-  ctl.mapSrv.addMarker = function(fine,tipo){
+  ctl.mapSrv.addMarker = function(fine,tipo,iconsSet){
   	var latlng = null;
   	NavigatorGeolocation.getCurrentPosition().then(function(position) {
     	latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -12,7 +12,7 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
   	var x = 
   	{lat: latlng.lat, 
   	 lng: latlng.lng,
-  	 tipo: tipo,
+  	 icona: iconsSet[tipo],
   	 inizio : Date.now(),
   	 fine: new Date(fine)
   	}
