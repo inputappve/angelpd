@@ -11,9 +11,6 @@ app
     when('/map', {
       templateUrl: "views/map.html"
     }).
-    when('/page_detail/:item_id', {
-      templateUrl: "views/page_detail.html"
-    }).
     when('/controllo', {
       templateUrl: "views/controllo.html"
     }).

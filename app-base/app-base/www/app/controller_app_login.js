@@ -174,10 +174,6 @@ app.app_login = function(ctl,auth,usercurrent,passwordcurrent){
       }
 
     }
-    // PROVA COLORI
-    ctl.SC = function(color){
-      document.getElementById('tool').style.backgroundColor = color;
-    }
 
     ctl.google = function(){
        window.location.href ="https://accounts.google.com/signin/v2";
