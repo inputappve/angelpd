@@ -1,36 +1,4 @@
-<style>
-  .gm-fullscreen-control{
-    display: none;
-  }
-  .lefttolbar{
-    right: 0%; 
-    width: 100%; 
-    position: fixed;
-    height: 7%;
-    margin: 0px;
-  }
-  .mappa{
-    top: 8%; 
-    height: 92%;
-    display: block; 
-    width: 100%;
-    z-index: 1; 
-    position: fixed;
-  }
-  .titolo1{
-    position: absolute;
-    top: 25%;
-    text-align: center;
-    right: 43%;
-  }
-  .titolo2{
-    position: absolute;
-    top: -14%;
-    text-align: center;
-    right: 41%;
-  }
-</style>
-<md-content>
+<md-content id="tool">
     <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">
         <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
@@ -45,7 +13,7 @@
     </md-toolbar>
       <md-content layout-margin>
           <ul>
-          <li><md-button class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button ng-click="toggleLeft()" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
           <li><md-button ng-click="ctl.bLink('/settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
           <li><md-button ng-click="ctl.bLink('/about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
           </ul> 
@@ -55,7 +23,10 @@
 
 <ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
 <ng-map id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa">
-  <marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker>
+  <!--marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker-->
+    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" position="current" id="{{marker}}">
+     <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
+    </custom-marker>
 </ng-map>
 
 
@@ -63,9 +34,20 @@
    <md-toolbar class="md-theme-indigo">
         <h3 class="titolo2 ">Icone</h3>
     </md-toolbar>
-      <md-content layout-margin>
-        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event)"></img>
-        <md-button ng-click="toggleRight()" class="md-accent">
+      <md-content layout-margin style="height: calc( 100% - 100px);">
+        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event,'Pericolo generico','pericolo')"><img>
+        <img class="md-primary md-raised" src="Signal/burn.png" ng-click="showConfirm($event,'Pericolo Incendio','incendio')"></img>
+         <img class="md-primary md-raised" src="Signal/garbage.png" ng-click="showConfirm($event,'Presenza Spazzatura','garbage')"></img>
+         <img class="md-primary md-raised" src="Signal/gun.png" ng-click="showConfirm($event,'Presenza Rapinatori','rapina')"></img>
+          <img class="md-primary md-raised" src="Signal/droga.png" ng-click="showConfirm($event,'Presenza Spacciatori','droga')"></img>
+          <img class="md-primary md-raised" src="Signal/bolt.png" ng-click="showConfirm($event,'Blackout','blackout')"></img>
+          <img class="md-primary md-raised" src="Signal/tornado.png" ng-click="showConfirm($event,'Vortice','tornado')"></img>
+          <img class="md-primary md-raised" src="Signal/incidente.png" ng-click="showConfirm($event,'Incidente','incidente')"></img>
+           <img class="md-primary md-raised" src="Signal/drop.png" ng-click="showConfirm($event,'Allagamento','Acqua')"></img>
+          <img class="md-primary md-raised" src="Signal/team.png" ng-click="showConfirm($event,'Folla','gente')"></img>
+          <img class="md-primary md-raised" src="Signal/boxing.png" ng-click="showConfirm($event,'Rissa','botte')"></img>
+
+        <md-button ng-click="toggleRight()" class="md-accent" style="position: absolute;bottom: 0; left: 19%;" >
           Close this Sidenav
         </md-button>
       </md-content>

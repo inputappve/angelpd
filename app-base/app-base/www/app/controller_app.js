@@ -1,7 +1,6 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate,
-  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation,
-  appSrv) {
+  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -12,15 +11,11 @@ angular.module('app')
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-
-  const auth = firebase.auth();
-  const database = firebase.database();
-  const usercurrent = firebase.auth().currentUser;
   const passwordcurrent = ' ';
 
   window.fbAsyncInit = function() {
         FB.init({
-           appId      : '427469474303607',
+           appId      : '427469474303607', 
            xfbml      : true,
            version    : 'v2.6'
         });
@@ -39,10 +34,9 @@ angular.module('app')
   
   ctl.posVe =  {lat: 45.4217, lng: 12.3356};
   ctl.htmlpage = 'index.html#!';
-  ctl.appSrv = appSrv;
 
   app.app_helper(ctl);
-  app.app_login(ctl,auth,usercurrent,passwordcurrent);
+  app.app_login(ctl,passwordcurrent);
   app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000));
 
   ctl.showDialog = function(id){
@@ -70,52 +64,95 @@ angular.module('app')
   $scope.title1 = 'Home';
   $scope.title2 = 'Settings';
   $scope.title3 = 'About';
-
-
-  msg=[];
-  msg.push({
+  ctl.msg=[];
+  ctl.msg.push({
           titolo: "Pericolo generico",
           msg: "Vuoi segnalare un pericolo generico?"
            });
-   msg.push({
+  ctl.msg.push({
           titolo: "Pericolo Incendio",
           msg: "Vuoi segnalare un pericolo di incendio?"
            });
-   msg.push({
-          titolo: "Presenza Cinese",
-          msg: "Vuoi segnalare una presenza cinese?"
-           });
-   msg.push({
+  ctl.msg.push({
           titolo: "Presenza Spazzatura",
           msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
            });
+  ctl.msg.push({
+          titolo: "Presenza Rapinatori",
+          msg: "Vuoi segnalare la presenza di rapinatori nell'area?"
+           });
+  ctl.msg.push({
+         titolo: "Presenza Spacciatori",
+         msg: "Vuoi segnalare la presenza di spacciatori nell'area?"
+          });
+  ctl.msg.push({
+          titolo: "Blackout",
+          msg: "Vuoi segnalare la presenza di un blackout nell'area circostante?"
+           });
+  ctl.msg.push({
+          titolo: "Vortice",
+          msg: "Vuoi segnalare la presenza di trombe d'aria?"
+           });
+  ctl.msg.push({
+          titolo: "Incidente",
+          msg: "Vuoi segnalare la presenza di incidenti stradali?"
+           });
+  ctl.msg.push({
+          titolo: "Allagamento",
+          msg: "Vuoi segnalare la presenza di zone allagate?"
+           });
+  ctl.msg.push({
+          titolo: "Folla",
+          msg: "Vuoi segnalare un affollamento di persone?"
+           });
+  ctl.msg.push({
+          titolo: "Rissa",
+          msg: "Vuoi segnalare una rissa?"
+           });
 
 
 
 
+ctl.icons = {
+  garbage : "Signal/garbage.png",
+  incendio : "Signal/burn.png",
+  pericolo: "Signal/exclamation.png",
+  rapina: "Signal/gun.png",
+  droga:"Signal/droga.png",
+  blackout: "Signal/bolt.png",
+  tornado: "Signal/tornado.png",
+  Incidente: "Signal/incidente.png",
+  Acqua: "Signal/drop.png",
+  gente: "Signal/team.png",
+  botte:"Signal/boxing.png"
+}; 
 
-  $scope.showConfirm = function(ev, titolo) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    var messaggio = null;
-    for(var i=0; i< msg.length; i++){
-      if(msg[i].titolo==titolo){
-        messaggio=msg[i].msg;
+  $scope.showConfirm = function(ev, titolo,tipo) {
+    var messaggio=null;
+    for(var i=0; i < ctl.msg.length; i++) {
+      if(ctl.msg[i].titolo == titolo){          
+        messaggio=ctl.msg[i].msg;
+        break;
       }
     }
+   
+    //Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title(titolo)
           .textContent(messaggio)
+          //.ariaLabel()
           .targetEvent(ev)
-          .cancel('chiudi')
-          .ok('ok');
-         
+          .ok('OK')
+          .cancel('Annulla');
 
     $mdDialog.show(confirm).then(function() {
-      $scope.status = 'Grazie mille della segnalazione';
+    //  $scope.status="";
+      ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
     }, function() {
-      $scope.status = 'Grazie mille della segnalazione';
+    //  $scope.status = "";
     });
-  }
+  };
+  //
 
   function buildToggler(componentId) {
     return function() {
@@ -126,26 +163,4 @@ angular.module('app')
   //DA ELIMINARE ASSOLUTAMENTE QUANDO COMPILATE L'APK
   app.ctl = ctl;
 
-/*
-
-  //IINIZIO CREAZIONE DINAMICA MARKER
-  ctl.my_map = NgMap.getMap();
-  console.log(ctl.my_map);
-  ctl.my_map.markers = [];
-  var latlng;
-
-  //fai la funzione che all'onclick metta in ctl.my_map.markers la posizione corrente 
-  // forse alla fine di quella funzione dovrai chiamare $scope.apply();
-
-  NavigatorGeolocation.getCurrentPosition()
-   .then(function(position) {
-     latlng = {lat: position.coords.latitude, lng: position.coords.longitude, inizio: 241132432, fine: 242332425};
-   });
-
-   ctl.my_map.markers.push(latlng);
- 
-  //ctl.my_map.markers.push(latlng);
-  console.log("mappa: ", ctl.my_map);
-
-*/
 });
