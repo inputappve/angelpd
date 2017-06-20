@@ -1,7 +1,6 @@
 angular.module('app')
 .controller('MainCtrl', function($scope, $routeParams, $translate,
-  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation,
-  appSrv) {
+  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
   console.log("QUI");
   var config = {
     apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
@@ -12,10 +11,6 @@ angular.module('app')
     messagingSenderId: "306707852817"
   };
   firebase.initializeApp(config);
-
-  const auth = firebase.auth();
-  const database = firebase.database();
-  const usercurrent = firebase.auth().currentUser;
   const passwordcurrent = ' ';
 
   window.fbAsyncInit = function() {
@@ -39,10 +34,9 @@ angular.module('app')
   
   ctl.posVe =  {lat: 45.4217, lng: 12.3356};
   ctl.htmlpage = 'index.html#!';
-  ctl.appSrv = appSrv;
 
   app.app_helper(ctl);
-  app.app_login(ctl,auth,usercurrent,passwordcurrent);
+  app.app_login(ctl,passwordcurrent);
   app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000));
 
   ctl.showDialog = function(id){
