@@ -152,7 +152,21 @@ ctl.icons = {
     });
   };
   //
+  ctl.loadMap = function(){
+  var markers = firebase.database().ref("Venezia/");
+  markers.on("child_added", function(data, prevChildKey) {
+    var Marker = data.val();
+    console.log(Marker);
+    ctl.mapSrv.showMarker(Marker.dateStart,Marker.dateFinish,Marker.icon,Marker.lat,Marker.lng);
+    console.log("Ho aggiunto marker "+Marker.icon);
+    console.log(ctl.mapSrv.markers[ctl.mapSrv.markers.length-1]);
+    NgMap.getMap({id: 'map'}).then(function(map){
+    google.maps.event.trigger(map,'resize');
+    })
+  });
+  }
 
+  
   function buildToggler(componentId) {
     return function() {
       $mdSidenav(componentId).toggle();

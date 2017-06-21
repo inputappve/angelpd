@@ -5,24 +5,27 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
      lng:marker.lng,
      icon: marker.icona,
      dateStart:marker.inizio,
-     dateFinish:marker.fine
+     //dateFinish:marker.fine
   });
 }
-	ctl.loadMap = function(){
-		return firebase.database().ref('/Venezia/').once('value').then(function(snapshot) {
-  		var username = snapshot.val().username;
-  		var lat = snapshot.val().lat,
-    	var lng = snapshot.val().lng,
-   		var icona  = snapshot.val().icon,
-    	var inizio = snapshot.val().dateStart,
-  		var fine =snapshot.val().dateFinish
-		});
-	}
 
   ctl.mapSrv = {};
-	ctl.mapSrv = NgMap.getMap();
+  ctl.mapSrv = NgMap.getMap();
   console.log("ho recuperato la mappa -> ", ctl.mapSrv);
   ctl.mapSrv.markers = [];
+  //MOSTRA I MARKER CREATI
+  ctl.mapSrv.showMarker = function(dateInizio,dataFine,icona,Lat,Lng){
+  var x = 
+  	{
+      lat: Lat, 
+      lng: Lng,
+      icona: icona,
+      inizio : dateInizio,
+     // fine: dataFine
+  	};
+  	console.log("Marker");
+  	ctl.mapSrv.markers.push(x);
+  }
 
   ctl.mapSrv.addMarker = function(fine,tipo,iconsSet){
   	var latlng = null;
