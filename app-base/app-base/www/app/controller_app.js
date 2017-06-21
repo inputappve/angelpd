@@ -108,8 +108,19 @@ angular.module('app')
           titolo: "Rissa",
           msg: "Vuoi segnalare una rissa?"
            });
-
-
+  ctl.msg.push({
+          titolo: "Lavori in corso",
+          msg: "Vuoi segnalare la presenza di lavori in corso?"
+           });
+  ctl.msg.push({
+          titolo: "Esalazioni Tossiche",
+          msg: "Vuoi segnalare la presenza di sostanze tossiche/nocive?"
+           });
+  ctl.msg.push({
+          titolo: "Terremoto",
+          msg: "Vuoi segnalare la presenza di un terremoto nell'area circostante?"
+           });
+ 
 
 
 ctl.icons = {
@@ -123,7 +134,10 @@ ctl.icons = {
   Incidente: "Signal/incidente.png",
   Acqua: "Signal/drop.png",
   gente: "Signal/team.png",
-  botte:"Signal/boxing.png"
+  botte:"Signal/boxing.png",
+  lavori: "Signal/badile.png",
+  tossico: "Signal/poison.png",
+  terremoto:"Signal/earthquake.png"
 }; 
 
   $scope.showConfirm = function(ev, titolo,tipo) {
@@ -147,6 +161,7 @@ ctl.icons = {
     $mdDialog.show(confirm).then(function() {
     //  $scope.status="";
       ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
+      $scope.toggleRight();
     }, function() {
     //  $scope.status = "";
     });

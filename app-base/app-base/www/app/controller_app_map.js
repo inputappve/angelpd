@@ -8,7 +8,7 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
      dateFinish:marker.fine
   });
 }
-	ctl.loadMap = function(){
+	/*ctl.loadMap = function(){
 		return firebase.database().ref('/Venezia/').once('value').then(function(snapshot) {
   		var username = snapshot.val().username;
   		var lat = snapshot.val().lat,
@@ -17,7 +17,7 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo){
     	var inizio = snapshot.val().dateStart,
   		var fine =snapshot.val().dateFinish
 		});
-	}
+	}*/
 
   ctl.mapSrv = {};
 	ctl.mapSrv = NgMap.getMap();
