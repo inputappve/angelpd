@@ -12,7 +12,6 @@ angular.module('app')
   };
   firebase.initializeApp(config);
   const passwordcurrent = ' ';
-
   window.fbAsyncInit = function() {
         FB.init({
            appId      : '427469474303607', 
