@@ -24,11 +24,18 @@
 <ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
 <ng-map ng-init="ctl.loadMap()" id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa">
   <!--marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker-->
-    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" position="current" id="{{marker}}">
+    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" position="{{marker.position}}" id="marker_{{marker.id}}" 
+    on-click="ctl.showDetail(event,marker)">
      <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
     </custom-marker>
+    <info-window ng-repeat="marker in ctl.mapSrv.markers"  id="foo-iw">
+    <div ng-non-bindable="">
+      id: marker_{{marker.id}} <br/>
+     <!--name: {{marker.user}}<br/>
+      messaggio: {{marker}}<br/-->
+    </div>
+    </info-window>
 </ng-map>
-
 
   <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">

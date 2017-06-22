@@ -160,7 +160,7 @@ ctl.icons = {
 
     $mdDialog.show(confirm).then(function() {
     //  $scope.status="";
-      ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons);
+      ctl.mapSrv.addMarker(Date.now()+60000*30,tipo,app.ctl.icons,firebase.auth().currentUser);
       $scope.toggleRight();
     }, function() {
     //  $scope.status = "";
@@ -172,7 +172,7 @@ ctl.icons = {
   markers.on("child_added", function(data, prevChildKey) {
     var Marker = data.val();
     console.log(Marker);
-    ctl.mapSrv.showMarker(Marker.dateStart,Marker.dateFinish,Marker.icon,Marker.lat,Marker.lng);
+    ctl.mapSrv.showMarker(Marker.dateStart,Marker.dateFinish,Marker.icon,Marker.lat,Marker.lng,firebase.auth().currentUser);
     console.log("Ho aggiunto marker "+Marker.icon);
     console.log(ctl.mapSrv.markers[ctl.mapSrv.markers.length-1]);
     NgMap.getMap({id: 'map'}).then(function(map){
