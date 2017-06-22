@@ -80,7 +80,7 @@
  .puls{
   position: absolute; 
   left: 35%;
-  background-color: RGB(55,146,179);
+  background-color: rgb(55,146,179);
  }
 
    .listabout{
@@ -101,3 +101,6 @@
   .color{
   	background-color: rgb(55, 146, 179);
   }
+ .layout-margin{
+ 	left: 6%;
+ }
