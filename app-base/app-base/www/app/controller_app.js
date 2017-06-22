@@ -66,59 +66,73 @@ angular.module('app')
   ctl.msg=[];
   ctl.msg.push({
           titolo: "Pericolo generico",
-          msg: "Vuoi segnalare un pericolo generico?"
+          msg: "Vuoi segnalare un pericolo generico?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Pericolo Incendio",
-          msg: "Vuoi segnalare un pericolo di incendio?"
+          msg: "Vuoi segnalare un pericolo di incendio?",
+          icona: "Signal/burn.png"
            });
   ctl.msg.push({
           titolo: "Presenza Spazzatura",
-          msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?"
+          msg: "Vuoi segnalare la presenza di spazzatura fuori dal cestino?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Presenza Rapinatori",
-          msg: "Vuoi segnalare la presenza di rapinatori nell'area?"
+          msg: "Vuoi segnalare la presenza di rapinatori nell'area?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
          titolo: "Presenza Spacciatori",
-         msg: "Vuoi segnalare la presenza di spacciatori nell'area?"
+         msg: "Vuoi segnalare la presenza di spacciatori nell'area?",
+         icona: "Signal/garbage.png"
           });
   ctl.msg.push({
           titolo: "Blackout",
-          msg: "Vuoi segnalare la presenza di un blackout nell'area circostante?"
+          msg: "Vuoi segnalare la presenza di un blackout nell'area circostante?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Vortice",
-          msg: "Vuoi segnalare la presenza di trombe d'aria?"
+          msg: "Vuoi segnalare la presenza di trombe d'aria?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Incidente",
-          msg: "Vuoi segnalare la presenza di incidenti stradali?"
+          msg: "Vuoi segnalare la presenza di incidenti stradali?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Allagamento",
-          msg: "Vuoi segnalare la presenza di zone allagate?"
+          msg: "Vuoi segnalare la presenza di zone allagate?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Folla",
-          msg: "Vuoi segnalare un affollamento di persone?"
+          msg: "Vuoi segnalare un affollamento di persone?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Rissa",
-          msg: "Vuoi segnalare una rissa?"
+          msg: "Vuoi segnalare una rissa?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Lavori in corso",
-          msg: "Vuoi segnalare la presenza di lavori in corso?"
+          msg: "Vuoi segnalare la presenza di lavori in corso?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Esalazioni Tossiche",
-          msg: "Vuoi segnalare la presenza di sostanze tossiche/nocive?"
+          msg: "Vuoi segnalare la presenza di sostanze tossiche/nocive?",
+          icona: "Signal/garbage.png"
            });
   ctl.msg.push({
           titolo: "Terremoto",
-          msg: "Vuoi segnalare la presenza di un terremoto nell'area circostante?"
+          msg: "Vuoi segnalare la presenza di un terremoto nell'area circostante?",
+          icona: "Signal/garbage.png"
            });
  
 
@@ -139,6 +153,15 @@ ctl.icons = {
   tossico: "Signal/poison.png",
   terremoto:"Signal/earthquake.png"
 }; 
+
+
+  ctl.display_dialog = function(titolo,msg,ok,cancel){
+
+
+
+
+
+  }
 
   $scope.showConfirm = function(ev, titolo,tipo) {
     var messaggio=null;

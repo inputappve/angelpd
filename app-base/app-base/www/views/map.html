@@ -26,15 +26,20 @@
   <!--marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker-->
     <custom-marker ng-repeat="marker in ctl.mapSrv.markers" position="{{marker.position}}" id="marker_{{marker.id}}" 
     on-click="ctl.showDetail(event,marker)">
-     <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
+     <img ng-src="{{marker.icona}}" id="img_{{marker.id}}" style="width:32px; height:32px;"/>
     </custom-marker>
-    <info-window ng-repeat="marker in ctl.mapSrv.markers"  id="foo-iw">
+    <!--info-window ng-repeat="(idx,marker) in ctl.mapSrv.markers"  id="foo-iw_{{idx}}">
     <div ng-non-bindable="">
       id: marker_{{marker.id}} <br/>
-     <!--name: {{marker.user}}<br/>
-      messaggio: {{marker}}<br/-->
+      name: {{marker.user}}<br/>
     </div>
-    </info-window>
+    </info-window-->
+
+      <div ng-repeat="(idx,marker) in ctl.mapSrv.markers" style="background-color: white; color: red;"  id="foo-iw_{{idx}}">
+      id: marker_{{marker.id}} <br/>
+      name: {{marker.user}}<br/>
+    </div>
+
 </ng-map>
 
   <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
