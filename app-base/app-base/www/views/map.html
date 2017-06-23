@@ -24,20 +24,23 @@
 <ng-md-icon class="md-raised lower_button" icon="add_circle" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
 <ng-map ng-init="ctl.loadMap()" id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa">
   <!--marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker-->
-    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" position="current" id="{{marker}}">
-     <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
+    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" 
+      position="{{marker.position}}"
+      id="marker_{{marker.id}}" 
+      on-click="ctl.display_alert($event, marker ,'ok',marker.icona)">
+      <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
     </custom-marker>
+    
 </ng-map>
-
 
   <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
    <md-toolbar class="md-theme-indigo">
         <h3 class="titolo2 ">Icone</h3>
     </md-toolbar>
-      <md-content layout-margin style="height: calc( 100% - 100px);">
+      <md-content layout-margin style="height: calc( 94% - 12%);width: 85%;">
         <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event,'Pericolo generico','pericolo')"><img>
-        <img class="md-primary md-raised" src="Signal/burn.png" ng-click="showConfirm($event,'Pericolo Incendio','incendio')"></img>
-         <img class="md-primary md-raised" src="Signal/garbage.png" ng-click="showConfirm($event,'Presenza Spazzatura','garbage')"></img>
+        <img class="md-primary md-raised" src="Signal/burn.png" ng-click="showConfirm($event,'Pericolo Incendio','incendio')" style="position: inherit;left: -5%;"></img>
+         <img class="md-primary md-raised" src="Signal/garbage.png" ng-click="showConfirm($event,'Presenza Spazzatura','garbage')" style="position: inherit;left: -5%;"></img>
          <img class="md-primary md-raised" src="Signal/gun.png" ng-click="showConfirm($event,'Presenza Rapinatori','rapina')"></img>
           <img class="md-primary md-raised" src="Signal/droga.png" ng-click="showConfirm($event,'Presenza Spacciatori','droga')"></img>
           <img class="md-primary md-raised" src="Signal/bolt.png" ng-click="showConfirm($event,'Blackout','blackout')"></img>
@@ -49,8 +52,8 @@
           <img class="md-primary md-raised" src="Signal/badile.png" ng-click="showConfirm($event,'Lavori in corso','lavori')"></img>
           <img class="md-primary md-raised" src="Signal/poison.png" ng-click="showConfirm($event,'Esalazioni Tossiche','tossico')"></img>
           <img class="md-primary md-raised" src="Signal/earthquake.png" ng-click="showConfirm($event,'Terremoto','terremoto')"></img>
-        <md-button ng-click="toggleRight()" class="md-accent" style="position: absolute;bottom: 0; left: 19% " >
-          Close this Sidenav
+        <md-button ng-click="toggleRight()" class="md-accent" style="position: absolute;bottom: 0; left: -4%; color :black;" >
+          CLOSE
         </md-button>
       </md-content>
     </md-sidenav>
