@@ -74,7 +74,7 @@ app.mapSrv = function(ctl,NgMap, NavigatorGeolocation, fine,tipo,$scope){
           id: _ctl.mapSrv.markers.length
         };
         _ctl.mapSrv.markers.push(x);
-        _ctl.mbu(firebase.auth().currentUser,x);
+        //_ctl.mbu(firebase.auth().currentUser,x);
         console.log("Ho aggiunto marker "+tipo);
         console.log(ctl.mapSrv.markers[ctl.mapSrv.markers.length-1])
       });
