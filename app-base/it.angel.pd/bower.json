@@ -1,0 +1,32 @@
+{
+  "name": "app-base",
+  "authors": [
+    "Tomaso Minelli <tomaso.minelli@unipd.it>"
+  ],
+  "description": "Una descrizione....",
+  "main": "index.html",
+  "keywords": [
+    "pippo",
+    "pluto"
+  ],
+  "license": "MIT",
+  "homepage": "http://www.veniceprojectcenter.org",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular-material": "^1.1.4",
+    "angular-animate": "^1.6.4",
+    "angular-aria": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "angular-translate": "^2.15.1",
+    "angular-route": "^1.6.4",
+    "ngmap": "^1.18.4",
+    "ngCordova": "^0.1.27-alpha"
+  }
+}

@@ -1,0 +1,29 @@
+<md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools" class="tool" id="tool" >
+        <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
+
+        <h3 class="titolo1">Angel</h3>
+      </div>
+    </md-toolbar>
+</md-content>
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo" class="tool">
+      <h3 class="titolo2">Menu</h3>
+    </md-toolbar>
+      <md-content layout-margin>
+          <ul>
+          <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button ng-click="toggleLeft()"  class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="ctl.bLink('about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
+      </md-content>
+    </md-sidenav>
+<img id="ava"  style="visibility: hidden" class="avatar" ng-init=" ctl.avatar()"  ng-click="ctl.google()">
+<p id="p1" class="email" style="top: 14%;" ng-init="ctl.set1()">ciao </p>
+<p id="p2" class="email" style="top: 19%;" ng-init="ctl.set2()">ciao </p>
+<md-button id="change" ng-init="ctl.set3()" style="visibility: hidden;top: 32%;left: -2%;position: absolute; width: 99%;" class="md-raised md-primary borderbut" ng-click="ctl.changepassword()">Cambio passw? </md-button>
+ 
+
+
