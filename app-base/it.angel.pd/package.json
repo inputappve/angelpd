@@ -1,0 +1,27 @@
+{
+    "name": "AngelPD",
+    "displayName": "AngelPD",
+    "version": "1.0.0",
+    "description": "Forma Urbis usefull app",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "cordova-android": "^6.2.3",
+        "cordova-plugin-compat": "^1.1.0",
+        "cordova-plugin-geolocation": "^2.4.3",
+        "cordova-plugin-whitelist": "^1.3.2"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "cordova-plugin-geolocation": {}
+        },
+        "platforms": [
+            "android"
+        ]
+    }
+}

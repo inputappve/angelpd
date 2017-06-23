@@ -203,9 +203,6 @@ angular.module('app')
       );
   }; 
 
-
-
-
   $scope.showConfirm = function(ev, titolo,tipo) {
     var messaggio=null;
     for(var i=0; i < ctl.msg.length; i++) {
@@ -232,9 +229,7 @@ angular.module('app')
     //  $scope.status = "";
     });
   }//showconfirm
-  
-  //
-  
+   
   function buildToggler(componentId) {
     return function() {
       $mdSidenav(componentId).toggle();

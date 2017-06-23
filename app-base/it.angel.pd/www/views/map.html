@@ -1,0 +1,67 @@
+<md-content id="tool">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
+        <h8 class="titolo1">Angel</h8>
+      </div>
+    </md-toolbar>
+</md-content>
+
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4" id="tool">
+   <md-toolbar class="md-theme-indigo">
+      <h3 class="titolo2">Menu</h3>
+    </md-toolbar>
+      <md-content layout-margin>
+          <ul>
+          <li><md-button ng-click="toggleLeft()" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button ng-click="ctl.bLink('/settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="ctl.bLink('/about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
+      </md-content>
+    </md-sidenav>
+
+<ng-md-icon class="md-raised lower_button" icon="list" ng-click="toggleRight()" size="45" style="z-index: 10;" ></ng-md-icon >
+<ng-map ng-init="ctl.loadMap()" id="map" zoom="12" center="[{{ctl.posVe.lat}}, {{ctl.posVe.lng}}]" class="mappa">
+  <!--marker ng-repeat="pos in ctl.mapSrv.markers" position="current" id="{{ctl.pos}}"></marker-->
+    <custom-marker ng-repeat="marker in ctl.mapSrv.markers" 
+      position="{{marker.position}}"
+      id="marker_{{marker.id}}" 
+      on-click="ctl.display_alert($event, marker ,'ok',marker.icona)">
+     <img ng-src="{{marker.icona}}" style="width:32px; height:32px;"/>
+    </custom-marker>
+    
+</ng-map>
+
+  <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo">
+        <h3 class="titolo2 ">Icone</h3>
+    </md-toolbar>
+      <md-content layout-margin style="height: calc( 94% - 12%);width: 85%;">
+        <img class="md-primary md-raised" src="Signal/exclamation.png" ng-click="showConfirm($event,'Pericolo generico','pericolo')"><img>
+        <img class="md-primary md-raised" src="Signal/burn.png" ng-click="showConfirm($event,'Pericolo Incendio','incendio')" style="position: inherit;left: -5%;"></img>
+         <img class="md-primary md-raised" src="Signal/garbage.png" ng-click="showConfirm($event,'Presenza Spazzatura','garbage')" style="position: inherit;left: -5%;"></img>
+         <img class="md-primary md-raised" src="Signal/gun.png" ng-click="showConfirm($event,'Presenza Rapinatori','rapina')"></img>
+          <img class="md-primary md-raised" src="Signal/droga.png" ng-click="showConfirm($event,'Presenza Spacciatori','droga')"></img>
+          <img class="md-primary md-raised" src="Signal/bolt.png" ng-click="showConfirm($event,'Blackout','blackout')"></img>
+          <img class="md-primary md-raised" src="Signal/tornado.png" ng-click="showConfirm($event,'Vortice','tornado')"></img>
+          <img class="md-primary md-raised" src="Signal/incidente.png" ng-click="showConfirm($event,'Incidente','Incidente')"></img>
+           <img class="md-primary md-raised" src="Signal/drop.png" ng-click="showConfirm($event,'Allagamento','Acqua')"></img>
+          <img class="md-primary md-raised" src="Signal/team.png" ng-click="showConfirm($event,'Folla','gente')"></img>
+          <img class="md-primary md-raised" src="Signal/boxing.png" ng-click="showConfirm($event,'Rissa','botte')"></img>
+          <img class="md-primary md-raised" src="Signal/badile.png" ng-click="showConfirm($event,'Lavori in corso','lavori')"></img>
+          <img class="md-primary md-raised" src="Signal/poison.png" ng-click="showConfirm($event,'Esalazioni Tossiche','tossico')"></img>
+          <img class="md-primary md-raised" src="Signal/earthquake.png" ng-click="showConfirm($event,'Terremoto','terremoto')"></img>
+        <md-button ng-click="toggleRight()" class="md-accent" style="position: absolute;bottom: 0; left: -4%; color :black;" >
+          CLOSE
+        </md-button>
+      </md-content>
+    </md-sidenav>
+    <md-content flex layout-padding>
+      <div layout="column" layout-align="top center">
+      </div>
+    </md-content>
+  </section>
+</div>
+
+

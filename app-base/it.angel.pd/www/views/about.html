@@ -1,0 +1,54 @@
+<md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <ng-md-icon class="md-raised" icon="list" ng-click="toggleLeft()" size="40"></ng-md-icon>
+
+        <h3 class="titolo1">Angel</h3>
+
+      </div>
+    </md-toolbar>
+</md-content>
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+   <md-toolbar class="md-theme-indigo">
+      <h3 class="titolo2">Menu</h3>
+    </md-toolbar>
+      <md-content layout-margin>
+          <ul>
+
+          <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
+          <li><md-button ng-click="ctl.bLink('settings')" class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
+          <li><md-button ng-click="toggleLeft()" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+          </ul> 
+        <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
+
+      </md-content>
+    </md-sidenav>
+
+  <h3 style="position:absolute; font-size: xx-large; left: 5%;top: 5%">INFO</h3>
+  <h2 style="position:absolute; color: blue;font-size: x-large; left: 5%;top: 14%">Info sull'app</h2>
+  <strong style="position: absolute; font-size : 22px ;left: 6%; top:21%">Versione:</strong>
+  <p style="position: absolute; font-size: 14px; left: 33%; top:20%">1.0.0</p>
+
+ <md-list layout-margin class="listabout" >
+          <ul>
+            <li>
+             <md-list-item"><h3>A COSA SERVE QUESTA APP?</h3>
+                <i>-Angel è un applicativo in grado di segnalare in una mappa pericoli, dati, avvenimenti o situazioni .
+                    Ogni segnalazione effettuata nella propria app potrà avere un timer con il quale scomparirà una volta terminato . E ogni segnalazione viene inserita nella mappa GLOBALE dove tutti gli utenti possono vedere la segnalazione.</i>
+              </md-list-item>
+            </li>
+            <li>
+              <md-list-item"><h3>FUNZIONI PRINCIPALI E 'REGOLE' DELL'APP</h3>
+                <i>-L'app permette di segnalare la posizione attuale nella mappa con alcune indicazione (tipo di peicolo,ecc...) così che tutti gli utenti possano vedere le varie segnalazione di ogni singolo utente . Se un utente abusasse eccessivamente del servizio di quest'app potremmo prendere dei provvedimenti bannando momentaneamente o permanentemente l'account dell'utente desiderato.</i>
+              </md-list-item>
+            </li>
+            <li>
+              <md-list-item"><h4>CHI SIAMO</h4>
+              <i></i>
+                <a href="http://veniceprojectcenter.org/">VeniceProjectCenter</a><br>
+                <a href="http://www.formaurbis.com/">FormaUrbis</a>
+              </md-list-item>
+            </li>
+              <md-list-item class="md-accent">
+        </md-list-item>
+      </md-list>

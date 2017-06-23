@@ -1,0 +1,106 @@
+.gm-svpc{	
+	display:none;
+}
+.lower_button{
+	fill: white;
+	position: fixed;
+	z-index: 1;
+	bottom: 13%;
+    right: 1%;
+    background-color: black;
+    border-radius: 70px;
+    height: 7%;
+}
+.borderbut{
+	    border-radius: 20px;
+}
+.iconlogin{
+    position : fixed; 
+    top:55%;
+}
+.md-block{
+    position: fixed;
+    height: 5%;
+    width: 75%;
+    left: 12%;
+ }
+
+.iconw {
+    position: fixed;
+    top:45%;
+}
+.gm-fullscreen-control{
+    display: none;
+  }
+.lefttolbar{
+    right: 0%; 
+    width: 100%; 
+    position: fixed;
+    height: 7%;
+    margin: 0px;
+  }
+.mappa{
+    top: 8%; 
+    height: 92%;
+    display: block; 
+    width: 100%;
+    z-index: 1; 
+    position: fixed;
+  }
+.titolo1{
+    position: absolute;
+    top: 25%;
+    text-align: center;
+    right: 43%;
+  }
+.titolo2{
+    position: absolute;
+    top: -14%;
+    text-align: center;
+    right: 41%;
+  }
+.avatar {
+    width: 30%;
+    top: 13%;
+    left: 2%;
+    border-radius: 50%;
+    position: absolute;
+}
+.email{
+	position: absolute;
+    left: 35%;
+    font-style: italic;
+    font-weight: bold;
+}
+.input{
+   position: absolute;
+   left: 0%; 
+   width: 99%
+ }
+ .puls{
+  position: absolute; 
+  left: 35%;
+  background-color: rgb(55,146,179);
+ }
+
+   .listabout{
+    position: absolute;
+    left: -4%; 
+    top: 21%; 
+    text-align: left;
+    margin-right: 5%
+  }
+  .md-accent{
+    right: 0%; 
+    width: 100%;
+    position: fixed;
+    height: 7%;
+    bottom: 0%;
+    margin: 0px;
+  }
+  .color{
+  	background-color: rgb(55, 146, 179);
+  }
+ .layout-margin{
+ 	left: 8%;
+ }

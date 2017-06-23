@@ -1,0 +1,36 @@
+<md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <h3 class="titolo1" >Angel</h3>
+      </div>
+    </md-toolbar>
+</md-content>
+
+<div class="container">
+                <md-input-container class="md-block" style="top: 14%;">
+                <input id="txtEmail" type="email" placeholder="Email (required)" ng-required="true" >
+                </md-input-container>
+
+                <md-input-container class="md-block" style="top: 24%;">
+                <input id="txtPassword" type="password" placeholder="Password (required)" ng-required="true" >
+                </md-input-container>
+
+                <md-button class="md-raised borderbut" ng-click="ctl.passwordForgot()" style="position:fixed; top:35%; right:25%; width:45%; height:5%;">
+                  Forgot password?
+                </md-button>
+
+                <md-button ng-click="ctl.Login() " class="iconw md-raised md-primary borderbut color" style="left:18%;">
+                  log in
+                </md-button >
+
+                <md-button ng-click="ctl.SingIn()" class="iconw md-raised md-primary borderbut color" style="right:18%;">
+                  sing up
+                </md-button >
+
+                <ng-md-icon icon="google-plus-box" ng-click="ctl.googleLogin() " class="iconlogin borderbut" size="50" style=" fill: red; right:28%;"></ng-md-icon>
+                
+                <ng-md-icon icon="facebook-box" ng-click="ctl.facebookLogin() " class="iconlogin borderbut" size="50" style=" fill: blue; left: 28%;"></ng-md-icon> 
+
+                <strong class="termini" ng-click="ctl.terms()" style="position: absolute;text:bold;bottom:11%;right: 28%">TERMINI DI UTILIZZO
+                </strong>
+</div>
