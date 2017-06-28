@@ -21,6 +21,9 @@ app.app_login = function(ctl,passwordcurrent,$scope,$firebaseObject){
       firebase.auth().signInWithPopup(prov).then(function(result) {
           console.log(result.user)
           alert("sto verificando se sei verificato con fb");
+          ctl.user = firebase.auth().currentUser;
+          firebase.database().ref("users/" + ctl.user.uid + '/nick').set("ID FACEBOOK NUOVO");
+          firebase.database().ref("users/" + ctl.user.uid + '/status').set("Brand new");
           window.location.href = ctl.htmlpage + 'map';
        }).catch(function(error) {
           console.log(error.code)
