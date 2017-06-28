@@ -1,16 +1,22 @@
 angular.module('app')
-.controller('MainCtrl', function($scope, $routeParams, $translate,
-  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation) {
+.controller('MainCtrl', function(
+  $scope, $routeParams, $translate,
+  $timeout,$mdSidenav,$mdDialog, NgMap, NavigatorGeolocation,
+  $firebaseObject, $firebaseArray, $firebaseAuth
+  ) {
+  var ctl = this;
+  ctl.apply = function(){ setTimeout(function () { $scope.$apply(); }, 50); }
+  
   console.log("QUI");
-  var config = {
-    apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
-    authDomain: "angel-6902f.firebaseapp.com",
-    databaseURL: "https://angel-6902f.firebaseio.com",
-    projectId: "angel-6902f",
-    storageBucket: "angel-6902f.appspot.com",
-    messagingSenderId: "306707852817"
-  };
-  firebase.initializeApp(config);
+  // var config = {
+  //   apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
+  //   authDomain: "angel-6902f.firebaseapp.com",
+  //   databaseURL: "https://angel-6902f.firebaseio.com",
+  //   projectId: "angel-6902f",
+  //   storageBucket: "angel-6902f.appspot.com",
+  //   messagingSenderId: "306707852817"
+  // };
+  // firebase.initializeApp(config);
   const passwordcurrent = ' ';
   window.fbAsyncInit = function() {
         FB.init({
@@ -28,14 +34,12 @@ angular.module('app')
         fjs.parentNode.insertBefore(js, fjs) ;
      }(document, 'script', 'facebook-jssdk') );
 
-  var ctl = this;
-
   
   ctl.posVe =  {lat: 45.4217, lng: 12.3356};
   ctl.htmlpage = 'index.html#!';
 
   app.app_helper(ctl);
-  app.app_login(ctl,passwordcurrent);
+  app.app_login(ctl,passwordcurrent,$scope,$firebaseObject);
   app.mapSrv(ctl, NgMap,NavigatorGeolocation, Date.now(), new Date(Date.now+100000),$scope);
 
   ctl.showDialog = function(id){
