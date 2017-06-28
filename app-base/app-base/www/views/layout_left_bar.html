@@ -4,9 +4,9 @@
   </md-toolbar>
   <md-content layout-margin>
     <ul>
-      <li><md-button ng-click="ctl.bLink('map')" class="lefttolbar" style="top:9%">MAPPA</md-button></li>
-      <li><md-button ng-click="toggleLeft()"  class="lefttolbar" style="top: 16%">SETTINGS</md-button></li>
-      <li><md-button ng-click="ctl.bLink('about')" class="lefttolbar" style= "top: 23%">ABOUT</md-button></li>
+      <li><a md-button href="#!/map"      ng-click="toggleLeft()" class="lefttolbar" style="top:9%  ">MAPPA   </a></li>
+      <li><a md-button href="#!/settings" ng-click="toggleLeft()" class="lefttolbar" style="top: 16%">SETTINGS</a></li>
+      <li><a md-button href="#!/about"    ng-click="toggleLeft()" class="lefttolbar" style="top: 23%">ABOUT   </a></li>
     </ul> 
     <md-button class="lefttolbar" style="bottom: 0%;" ng-click="toggleLeft()" class="md-accent">Close</md-button>
   </md-content>
