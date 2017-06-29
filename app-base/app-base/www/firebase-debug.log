@@ -1,0 +1,92 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.9.0
+[debug] Platform:     darwin
+[debug] Node Version: v8.0.0
+[debug] Time:         Wed Jun 28 2017 14:35:20 GMT+0200 (CEST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/angel-6902f  
+ Wed Jun 28 2017 14:35:20 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/angel-6902f/tokens  
+ Wed Jun 28 2017 14:35:21 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/macbookpro/Desktop/angelpd/app-base/app-base'...
+[info] 
+[debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/angel-6902f  
+ Wed Jun 28 2017 14:35:22 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/306707852817/clients/_:getWebAppConfig  
+ Wed Jun 28 2017 14:35:23 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: www
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] Error: getaddrinfo ENOTFOUND www.gstatic.com www.gstatic.com:443
+    at errnoException (dns.js:50:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:95:26)
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.9.0
+[debug] Platform:     darwin
+[debug] Node Version: v8.0.0
+[debug] Time:         Wed Jun 28 2017 14:46:13 GMT+0200 (CEST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/angel-6902f  
+ Wed Jun 28 2017 14:46:13 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/angel-6902f/tokens  
+ Wed Jun 28 2017 14:46:15 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/macbookpro/Desktop/angelpd/app-base/app-base'...
+[info] 
+[debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/angel-6902f  
+ Wed Jun 28 2017 14:46:16 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/306707852817/clients/_:getWebAppConfig  
+ Wed Jun 28 2017 14:46:17 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: www
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] CLI Version:  3.9.0
+[debug] Platform:     darwin
+[debug] Node Version: v8.0.0
+[debug] Time:         Thu Jun 29 2017 09:59:03 GMT+0200 (CEST)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/vhYatqXgeVTd4h-bGe3xUBWQdz4UgXJmnlhZh6vJiiU',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Jun 29 2017 09:59:03 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/angel-6902f  
+ Thu Jun 29 2017 09:59:04 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/angel-6902f/tokens  
+ Thu Jun 29 2017 09:59:05 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/macbookpro/Desktop/angelpd/app-base/app-base'...
+[info] 
+[debug] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/angel-6902f  
+ Thu Jun 29 2017 09:59:06 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/306707852817/clients/_:getWebAppConfig  
+ Thu Jun 29 2017 09:59:07 GMT+0200 (CEST)
+[debug] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: www
+[info] ✔  hosting: Local server: http://localhost:5000
+
