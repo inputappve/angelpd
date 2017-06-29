@@ -143,7 +143,7 @@ app.app_login = function(ctl,passwordcurrent,$scope,$firebaseObject){
      }
   }
 
-    ctl.google = function(){
+    ctl.redirect = function(){
       console.log(ctl.user.providerData["0"].providerId);
       if(ctl.user.providerData["0"].providerId === "facebook.com"){
         window.location.href ="https://www.facebook.com/login/";

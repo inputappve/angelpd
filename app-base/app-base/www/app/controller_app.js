@@ -6,7 +6,7 @@ angular.module('app')
   ) {
   var ctl = this;
   ctl.apply = function(){ setTimeout(function () { $scope.$apply(); }, 50); }
-  
+   
   console.log("QUI");
   // var config = {
   //   apiKey: "AIzaSyDn-zApl0whHDB_kLTlh5_fvqWH5WVW3T8",
