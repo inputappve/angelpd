@@ -104,3 +104,8 @@
  .layout-margin{
  	left: 8%;
  }
+ .md-input-container{
+  position: absolute;
+  top: 24%;
+  left: 32%;
+ }
