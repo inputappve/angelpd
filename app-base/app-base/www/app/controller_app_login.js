@@ -1,10 +1,29 @@
-app.app_login = function(ctl,passwordcurrent){
+app.app_login = function(ctl,passwordcurrent,$scope,$firebaseObject){
+  ctl.user = {};
+  ctl.user_info = {};
+  
+  app.check_login = function(){
+    ctl.user = firebase.auth().currentUser;
+    if (ctl.user) {
+      var ref = firebase.database().ref("users/" + ctl.user.uid);
+      $firebaseObject(ref).$bindTo($scope, "ctl.user_info");
+      // ctl.user_info = $firebaseObject(ref);
+    }
+    console.log("User", ctl.user);
+    ctl.apply();
+  };
+  setTimeout(app.check_login, 250);
+  setTimeout(app.check_login, 650);
+  
   //FB LOGIN
   ctl.facebookLogin = function(){
     const prov = new firebase.auth.FacebookAuthProvider();
       firebase.auth().signInWithPopup(prov).then(function(result) {
           console.log(result.user)
           alert("sto verificando se sei verificato con fb");
+          ctl.user = firebase.auth().currentUser;
+          firebase.database().ref("users/" + ctl.user.uid + '/nick').set("ID FACEBOOK NUOVO");
+          firebase.database().ref("users/" + ctl.user.uid + '/status').set("Brand new");
           window.location.href = ctl.htmlpage + 'map';
        }).catch(function(error) {
           console.log(error.code)
@@ -100,43 +119,10 @@ app.app_login = function(ctl,passwordcurrent){
       window.location.href = ctl.htmlpage + string;     
     }   
 
-    //SETTINGS IDENTIFICATO FB/ GOOGLE O EMAIL
-  ctl.set1 = function(){  
-        console.log("settings2");
-        console.log(firebase.auth().currentUser);
-        if(firebase.auth().currentUser.displayName != null){
-        document.getElementById("p1").innerHTML = firebase.auth().currentUser.displayName;
-        }else{
-         document.getElementById("p1").innerHTML = "la tua Email è:";    
-         
-        }
-        
-    }
-    //SETTINGS PER LA EMAIL
-  ctl.set2 = function(){
-        console.log(firebase.auth().currentUser.email);
-        document.getElementById("p2").innerHTML = firebase.auth().currentUser.email;
-
-        if(firebase.auth().currentUser.displayName == null){
-      document.getElementById("change").style.visibility  = "visible";
-     }else{
-      document.getElementById("change").style.visibility  = "hidden";
-     }
-  }
+  
   //CHANGE PASSW SETTINGS TI PORTA LA
   ctl.changepassword = function(){
     window.location.href = ctl.htmlpage + 'changepassword';
-  }
-  //HIDE O VISIBILE BUTTON CHANGE PASSW
-  ctl.set3 = function(){
-     console.log(firebase.auth().currentUser.displayName);
-
-        if(firebase.auth().currentUser.displayName == null){
-          console.log("more visibiile");
-      document.getElementById("change").style.visibility  = "visible";
-     }else{
-      document.getElementById("change").style.visibility  = "hidden";
-     }
   }
 
   //ALGORITMO CAMBIO PASSWORD
@@ -146,7 +132,7 @@ app.app_login = function(ctl,passwordcurrent){
      var newPassword2 =  document.getElementById("confP").value;
      console.log(oldPassword," ",newPassword1," ",newPassword2, " ",passwordcurrent);
      if(newPassword1 === newPassword2 && oldPassword === passwordcurrent){
-    firebase.auth().currentUser.updatePassword(newPassword1)
+    ctl.user.updatePassword(newPassword1)
      .then(function(){
        alert("password cambiata con sucesso");
           console.log('Password change successfully ', newPassword1 , ' quella vecchia ', oldPassword);
@@ -156,27 +142,13 @@ app.app_login = function(ctl,passwordcurrent){
     })
      }
   }
-  // AVATAR SETTING IMG
-    ctl.avatar = function(){
-      if(firebase.auth().currentUser.photoURL != null){
-      var photo =  firebase.auth().currentUser.photoURL;
-      console.log(photo);
-      document.getElementById("ava").style.visibility = 'visible';
-      document.getElementById("ava").src = photo;
-      }else{
-      document.getElementById("ava").style.visibility = 'hidden';
-      document.getElementById("p1").style.textAling = 'center';
-      document.getElementById("p2").style.textAling = 'center';
-      }
-
-    }
 
     ctl.google = function(){
-      console.log(firebase.auth().currentUser.providerData["0"].providerId);
-      if(firebase.auth().currentUser.providerData["0"].providerId === "facebook.com"){
+      console.log(ctl.user.providerData["0"].providerId);
+      if(ctl.user.providerData["0"].providerId === "facebook.com"){
         window.location.href ="https://www.facebook.com/login/";
       }else{
-            if(firebase.auth().currentUser.providerData["0"].providerId === "google.com"){ 
+            if(ctl.user.providerData["0"].providerId === "google.com"){ 
               window.location.href ="https://accounts.google.com/signin/v2";
             }
           }

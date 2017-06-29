@@ -3,7 +3,8 @@ var app = angular.module('app', [
   'pascalprecht.translate',
   'ngMaterial',
   'ngMap',
-  'ngMdIcons'
+  'ngMdIcons',
+  'firebase'
   // PER LE MAPPE 'ngMap'
 ]);
 

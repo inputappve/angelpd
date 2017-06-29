@@ -12,6 +12,25 @@
         },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-buildinfo": {
+            "PACKAGE_NAME": "it.angel.pd"
+        },
+        "cordova-universal-links-plugin": {
+            "PACKAGE_NAME": "it.angel.pd"
+        },
+        "cordova-plugin-browsertab": {
+            "PACKAGE_NAME": "it.angel.pd"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "it.angel.pd"
+        },
+        "cordova-plugin-customurlscheme": {
+            "URL_SCHEME": "it.angel.pd",
+            "ANDROID_SCHEME": " ",
+            "ANDROID_HOST": " ",
+            "ANDROID_PATHPREFIX": "/",
+            "PACKAGE_NAME": "it.angel.pd"
         }
     },
     "dependent_plugins": {
