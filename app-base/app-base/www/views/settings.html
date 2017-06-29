@@ -2,7 +2,12 @@
   class="avatar"
   ng-if="ctl.user.photoURL"
   src="{{ctl.user.photoURL}}"
-  ng-click="ctl.google()">
+  ng-click="ctl.redirect()">
+  <img id="ava"
+  class="avatar"
+  ng-if="!ctl.user.photoURL"
+  src="img/user.png"
+  ng-click="ctl.redirect()">
 <p id="p1" class="email" style="top: 14%;" style="{{ctl.user.photoURL ? '' : 'textAling: center'}}">{{ctl.user.displayName}}</p>
 <p id="p2" class="email" style="top: 19%;" style="{{ctl.user.photoURL ? '' : 'textAling: center'}}">{{ctl.user.email}}</p>
 
